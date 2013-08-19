@@ -7,23 +7,7 @@
 			"name": "Eduardo Lundgren",
 			"url": "https://github.com/eduardolundgren"
 		},
-		"stats": {
-			"stars": "40",
-			"forks": "30"
-		}
-	},
-	{
-		"name": "facebook",
-		"url": "https://github.com/customelements/facebook-element",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa blanditiis temporibus eius fuga iste id.",
-		"author": {
-			"name": "Zeno Rocha",
-			"url": "https://github.com/zenorocha"
-		},
-		"stats": {
-			"stars": "10",
-			"forks": "13"
-		}
+		"stars": "10"
 	},
 	{
 		"name": "graphic",
@@ -33,9 +17,36 @@
 			"name": "Bernard De Luna",
 			"url": "https://github.com/bernarddeluna"
 		},
-		"stats": {
-			"stars": "2",
-			"forks": "7"
-		}
+		"stars": "20"
+	},
+	{
+		"name": "facebook",
+		"url": "https://github.com/customelements/facebook-element",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa blanditiis temporibus eius fuga iste id.",
+		"author": {
+			"name": "Zeno Rocha",
+			"url": "https://github.com/zenorocha"
+		},
+		"stars": "21"
+	},
+	{
+		"name": "twitter",
+		"url": "https://github.com/customelements/twitter-element",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa blanditiis temporibus eius fuga iste id.",
+		"author": {
+			"name": "Zeno Rocha",
+			"url": "https://github.com/zenorocha"
+		},
+		"stars": "60"
+	},
+	{
+		"name": "map",
+		"url": "https://github.com/customelements/map-element",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa blanditiis temporibus eius fuga iste id.",
+		"author": {
+			"name": "Zeno Rocha",
+			"url": "https://github.com/zenorocha"
+		},
+		"stars": "68"
 	}
 ]

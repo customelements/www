@@ -26,40 +26,42 @@
 			<hr>
 			<section class="intro row">
 				<div class="span5">
-					<h4>Getting started</h4>
-					<p>Be sure to read the <a href="https://github.com/gruntjs/grunt/blob/0.3-stable/docs/getting_started.md">getting started guide</a>, which is a complete guide to configuring grunt for your project. In addition, check out the <a href="https://github.com/gruntjs/grunt/blob/0.3-stable/docs/example_gruntfiles.md">example gruntfiles</a> which highlight a number of fairly common configurations.</p>
-					<p class="install"><a href="https://github.com/gruntjs/grunt/tree/0.3-stable#installing-grunt">Install</a> using <code>npm install -g grunt</code></p>
+					<h4>Submit your own</h4>
+					<p>Got a great idea for a custom element? Awesome! First, take a glance at the <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">Web Components specification</a>. There's also a <a href="https://github.com/customelements/boilerplate-element">boilerplate</a> you can fork and get up and running with a simple component using <a href="http://www.polymer-project.org">Polymer</a>'s polyfill.</p>
+					<p>When you're ready to go, submit it to the form below and it'll appear on this site for others to play and use!</p>
+					<p>
+						<input type="text" placeholder="https://github.com/me/myElement" style="float: left; width: 285px;">
+						<input type="submit" class="btn">
+					</p>
 				</div>
 				<div class="span7">
-					<div id="plugins-latest"></div>
+					<div id="most-popular"></div>
 				</div>
 			</section>
 			<hr>
 			<section class="main">
 				<div id="loading">
-					<p>Loading plugins...</p>
+					<p>Loading elements...</p>
 				</div>
-				<div id="plugins-all"></div>
-				<p><small><i>Plugins must be published on NPM with the `gruntplugin` keyword.</i></small></p>
+				<div id="all"></div>
 			</section>
 			<footer class="credit row">
-				<div class="span4"><a href="http://benalman.com">Grunt by <img src="http://gravatar.com/avatar/978a1a2a80394217a0e39c84f07a7c16?s=50" width="25" height="25" alt="Ben Alman">Ben Alman</a></div>
-				<div class="span4"><a href="http://sindresorhus.com">Site by <img src="http://gravatar.com/avatar/d36a92237c75c5337c17b60d90686bf9.png?s=50" width="25" height="25" alt="Sindre Sorhus">Sindre Sorhus</a></div>
-				<div class="span4"><a href="http://bocoup.com">Sponsored by <img src="http://gravatar.com/avatar/3b4a8255a78b0dd71f28c3dfd13efb44.png?s=50" width="25" height="25" alt="Bocoup">Bocoup</a></div>
+				<div class="span12">
+					<p>Made with love by Bernard De Luna, Eduardo Lundgren and Zeno Rocha.</p>
+				</div>
 			</footer>
 		</div>
 	</body>
-	<script type="text/template" id="plugins-latest-template">
-		<h4>Latest plugins</h4>
+	<script type="text/template" id="most-popular-template">
+		<h4>Most popular elements</h4>
 		<dl class="dl-horizontal">
 			<% _.each(modules, function (el) { %>
-				<% var name = el.name.replace('grunt-', ''); %>
-				<dt><a href="https://npmjs.org/package/<%- el.name %>"><%- name %></a></dt>
+				<dt><a href="<%- el.url %>"><%- el.name %></a></dt>
 				<dd><%- el.description %></dd>
 			<% }); %>
 		</dl>
 	</script>​
-	<script type="text/template" id="plugins-all-template">
+	<script type="text/template" id="all-template">
 		<table class="table">
 			<caption>
 				<input style="display:none" class="search input-medium search-query" type="search" placeholder="Search in <%= modules.length %> plugins..." autofocus>
@@ -68,27 +70,17 @@
 				<tr>
 					<th class="sort" data-sort="name">Name</th>
 					<th class="sort" data-sort="desc">Description</th>
+					<th class="sort" data-sort="stars">Stars</th>
 					<th class="sort" data-sort="author">Author</th>
-					<th class="sort" data-sort="modified">Last modified</th>
 				</tr>
 			</thead>
 			<tbody class="list">
 				<% _.each(modules, function (el) { %>
-					<% var name = el.name.replace('grunt-', ''); %>
-					<% var keywords = el.keywords %>
 					<tr>
-						<td class="name"><a href="https://npmjs.org/package/<%- el.name %>"><%- name %></a></td>
-						<td class="desc"><%- el.description %><div class="hidden"><%- keywords %></div></td>
-						<% if (el.author) { %>
-							<% if (el.author.url) { %>
-								<td class="author"><a href="<%- el.author.url %>"><%- el.author.name %></a></td>
-							<% } else { %>
-								<td class="author"><%- el.author.name %></td>
-							<% } %>
-						<% } else { %>
-								<td class="author"></td>
-						<% } %>
-						<td class="modified"><time datetime="<%- el.time.modified %>"><%- el.time.modified %></time></td>
+						<td class="name"><a href="<%- el.url %>"><%- el.name %></a></td>
+						<td class="desc"><%- el.description %></td>
+						<td class="stars"><%- el.stars %></time></td>
+						<td class="author"><a href="<%- el.author.url %>"><%- el.author.name %></a></td>
 					</tr>
 				<% }); %>
 			</tbody>
