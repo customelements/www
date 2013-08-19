@@ -1,0 +1,41 @@
+[
+	{
+		"name": "camera",
+		"url": "https://github.com/customelements/camera-element",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa blanditiis temporibus eius fuga iste id.",
+		"author": {
+			"name": "Eduardo Lundgren",
+			"url": "https://github.com/eduardolundgren"
+		},
+		"stats": {
+			"stars": "40",
+			"forks": "30"
+		}
+	},
+	{
+		"name": "facebook",
+		"url": "https://github.com/customelements/facebook-element",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa blanditiis temporibus eius fuga iste id.",
+		"author": {
+			"name": "Zeno Rocha",
+			"url": "https://github.com/zenorocha"
+		},
+		"stats": {
+			"stars": "10",
+			"forks": "13"
+		}
+	},
+	{
+		"name": "graphic",
+		"url": "https://github.com/customelements/graphic-element",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa blanditiis temporibus eius fuga iste id.",
+		"author": {
+			"name": "Bernard De Luna",
+			"url": "https://github.com/bernarddeluna"
+		},
+		"stats": {
+			"stars": "2",
+			"forks": "7"
+		}
+	}
+]

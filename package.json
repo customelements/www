@@ -1,0 +1,22 @@
+{
+	"name": "customelements.io",
+	"version": "0.1.0",
+	"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae laudantium dolorum aliquid animi quo.",
+	"homepage": "https://github.com/customelements/customelements.io",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/customelements/customelements.io.git"
+	},
+	"devDependencies": {
+		"grunt": "~0.4.1",
+		"grunt-contrib-uglify": "~0.2.0",
+		"grunt-contrib-concat": "~0.3.0",
+		"grunt-contrib-jshint": "~0.4.3"
+	},
+	"engines": {
+		"node": ">=0.8.0"
+	},
+	"licenses": [{
+		"type": "MIT"
+	}]
+}

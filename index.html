@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="Grunt is a task-based command line build tool for JavaScript projects">
+		<meta name="viewport" content="width=device-width">
+		<title>grunt: a task-based command line build tool for JavaScript projects</title>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700,900">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<div class="container">
+			<header class="header row">
+				<div class="span5">
+					<img class="logo" src="img/logo.png" width="350" height="350">
+				</div>
+				<div class="span7">
+					<h1>grunt</h1>
+					<h2>Grunt is a task-based command line build tool for JavaScript projects</h2>
+					<a class="btn btn-large" href="https://github.com/gruntjs/grunt/tree/0.3-stable">View on GitHub</a>
+					<a class="btn btn-large" href="https://github.com/gruntjs/grunt/blob/0.3-stable/docs/toc.md">Documentation</a>
+				</div>
+			</header>
+			<hr>
+			<section class="intro row">
+				<div class="span5">
+					<h4>Getting started</h4>
+					<p>Be sure to read the <a href="https://github.com/gruntjs/grunt/blob/0.3-stable/docs/getting_started.md">getting started guide</a>, which is a complete guide to configuring grunt for your project. In addition, check out the <a href="https://github.com/gruntjs/grunt/blob/0.3-stable/docs/example_gruntfiles.md">example gruntfiles</a> which highlight a number of fairly common configurations.</p>
+					<p class="install"><a href="https://github.com/gruntjs/grunt/tree/0.3-stable#installing-grunt">Install</a> using <code>npm install -g grunt</code></p>
+				</div>
+				<div class="span7">
+					<div id="plugins-latest"></div>
+				</div>
+			</section>
+			<hr>
+			<section class="main">
+				<div id="loading">
+					<p>Loading plugins...</p>
+				</div>
+				<div id="plugins-all"></div>
+				<p><small><i>Plugins must be published on NPM with the `gruntplugin` keyword.</i></small></p>
+			</section>
+			<footer class="credit row">
+				<div class="span4"><a href="http://benalman.com">Grunt by <img src="http://gravatar.com/avatar/978a1a2a80394217a0e39c84f07a7c16?s=50" width="25" height="25" alt="Ben Alman">Ben Alman</a></div>
+				<div class="span4"><a href="http://sindresorhus.com">Site by <img src="http://gravatar.com/avatar/d36a92237c75c5337c17b60d90686bf9.png?s=50" width="25" height="25" alt="Sindre Sorhus">Sindre Sorhus</a></div>
+				<div class="span4"><a href="http://bocoup.com">Sponsored by <img src="http://gravatar.com/avatar/3b4a8255a78b0dd71f28c3dfd13efb44.png?s=50" width="25" height="25" alt="Bocoup">Bocoup</a></div>
+			</footer>
+		</div>
+	</body>
+	<script type="text/template" id="plugins-latest-template">
+		<h4>Latest plugins</h4>
+		<dl class="dl-horizontal">
+			<% _.each(modules, function (el) { %>
+				<% var name = el.name.replace('grunt-', ''); %>
+				<dt><a href="https://npmjs.org/package/<%- el.name %>"><%- name %></a></dt>
+				<dd><%- el.description %></dd>
+			<% }); %>
+		</dl>
+	</script>​
+	<script type="text/template" id="plugins-all-template">
+		<table class="table">
+			<caption>
+				<input style="display:none" class="search input-medium search-query" type="search" placeholder="Search in <%= modules.length %> plugins..." autofocus>
+			</caption>
+			<thead>
+				<tr>
+					<th class="sort" data-sort="name">Name</th>
+					<th class="sort" data-sort="desc">Description</th>
+					<th class="sort" data-sort="author">Author</th>
+					<th class="sort" data-sort="modified">Last modified</th>
+				</tr>
+			</thead>
+			<tbody class="list">
+				<% _.each(modules, function (el) { %>
+					<% var name = el.name.replace('grunt-', ''); %>
+					<% var keywords = el.keywords %>
+					<tr>
+						<td class="name"><a href="https://npmjs.org/package/<%- el.name %>"><%- name %></a></td>
+						<td class="desc"><%- el.description %><div class="hidden"><%- keywords %></div></td>
+						<% if (el.author) { %>
+							<% if (el.author.url) { %>
+								<td class="author"><a href="<%- el.author.url %>"><%- el.author.name %></a></td>
+							<% } else { %>
+								<td class="author"><%- el.author.name %></td>
+							<% } %>
+						<% } else { %>
+								<td class="author"></td>
+						<% } %>
+						<td class="modified"><time datetime="<%- el.time.modified %>"><%- el.time.modified %></time></td>
+					</tr>
+				<% }); %>
+			</tbody>
+		</table>
+	</script>​
+
+	<script src="js/vendor/jquery.js"></script>
+	<script src="js/vendor/jquery.timeago.js"></script>
+	<script src="js/vendor/list.js"></script>
+	<script src="js/vendor/lodash.js"></script>
+	<script src="js/main.js"></script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-4114546-39', 'customelements.io');
+	  ga('send', 'pageview');
+
+	</script>
+</html>
