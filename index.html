@@ -7,50 +7,50 @@
 		<meta name="viewport" content="width=device-width">
 		<title>grunt: a task-based command line build tool for JavaScript projects</title>
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700,900">
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css">
+		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"> -->
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body>
-		<div class="container">
-			<header class="header row">
-				<div class="span5">
-					<img class="logo" src="img/logo.png" width="350" height="350">
-				</div>
-				<div class="span7">
-					<h1>grunt</h1>
-					<h2>Grunt is a task-based command line build tool for JavaScript projects</h2>
-					<a class="btn btn-large" href="https://github.com/gruntjs/grunt/tree/0.3-stable">View on GitHub</a>
-					<a class="btn btn-large" href="https://github.com/gruntjs/grunt/blob/0.3-stable/docs/toc.md">Documentation</a>
-				</div>
-			</header>
-			<hr>
-			<section class="intro row">
-				<div class="span5">
-					<h4>Submit your own</h4>
-					<p>Got a great idea for a custom element? Awesome! First, take a glance at the <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">Web Components specification</a>. There's also a <a href="https://github.com/customelements/boilerplate-element">boilerplate</a> you can fork and get up and running with a simple component using <a href="http://www.polymer-project.org">Polymer</a>'s polyfill.</p>
-					<p>When you're ready to go, submit it to the form below and it'll appear on this site for others to play and use!</p>
-					<p>
-						<input type="text" placeholder="https://github.com/me/myElement" style="float: left; width: 285px;">
-						<input type="submit" class="btn">
-					</p>
-				</div>
-				<div class="span7">
-					<div id="most-popular"></div>
-				</div>
-			</section>
-			<hr>
-			<section class="main">
-				<div id="loading">
-					<p>Loading elements...</p>
-				</div>
-				<div id="all"></div>
-			</section>
+
+		<header class="header">
+			<div class="wrapper">
+        <img src="img/logo.png" alt="">
+				<h1>Custom Elements</h1>
+				<h2>rethinking the way we create web projects</h2>
+			</div>
+		</header>
+
+		<main class="content">
+      <div class="wrapper">
+        <section class="submit-own">
+          <h3>Submit your own</h3>
+          <p>Got a great idea for a custom element? Awesome! First, take a glance at the <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">Web Components specification</a>. There's also a <a href="https://github.com/customelements/boilerplate-element">boilerplate</a> you can fork and get up and running with a simple component using <a href="http://www.polymer-project.org">Polymer</a>'s polyfill.</p>
+          <p>When you're ready to go, submit it to the form below and it'll appear on this site for others to play and use!</p>
+          <form action="">
+            <input type="text" placeholder="https://github.com/me/myElement">
+            <input type="submit" class="btn">
+          </form>
+        </section>
+        <section class="most-popular">
+          <div class="span7">
+            <div id="most-popular"></div>
+          </div>
+        </section>
+      
+        <section class="main">
+          <div id="loading">
+            <p>Loading elements...</p>
+          </div>
+          <div id="all"></div>
+        </section>
+            
+          </div>
+    </main>
 			<footer class="credit row">
 				<div class="span12">
 					<p>Made with love by Bernard De Luna, Eduardo Lundgren and Zeno Rocha.</p>
 				</div>
 			</footer>
-		</div>
 	</body>
 	<script type="text/template" id="most-popular-template">
 		<h4>Most popular elements</h4>
