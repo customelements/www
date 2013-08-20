@@ -84,12 +84,25 @@ h3 {
   text-transform: none;
   color: #2b2b2b;
 }
-p {
+p, dt, dd, td {
   margin-bottom:1em;
   font-size: 1.8em;
   line-height: 1.4em;
   font-weight: 500;
 }
+
+dt, dd {
+  font-size: 1.6em;
+}
+
+dt {
+	margin: 0.7em 0;
+}
+
+td, th {
+	font-size: 1.4em;
+}
+
 a {
   color: #6e44ad;
   font-weight: 700;
