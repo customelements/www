@@ -12,16 +12,16 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-hgroup:after, 
-nav:after, 
-form:after, 
-footer:after, 
-header:after, 
-section:after, 
-div:after, 
-ul:after, 
-ol:after, 
-li:after, 
+hgroup:after,
+nav:after,
+form:after,
+footer:after,
+header:after,
+section:after,
+div:after,
+ul:after,
+ol:after,
+li:after,
 dl:after {
   content: ".";
   display: block;
@@ -74,7 +74,7 @@ h2 {
   margin-bottom: 1em;
   font-size: 3em;
   font-weight: 300;
-  text-transform: none;
+  text-transform: lowercase;
   color: #8e8ed6;
 }
 h3 {
