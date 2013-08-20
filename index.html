@@ -25,8 +25,8 @@
 					<h3>Submit your own</h3>
 					<p>Got a great idea for a custom element? Awesome! First, take a glance at the <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">Web Components specification</a>. There's also a <a href="https://github.com/customelements/boilerplate-element">boilerplate</a> you can fork and get up and running with a simple component using <a href="http://www.polymer-project.org">Polymer</a>'s polyfill.</p>
 					<p>When you're ready to go, submit it to the form below and it'll appear on this site for others to play and use!</p>
-					<form action="">
-						<input type="text" placeholder="https://github.com/me/my-element">
+					<form action="" id="form-github-add">
+						<input type="text" name="repo" id="repo" placeholder="https://github.com/me/my-element">
 						<input type="submit" class="btn">
 					</form>
 				</section>
@@ -92,6 +92,7 @@
 	<script src="js/vendor/jquery.timeago.js"></script>
 	<script src="js/vendor/list.js"></script>
 	<script src="js/vendor/lodash.js"></script>
+	<script src="js/github.js"></script>
 	<script src="js/main.js"></script>
 
 	<script>
