@@ -47,12 +47,10 @@ body {
   width: 960px;
 }
 .header {
-  padding: 50px 0;
+  padding: 50px 0 30px;
   color: #fff;
   text-align: center;
-  background: #1d193d url(../img/bg-header.jpg) no-repeat 0 0;
-  -webkit-background-size: 100% auto;
-  background-size: 100% auto;
+  background: #1d193d;
 }
 .content {
   padding: 50px 0;
@@ -81,7 +79,7 @@ h3 {
   font-size: 2.4em;
   font-weight: 700;
   text-transform: none;
-  color: #2b2b2b;
+  color: #1d183d;
 }
 p, td, dd, dt {
   margin-bottom:1em;
@@ -90,10 +88,13 @@ p, td, dd, dt {
   font-weight: 500;
 }
 a {
-  color: #9073c0;
+  color: rgba(85, 26, 139, 1);
   font-weight: 700;
 }
-a:hover{color: #afaedf;}
+
+a:hover {
+	color: rgba(85, 26, 139, .7);
+}
 
 
 /* components */
@@ -190,18 +191,12 @@ input {
 .table tbody tr {background-color: #fff;}
 .table tbody tr:nth-child(even) {background-color: #edecf1;}
 .table tbody tr:last-child {border-radius: 0 0 4px 4px;}
-.table tbody tr:hover td{
-  box-shadow: inset 0 2.5em 0 0 #fffab2, 
-  inset 0 -2.5em 0 0 #fffab2;
-}
+
 .table tbody td {
   font-size: 1.4em;
   padding: 10px 20px;
-  box-shadow: inset 0 0 0 0 #fffab2, 
+  box-shadow: inset 0 0 0 0 #fffab2,
   inset 0 0 0 0 #fffab2;
-  -webkit-transition: box-shadow .2s linear;
-  -moz-transition: box-shadow .2s linear;
-  transition: box-shadow .2s linear;
 }
 .stars {text-align: center;}
 .author {width: 20%;}
