@@ -65,6 +65,7 @@
           <th class="sort name" data-sort="name">Name</th>
           <th class="sort desc" data-sort="desc">Description</th>
           <th class="sort stars" data-sort="stars">Stars</th>
+          <th class="sort forks" data-sort="forks">Forks</th>
           <th class="sort author" data-sort="author">Author</th>
         </tr>
       </thead>
@@ -73,7 +74,8 @@
           <tr>
             <td class="name"><a href="<%- el.url %>"><%- el.name %></a></td>
             <td class="desc"><%- el.description %></td>
-            <td class="stars"><%- el.stars %></time></td>
+            <td class="stars"><%- el.stars %></td>
+            <td class="forks"><%- el.forks %></td>
             <td class="author"><a href="<%- el.author.url %>"><%- el.author.name %></a></td>
           </tr>
         <% }); %>

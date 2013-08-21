@@ -32,8 +32,9 @@
 				valueNames: [
 					'name',
 					'desc',
-					'author',
-					'stars'
+					'stars',
+					'forks',
+					'author'
 				]
 			});
 		});
