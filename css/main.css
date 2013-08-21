@@ -208,6 +208,8 @@ input {
   background-color: #fff;
   text-align: center;
 }
+.credits a { color: rgba(144, 115, 192, 1); }
+.credits a:hover { color: rgba(144, 115, 192, .7); }
 .credits .love {
   display: inline-block;
   position: relative;
