@@ -90,6 +90,8 @@ p, td, dd, dt {
 a {
   color: rgba(85, 26, 139, 1);
   font-weight: 700;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
 }
 
 a:hover {
