@@ -1,12 +1,8 @@
 # customelements.io
 
-TODO: Write a project description
+A Web Components Gallery for Modern Web Apps
 
-> Maintained by [Your Name](#).
-
-## Roadmap
-
-TODO: Write a roadmap
+> Maintained by [Zeno Rocha](http://github.com/zenorocha).
 
 ## Contributing
 
@@ -16,9 +12,15 @@ TODO: Write a roadmap
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+## Roadmap
+
+* Create an external service to retrieve all registered elements [#3](https://github.com/customelements/customelements.io/issues/3)
+
 ## History
 
-* v0.1.0 August 19, 2013
+* v0.1.0 August 21, 2013
+	* Initial development release
+* v0.0.1 August 19, 2013
 	* Forked [old-gruntjs-site](https://github.com/sindresorhus/old-gruntjs-site)
 
 ## License
