@@ -104,10 +104,10 @@ input {
   width: 100%;
   color: #777;
   font-size: 1.4em;
-  line-height: 1em;
+  line-height: 1.3em;
   height: 40px;
   vertical-align: middle;
-  padding: 10px 20px;
+  padding: 10px;
   background-color: #fff;
   border-radius: 4px;
 }
