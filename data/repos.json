@@ -185,5 +185,16 @@
 		},
 		"stars": "0",
 		"forks": "2"
+	},
+	{
+		"name": "gravatar",
+		"url": "https://github.com/djalmaaraujo/gravatar-element",
+		"description": "Web Component wrapper for Gravatar using Polymer",
+		"author": {
+			"name": "djalmaaraujo",
+			"url": "https://github.com/djalmaaraujo"
+		},
+		"stars": "0",
+		"forks": "0"
 	}
 ]
