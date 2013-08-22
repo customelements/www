@@ -163,5 +163,16 @@
 		},
 		"stars": "0",
 		"forks": "0"
+	},
+	{
+		"name": "tracking",
+		"url": "https://github.com/eduardolundgren/tracking-element",
+		"description": "Web Component wrapper for tracking.js library using Polymer",
+		"author": {
+			"name": "eduardolundgren",
+			"url": "https://github.com/eduardolundgren"
+		},
+		"stars": "0",
+		"forks": "0"
 	}
 ]
