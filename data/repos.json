@@ -174,5 +174,16 @@
 		},
 		"stars": "0",
 		"forks": "0"
+	},
+	{
+		"name": "youtube",
+		"url": "https://github.com/brunoqueiros/youtube-element",
+		"description": "Web Component wrapper for Youtube's player using Polymer",
+		"author": {
+			"name": "brunoqueiros",
+			"url": "https://github.com/brunoqueiros"
+		},
+		"stars": "0",
+		"forks": "2"
 	}
 ]
