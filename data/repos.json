@@ -196,5 +196,16 @@
 		},
 		"stars": "0",
 		"forks": "0"
+	},
+	{
+		"name": "vimeo",
+		"url": "https://github.com/djalmaaraujo/vimeo-element",
+		"description": "Web Component wrapper for Vimeo's player using Polymer",
+		"author": {
+			"name": "djalmaaraujo",
+			"url": "https://github.com/djalmaaraujo"
+		},
+		"stars": "0",
+		"forks": "0"
 	}
 ]
