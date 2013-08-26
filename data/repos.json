@@ -207,5 +207,16 @@
 		},
 		"stars": "0",
 		"forks": "0"
+	},
+	{
+		"name": "timeago",
+		"url": "https://github.com/brunoziie/timeago-element",
+		"description": "Timeago element using Polymer and Moment.js",
+		"author": {
+			"name": "brunoziie",
+			"url": "https://github.com/brunoziie/timeago-element"
+		},
+		"stars": "0",
+		"forks": "0"
 	}
 ]
