@@ -44,8 +44,9 @@ body {
 .wrapper {
   margin: 0 auto;
   position: relative;
-  width: 960px;
+  width:80%;
 }
+
 .header {
   padding: 50px 0 30px;
   color: #fff;
@@ -54,6 +55,13 @@ body {
 }
 .content {
   padding: 50px 0;
+}
+
+@media all and (max-width:40em) {
+  .wrapper {
+    width:100%;
+    padding:.5em;
+  }
 }
 
 /* header */
@@ -80,6 +88,10 @@ h3 {
   font-weight: 700;
   text-transform: none;
   color: #1d183d;
+}
+@media all and (max-width:40em) {
+  h1 {font-size:6em;}
+  h2 {font-size:2em;}
 }
 p, td, dd, dt {
   margin-bottom:1em;
@@ -146,6 +158,7 @@ input {
   margin-bottom: 6%;
   float: left;
 }
+
 .submit-own form {
   background-color: #edecf1;
   padding: 20px;
@@ -162,6 +175,23 @@ input {
   width: 30%;
   float: right;
   text-align: center;
+}
+
+@media all and (max-width:40em) {
+  .submit-own input[type=text] {
+    border-radius:4px;
+    width:100%;
+    font-size:1.5em;
+    margin-bottom:1em;
+  }
+  .submit-own .btn {
+    border-radius:4px;
+    width:100%;
+    clear:both;
+  }
+  .submit-own, .most-popular {
+    width:100%;
+  }
 }
 
 /* most popular */
@@ -210,8 +240,25 @@ input {
   box-shadow: inset 0 0 0 0 #fffab2,
   inset 0 0 0 0 #fffab2;
 }
+
 .stars, .forks {text-align: center;}
 .author {width: 20%;}
+
+@media all and (max-width:40em) {
+  .table {
+    position:relative;
+    left:-.5em;
+  }
+  .desc {
+    display:none;
+  }
+  .table thead th,
+  .table tbody td {
+    font-size:1.2em;
+    padding:1em;
+  }
+  .author {width:auto;}
+}
 
 /* credits */
 .credits {
