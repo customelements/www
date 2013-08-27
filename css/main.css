@@ -56,13 +56,19 @@ body {
 .content {
   padding: 50px 0;
 }
+@media all and (max-width:70em) {
+  .wrapper {
+    width:90%;
+    padding:.5em;
+  }
+}
 
 @media all and (max-width:40em) {
   .wrapper {
     width:100%;
-    padding:.5em;
   }
 }
+
 
 /* header */
 .header img {margin-bottom:10px;}
@@ -89,10 +95,14 @@ h3 {
   text-transform: none;
   color: #1d183d;
 }
-@media all and (max-width:40em) {
+@media all and (max-width:30em) {
   h1 {font-size:6em;}
+}
+
+@media all and (max-width:45em) {
   h2 {font-size:2em;}
 }
+
 p, td, dd, dt {
   margin-bottom:1em;
   font-size: 1.6em;
@@ -177,7 +187,7 @@ input {
   text-align: center;
 }
 
-@media all and (max-width:40em) {
+@media all and (max-width:45em) {
   .submit-own input[type=text] {
     border-radius:4px;
     width:100%;
@@ -244,12 +254,12 @@ input {
 .stars, .forks {text-align: center;}
 .author {width: 20%;}
 
-@media all and (max-width:40em) {
+@media all and (max-width:45em) {
   .table {
     position:relative;
     left:-.5em;
   }
-  .desc {
+  .stars, .forks {
     display:none;
   }
   .table thead th,
