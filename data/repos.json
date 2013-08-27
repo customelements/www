@@ -15,7 +15,19 @@
 		"repository": "x-tag/layout"
 	},
 	{
+		"repository": "x-tag/map"
+	},
+	{
+		"repository": "x-tag/mediaquery"
+	},
+	{
+		"repository": "x-tag/spinner"
+	},
+	{
 		"repository": "x-tag/slidebox"
+	},
+	{
+		"repository": "x-tag/scroll-list"
 	},
 	{
 		"repository": "x-tag/toggle"
