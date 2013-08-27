@@ -98,12 +98,13 @@
             <td class="desc"><%- el.description %></td>
             <td class="stars"><%- el.stars %></td>
             <td class="forks"><%- el.forks %></td>
-            <td class="author"><a href="<%- el.author.url %>"><%- el.author.name %></a></td>
+            <td class="author"><a href="<%- el.url %>"><%- el.owner %></a></td>
           </tr>
         <% }); %>
       </tbody>
     </table>
   </script>​
+  <script src="//customelementsio.herokuapp.com"></script>
   <script src="js/vendor/jquery.js"></script>
   <script src="js/vendor/jquery.timeago.js"></script>
   <script src="js/vendor/list.js"></script>
