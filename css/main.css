@@ -259,7 +259,7 @@ input {
     position:relative;
     left:-.5em;
   }
-  .stars, .forks {
+  .stars, .forks, .author {
     display:none;
   }
   .table thead th,
