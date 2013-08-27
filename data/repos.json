@@ -1,222 +1,53 @@
 [
 	{
-		"name": "appbar",
-		"url": "https://github.com/x-tag/appbar",
-		"description": "An Appbar lives at the top of your web application and contains a header, subheader and basic styles",
-		"author": {
-			"name": "x-tag",
-			"url": "https://github.com/x-tag"
-		},
-		"stars": "0",
-		"forks": "1"
+		"repository": "x-tag/appbar"
 	},
 	{
-		"name": "calendar",
-		"url": "https://github.com/mozilla/brick/tree/master/component/calendar",
-		"description": "A component acting as a calendar widget that can be manipulated with minimal user-written code/layout",
-		"author": {
-			"name": "mozilla",
-			"url": "https://github.com/mozilla"
-		},
-		"stars": "0",
-		"forks": "1"
+		"repository": "x-tag/flipbox"
 	},
 	{
-		"name": "datepicker",
-		"url": "https://github.com/mozilla/brick/tree/master/component/datepicker",
-		"description": "A polyfill for <input type='date'> utilizing the x-calendar component and returning an ISO-formatted date string to the server",
-		"author": {
-			"name": "mozilla",
-			"url": "https://github.com/mozilla"
-		},
-		"stars": "0",
-		"forks": "1"
+		"repository": "x-tag/modal"
 	},
 	{
-		"name": "flipbox",
-		"url": "https://github.com/x-tag/flipbox",
-		"description": "Flipbox acts like a playing card that has a front and back and allows you to 'flip' between the sides",
-		"author": {
-			"name": "x-tag",
-			"url": "https://github.com/x-tag"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "x-tag/panel"
 	},
 	{
-		"name": "modal",
-		"url": "https://github.com/x-tag/modal",
-		"description": "A modal element with a transparent overlay",
-		"author": {
-			"name": "x-tag",
-			"url": "https://github.com/x-tag"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "x-tag/layout"
 	},
 	{
-		"name": "panel",
-		"url": "https://github.com/x-tag/panel",
-		"description": "A panel is a block element that has the ability to load data asynchronously when a src attribute is set",
-		"author": {
-			"name": "x-tag",
-			"url": "https://github.com/x-tag"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "x-tag/slidebox"
 	},
 	{
-		"name": "layout",
-		"url": "https://github.com/x-tag/layout",
-		"description": "Structural element for responsive content viewing and context switching",
-		"author": {
-			"name": "x-tag",
-			"url": "https://github.com/x-tag"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "x-tag/toggle"
 	},
 	{
-		"name": "slidebox",
-		"url": "https://github.com/x-tag/layout",
-		"description": "A container that allows animated transitions between content panes. Slide Box supports horizontal and vertical transitions",
-		"author": {
-			"name": "x-tag",
-			"url": "https://github.com/x-tag"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "customelements/camera-element"
 	},
 	{
-		"name": "toggle",
-		"url": "https://github.com/x-tag/toggle",
-		"description": "Super awesome toggle switch",
-		"author": {
-			"name": "x-tag",
-			"url": "https://github.com/x-tag"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "customelements/facebook-element"
 	},
 	{
-		"name": "tooltip",
-		"url": "https://github.com/mozilla/brick/tree/master/component/tooltip",
-		"description": "Tooltips provide content that appears in current context to point at an element",
-		"author": {
-			"name": "mozilla",
-			"url": "https://github.com/mozilla"
-		},
-		"stars": "0",
-		"forks": "1"
+		"repository": "customelements/github-element"
 	},
 	{
-		"name": "camera",
-		"url": "https://github.com/customelements/camera-element",
-		"description": "Web Component wrapper for getUserMedia API using Polymer",
-		"author": {
-			"name": "eduardolundgren",
-			"url": "https://github.com/eduardolundgren"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "customelements/twitter-element"
 	},
 	{
-		"name": "facebook",
-		"url": "https://github.com/customelements/facebook-element",
-		"description": "Web Component wrapper for Facebook's like button using Polymer",
-		"author": {
-			"name": "zenorocha",
-			"url": "https://github.com/zenorocha"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "customelements/gmaps-element"
 	},
 	{
-		"name": "github",
-		"url": "https://github.com/customelements/github-element",
-		"description": "Web Component wrapper for @mdo's GitHub button using Polymer",
-		"author": {
-			"name": "zenorocha",
-			"url": "https://github.com/zenorocha"
-		},
-		"stars": "3",
-		"forks": "0"
+		"repository": "eduardolundgren/tracking-element"
 	},
 	{
-		"name": "twitter",
-		"url": "https://github.com/customelements/twitter-element",
-		"description": "Web Component wrapper for Twitter's share button using Polymer",
-		"author": {
-			"name": "zenorocha",
-			"url": "https://github.com/zenorocha"
-		},
-		"stars": "0",
-		"forks": "1"
+		"repository": "brunoqueiros/youtube-element"
 	},
 	{
-		"name": "gmaps",
-		"url": "https://github.com/customelements/gmaps-element",
-		"description": "Web Component wrapper for Google Maps using Polymer",
-		"author": {
-			"name": "eduardolundgren",
-			"url": "https://github.com/eduardolundgren"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "djalmaaraujo/gravatar-element"
 	},
 	{
-		"name": "tracking",
-		"url": "https://github.com/eduardolundgren/tracking-element",
-		"description": "Web Component wrapper for tracking.js library using Polymer",
-		"author": {
-			"name": "eduardolundgren",
-			"url": "https://github.com/eduardolundgren"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "djalmaaraujo/vimeo-element"
 	},
 	{
-		"name": "youtube",
-		"url": "https://github.com/brunoqueiros/youtube-element",
-		"description": "Web Component wrapper for Youtube's player using Polymer",
-		"author": {
-			"name": "brunoqueiros",
-			"url": "https://github.com/brunoqueiros"
-		},
-		"stars": "0",
-		"forks": "2"
-	},
-	{
-		"name": "gravatar",
-		"url": "https://github.com/djalmaaraujo/gravatar-element",
-		"description": "Web Component wrapper for Gravatar using Polymer",
-		"author": {
-			"name": "djalmaaraujo",
-			"url": "https://github.com/djalmaaraujo"
-		},
-		"stars": "0",
-		"forks": "0"
-	},
-	{
-		"name": "vimeo",
-		"url": "https://github.com/djalmaaraujo/vimeo-element",
-		"description": "Web Component wrapper for Vimeo's player using Polymer",
-		"author": {
-			"name": "djalmaaraujo",
-			"url": "https://github.com/djalmaaraujo"
-		},
-		"stars": "0",
-		"forks": "0"
-	},
-	{
-		"name": "timeago",
-		"url": "https://github.com/brunoziie/timeago-element",
-		"description": "Timeago element using Polymer and Moment.js",
-		"author": {
-			"name": "brunoziie",
-			"url": "https://github.com/brunoziie/timeago-element"
-		},
-		"stars": "0",
-		"forks": "0"
+		"repository": "brunoziie/timeago-element"
 	}
 ]
