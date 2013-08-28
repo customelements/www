@@ -53,9 +53,6 @@ body {
   text-align: center;
   background: #1d193d;
 }
-.content {
-  padding: 50px 0;
-}
 @media all and (max-width:70em) {
   .wrapper {
     width:90%;
@@ -124,7 +121,7 @@ a:hover {
 /* components */
 .social-buttons{
   list-style: none;
-  margin-bottom: 30px;
+  margin: 15px 0 5%;
   text-align: center;
 }
 .social-buttons li{
@@ -264,7 +261,7 @@ input {
   }
   .table thead th,
   .table tbody td {
-    font-size:1.2em;
+    font-size:1.4em;
     padding:1em;
   }
   .author {width:auto;}
