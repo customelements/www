@@ -64,5 +64,8 @@
 	},
 	{
 		"repository": "rsmelo/twitch-tv-element"
+	},
+	{
+		"repository": "nbluis/github-ribbon-element"
 	}
 ]
