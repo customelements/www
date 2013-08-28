@@ -33,19 +33,10 @@
 		"repository": "x-tag/toggle"
 	},
 	{
-		"repository": "customelements/camera-element"
+		"repository": "eduardolundgren/camera-element"
 	},
 	{
-		"repository": "customelements/facebook-element"
-	},
-	{
-		"repository": "customelements/github-element"
-	},
-	{
-		"repository": "customelements/twitter-element"
-	},
-	{
-		"repository": "customelements/gmaps-element"
+		"repository": "eduardolundgren/gmaps-element"
 	},
 	{
 		"repository": "eduardolundgren/tracking-element"
@@ -69,6 +60,18 @@
 		"repository": "nbluis/github-ribbon-element"
 	},
 	{
+		"repository": "zenorocha/badge-element"
+	},
+	{
+		"repository": "zenorocha/facebook-element"
+	},
+	{
 		"repository": "zenorocha/gplus-element"
+	},
+	{
+		"repository": "zenorocha/github-element"
+	},
+	{
+		"repository": "zenorocha/twitter-element"
 	}
 ]
