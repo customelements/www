@@ -56,7 +56,7 @@ body {
 @media all and (max-width:70em) {
   .wrapper {
     width:90%;
-    padding:.5em;
+    padding: 0 1em;
   }
 }
 
@@ -198,6 +198,7 @@ input {
   }
   .submit-own, .most-popular {
     width:100%;
+    padding: 0 1em;
   }
 }
 
