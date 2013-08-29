@@ -79,5 +79,8 @@
 	},
 	{
 		"repository": "cesarwbr/google-analytics-element"
+	},
+	{
+		"repository": "rsmelo/twitch-tv-chat-element"
 	}
 ]
