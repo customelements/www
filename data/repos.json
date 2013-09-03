@@ -88,5 +88,8 @@
 	},
 	{
 		"repository": "g200kg/webaudio-controls"
+	},
+	{
+		"repository": "luiztiago/facebook-image-element"
 	}
 ]
