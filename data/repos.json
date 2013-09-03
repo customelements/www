@@ -82,5 +82,8 @@
 	},
 	{
 		"repository": "rsmelo/twitch-tv-chat-element"
+	},
+	{
+		"repository": "gustavoisensee/linkedin-element"
 	}
 ]
