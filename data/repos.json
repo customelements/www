@@ -85,5 +85,8 @@
 	},
 	{
 		"repository": "gustavoisensee/linkedin-element"
+	},
+	{
+		"repository": "g200kg/webaudio-controls"
 	}
 ]
