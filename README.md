@@ -2,7 +2,7 @@
 
 A Web Components Gallery for Modern Web Apps
 
-> Maintained by [Zeno Rocha](http://github.com/zenorocha).
+> Maintained by by these [crazy guys](https://github.com/customelements?tab=members).
 
 ## Contributing
 
@@ -13,11 +13,11 @@ A Web Components Gallery for Modern Web Apps
 5. Submit a pull request :D
 
 ## Roadmap
-
-* Create an external service to retrieve all registered elements [#3](https://github.com/customelements/customelements.io/issues/3)
+* Start to use elements in customelements.io website [#4](https://github.com/customelements/customelements.io/issues/4)
 
 ## History
-
+* v0.2.0 August 25, 2013
+  * Created an external service to retrieve all registered elements [#3](https://github.com/customelements/customelements.io/issues/3)
 * v0.1.0 August 21, 2013
 	* Initial development release
 * v0.0.1 August 19, 2013
