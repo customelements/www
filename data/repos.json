@@ -97,5 +97,8 @@
 	},
 	{
 		"repository": "vagnervjs/animoby-element"
+	},
+	{
+		"repository": "gustavoisensee/tumblr-element"
 	}
 ]
