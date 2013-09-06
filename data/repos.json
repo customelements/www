@@ -63,16 +63,16 @@
 		"repository": "zenorocha/version-badge"
 	},
 	{
-		"repository": "zenorocha/facebook-element"
+		"repository": "zenorocha/facebook-button"
 	},
 	{
-		"repository": "zenorocha/gplus-element"
+		"repository": "zenorocha/gplus-button"
 	},
 	{
-		"repository": "zenorocha/github-element"
+		"repository": "zenorocha/github-button"
 	},
 	{
-		"repository": "zenorocha/twitter-element"
+		"repository": "zenorocha/twitter-button"
 	},
 	{
 		"repository": "gustavoisensee/pinterest-element"
