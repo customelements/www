@@ -75,7 +75,7 @@
 		"repository": "zenorocha/twitter-button"
 	},
 	{
-		"repository": "gustavoisensee/pinterest-element"
+		"repository": "gustavoisensee/pinterest-button"
 	},
 	{
 		"repository": "cesarwbr/google-analytics-element"
@@ -99,7 +99,7 @@
 		"repository": "vagnervjs/animoby-element"
 	},
 	{
-		"repository": "gustavoisensee/tumblr-element"
+		"repository": "gustavoisensee/tumblr-button"
 	},
 	{
 		"repository": "uniqname/x-picture"
