@@ -100,5 +100,8 @@
 	},
 	{
 		"repository": "gustavoisensee/tumblr-element"
+	},
+	{
+		"repository": "uniqname/x-picture"
 	}
 ]
