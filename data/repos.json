@@ -103,5 +103,8 @@
 	},
 	{
 		"repository": "uniqname/x-picture"
+	},
+	{
+		"repository": "devinhalladay/hn-button"
 	}
 ]
