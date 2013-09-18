@@ -33,13 +33,13 @@
 		"repository": "x-tag/toggle"
 	},
 	{
-		"repository": "eduardolundgren/camera-element"
+		"repository": "eduardolundgren/video-camera-element"
 	},
 	{
-		"repository": "eduardolundgren/gmaps-element"
+		"repository": "eduardolundgren/google-maps-element"
 	},
 	{
-		"repository": "eduardolundgren/tracking-element"
+		"repository": "eduardolundgren/video-tracking-element"
 	},
 	{
 		"repository": "brunoqueiros/youtube-embed"
