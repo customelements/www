@@ -112,5 +112,14 @@
 	},
 	{
 		"repository": "herschel666/author-badge"
+	},
+	{
+		"repository": "educastellano/el-selectable"
+	},
+	{
+		"repository": "educastellano/qr-code"
+	},
+	{
+		"repository": "educastellano/qr-reader"
 	}
 ]
