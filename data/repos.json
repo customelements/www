@@ -84,7 +84,7 @@
 		"repository": "rsmelo/twitch-tv-chat-element"
 	},
 	{
-		"repository": "gustavoisensee/linkedin-element"
+		"repository": "gustavoisensee/linkedin-button"
 	},
 	{
 		"repository": "g200kg/webaudio-controls"
@@ -102,7 +102,7 @@
 		"repository": "gustavoisensee/tumblr-button"
 	},
 	{
-		"repository": "uniqname/x-picture"
+		"repository": "ResponsiveImagesCG/x-picture"
 	},
 	{
 		"repository": "devinhalladay/hn-button"
