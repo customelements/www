@@ -45,10 +45,10 @@
 		"repository": "brunoqueiros/youtube-embed"
 	},
 	{
-		"repository": "djalmaaraujo/gravatar-element"
+		"repository": "djalmaaraujo/gravatar-image"
 	},
 	{
-		"repository": "djalmaaraujo/vimeo-element"
+		"repository": "djalmaaraujo/vimeo-embed"
 	},
 	{
 		"repository": "brunoziie/time-ago-element"
