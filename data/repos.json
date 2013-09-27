@@ -121,5 +121,8 @@
 	},
 	{
 		"repository": "educastellano/qr-reader"
+	},
+	{
+		"repository": "wmartins/twitter-image-element"
 	}
 ]
