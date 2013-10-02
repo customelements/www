@@ -127,5 +127,8 @@
 	},
 	{
 		"repository": "kashiro/pocket-button"
+	},
+	{
+		"repository": "robdodson/mark-down"
 	}
 ]
