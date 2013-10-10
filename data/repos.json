@@ -130,5 +130,8 @@
 	},
 	{
 		"repository": "robdodson/mark-down"
+	},
+	{
+		"repository": "x-tag/sparkline"
 	}
 ]
