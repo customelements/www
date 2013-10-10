@@ -133,5 +133,8 @@
 	},
 	{
 		"repository": "x-tag/sparkline"
+	},
+	{
+		"repository": "x-tag/deck"
 	}
 ]
