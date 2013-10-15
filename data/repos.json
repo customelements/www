@@ -136,5 +136,8 @@
 	},
 	{
 		"repository": "x-tag/deck"
+	},
+	{
+		"repository": "kashiro/dropbox-button"
 	}
 ]
