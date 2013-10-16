@@ -11,6 +11,7 @@
 
 		var allModules = _.sortBy(modules, function (el) {
 			el.name = el.name.replace('-element', '');
+			el.name = el.name.replace('-web-component', '');
 			return el.name;
 		});
 
