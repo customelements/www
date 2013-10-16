@@ -139,5 +139,8 @@
 	},
 	{
 		"repository": "kashiro/dropbox-button"
+	},
+	{
+		"repository": "roman01la/pdf-reader-web-component"
 	}
 ]
