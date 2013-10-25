@@ -145,5 +145,8 @@
 	},
 	{
 		"repository": "passy/x-pokemon"
+	},
+	{
+		"repository": "felipenmoura/citation-custom-element"
 	}
 ]
