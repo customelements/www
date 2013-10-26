@@ -148,5 +148,8 @@
 	},
 	{
 		"repository": "felipenmoura/citation-custom-element"
+	},
+	{
+		"repository": "tcelestino/facebook-likebox"
 	}
 ]
