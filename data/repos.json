@@ -157,5 +157,8 @@
 	},
 	{
 		"repository": "alexroutledge/current-location"
+	},
+	{
+		"repository": "ghostoy/a-counter"
 	}
 ]
