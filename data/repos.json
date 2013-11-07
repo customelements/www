@@ -154,5 +154,8 @@
 	},
 	{
 		"repository": "janantala/love-heart"
+	},
+	{
+		"repository": "alexroutledge/current-location"
 	}
 ]
