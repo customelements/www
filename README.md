@@ -1,8 +1,14 @@
-# customelements.io
+# Custom Elements
 
-A Web Components Gallery for Modern Web Apps
+A Web Components Gallery for Modern Web Apps.
 
-> Maintained by by these [crazy guys](https://github.com/customelements?tab=members).
+## Team
+
+[Custom Elements](http://customelements.io/) was made with love by these people and a bunch of awesome [contributors](https://github.com/customelements/customelements.io/graphs/contributors).
+
+[![Zeno Rocha](http://gravatar.com/avatar/e190023b66e2b8aa73a842b106920c93?s=70)](https://github.com/zenorocha) | [![Bernard De Luna](http://gravatar.com/avatar/bc16c9be1e05e65395487b78b1cc72c0?s=70)](https://github.com/bernarddeluna) | [![Eduardo Lundgren](http://gravatar.com/avatar/42327de520e674a6d1686845b30778d0?s=70)](https://github.com/eduardolundgren) | [![Djalma Araújo](http://gravatar.com/avatar/be74fd9a577ea5ef1ab2e7c71bcfa4b5?s=70)](https://github.com/djalmaaraujo)
+--- | --- | --- | --- | --- | --- | ---
+[Zeno Rocha](https://github.com/zenorocha) | [Bernard De Luna](https://github.com/bernarddeluna) | [Eduardo Lundgren](https://github.com/eduardolundgren) | [Djalma Araújo](https://github.com/djalmaaraujo)
 
 ## Contributing
 
@@ -12,17 +18,6 @@ A Web Components Gallery for Modern Web Apps
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## Roadmap
-* Start to use elements in customelements.io website [#4](https://github.com/customelements/customelements.io/issues/4)
-
-## History
-* v0.2.0 August 25, 2013
-  * Created an external service to retrieve all registered elements [#3](https://github.com/customelements/customelements.io/issues/3)
-* v0.1.0 August 21, 2013
-	* Initial development release
-* v0.0.1 August 19, 2013
-	* Forked [old-gruntjs-site](https://github.com/sindresorhus/old-gruntjs-site)
-
 ## License
 
-[MIT License](http://opensource.org/licenses/MIT)
+[MIT License](http://zenorocha.mit-license.org/) © Zeno Rocha
