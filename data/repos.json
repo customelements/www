@@ -163,5 +163,8 @@
 	},
 	{
 		"repository": "ghostoy/a-painter"
+	},
+	{
+		"repository": "PuppetJs/x-html"
 	}
 ]
