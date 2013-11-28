@@ -166,5 +166,8 @@
 	},
 	{
 		"repository": "PuppetJs/x-html"
+	},
+	{
+		"repository": "webf/x-toolkit"
 	}
 ]
