@@ -181,5 +181,11 @@
 	},
 	{
 		"repository": "tomalec/sortable-flexbox-list"
+	},
+	{
+		"repository": "tomalec/stackexchange-badge"
+	},
+	{
+		"repository": "PascalPrecht/polymer-nooo-button"
 	}
 ]
