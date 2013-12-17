@@ -171,6 +171,6 @@
 		"repository": "webf/x-toolkit"
 	},
 	{
-		"repository": "https://github.com/tomalec/stackexchange-badge"
+		"repository": "tomalec/stackexchange-badge"
 	}
 ]
