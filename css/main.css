@@ -159,10 +159,10 @@ input {
 
 /* sections */
 /* submit own */
-.submit-own, .most-popular {
-  width: 47%;
-  margin-right: 6%;
-  margin-bottom: 6%;
+.submit-own, .most-popular, .latest-elements {
+  width: 30%;
+  margin-right: 5%;
+  margin-bottom: 5%;
   float: left;
 }
 
@@ -203,8 +203,14 @@ input {
 }
 
 /* most popular */
-.most-popular {margin-right: 0;}
 .most-popular dt {
+  display: block;
+  margin-bottom: 0;
+}
+
+/* latest elements */
+.latest-elements {margin-right: 0;}
+.latest-elements dt {
   display: block;
   margin-bottom: 0;
 }
