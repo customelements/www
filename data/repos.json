@@ -172,5 +172,8 @@
 	},
 	{
 		"repository": "https://github.com/tomalec/stackexchange-badge"
+	},
+	{
+		"repository": "PascalPrecht/polymer-nooo-button"
 	}
 ]
