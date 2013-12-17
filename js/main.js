@@ -9,6 +9,8 @@
 			return el.stars;
 		}).reverse().splice(0, 3);
 
+		var lastModules = modules.reverse().splice(0, 3);
+
 		var allModules = _.sortBy(modules, function (el) {
 			el.name = el.name.replace('-custom-element', '');
 			el.name = el.name.replace('-element', '');
@@ -16,8 +18,12 @@
 			return el.name;
 		});
 
-		var latestTpl = _.template($('#most-popular-template').html(), {
+		var mostPopTpl = _.template($('#most-popular-template').html(), {
 			modules: topModules
+		});
+
+		var latestTpl = _.template($('#latest-elements-template').html(), {
+			modules: lastModules
 		});
 
 		var allTpl = _.template($('#all-template').html(), {
@@ -25,7 +31,8 @@
 		});
 
 		$('#loading').remove();
-		$('#most-popular').append(latestTpl);
+		$('#most-popular').append(mostPopTpl);
+		$('#latest-elements').append(latestTpl);
 		$('#all').append(allTpl).find('.search').show();
 
 		new List('all', {

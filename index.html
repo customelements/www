@@ -56,6 +56,9 @@
       <section class="most-popular">
         <div id="most-popular"></div>
       </section>
+      <section class="latest-elements">
+        <div id="latest-elements"></div>
+      </section>
       <section class="main">
         <div id="loading">
           <p>Loading elements...</p>
@@ -70,6 +73,15 @@
   </footer>
   <script type="text/template" id="most-popular-template">
     <h3>Most popular elements</h3>
+    <dl class="dl-horizontal">
+      <% _.each(modules, function (el) { %>
+        <dt><a href="<%- el.url %>"><%- el.name %></a></dt>
+        <dd><%- el.description %></dd>
+      <% }); %>
+    </dl>
+  </script>​
+  <script type="text/template" id="latest-elements-template">
+    <h3>Latest elements</h3>
     <dl class="dl-horizontal">
       <% _.each(modules, function (el) { %>
         <dt><a href="<%- el.url %>"><%- el.name %></a></dt>
