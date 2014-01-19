@@ -12,7 +12,7 @@ A Web Components Gallery for Modern Web Apps.
 
 ## Contributing
 
-If you want to submit your Web Component, please read the [Contributing](https://github.com/customelements/customelements.io/blob/master/CONTRIBUTING.md) guide.
+If you want to submit your Web Component, please read the [Contributing](https://github.com/customelements/customelements.io/blob/gh-pages/CONTRIBUTING.md) guide.
 
 ## License
 
