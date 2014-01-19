@@ -7,5 +7,17 @@
 	},
 	{
 		"repository": "components/polymer"
+	},
+	{
+		"repository": "x-tag/shiftbox"
+	},
+	{
+		"repository": "x-tag/template"
+	},
+	{
+		"repository": "x-tag/view"
+	},
+	{
+		"repository": "bernarddeluna/xmas-tree"
 	}
 ]
