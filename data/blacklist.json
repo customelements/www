@@ -1,0 +1,11 @@
+[
+	{
+		"repository": "x-tag/core"
+	},
+	{
+		"repository": "Polymer/polymer"
+	},
+	{
+		"repository": "components/polymer"
+	}
+]
