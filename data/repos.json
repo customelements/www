@@ -196,5 +196,8 @@
 	},
 	{
 		"repository": "bradoyler/weather-el"
+	},
+	{
+		"repository": "ghostoy/a-dot"
 	}
 ]
