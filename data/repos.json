@@ -190,5 +190,8 @@
 	},
 	{
 		"repository": "luanmuniz/facebook-likebox"
+	},
+	{
+		"repository": "samarthwiz/sam-eagerlist"
 	}
 ]
