@@ -187,5 +187,8 @@
 	},
 	{
 		"repository": "ghostoy/a-qrcode"
+	},
+	{
+		"repository": "luanmuniz/facebook-likebox"
 	}
 ]
