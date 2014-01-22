@@ -184,5 +184,8 @@
 	},
 	{
 		"repository": "PascalPrecht/polymer-nooo-button"
+	},
+	{
+		"repository": "ghostoy/a-qrcode"
 	}
 ]
