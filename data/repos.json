@@ -178,5 +178,8 @@
 	},
 	{
 		"repository": "arthurfigueiredo/homer-simpson"
+	},
+	{
+		"repository": "tomalec/sortable-flexbox-list"
 	}
 ]
