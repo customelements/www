@@ -202,5 +202,8 @@
 	},
 	{
 		"repository": "fzerocentral/fzc-animated-ship"
+	},
+	{
+		"repository": "hmachefe/phono-webcomponent"
 	}
 ]
