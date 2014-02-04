@@ -215,5 +215,8 @@
 	,
 	{
 		"repository": "hmachefe/fps-meter-component"
+	},
+	{
+		"repository": "sostenesgomes/character-count"
 	}
 ]
