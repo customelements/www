@@ -205,5 +205,8 @@
 	},
 	{
 		"repository": "hmachefe/phono-webcomponent"
+	},
+	{
+		"repository": "samarthwiz/sam-tabbar"
 	}
 ]
