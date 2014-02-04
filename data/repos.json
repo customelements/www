@@ -212,4 +212,8 @@
 	{
 		"repository": "fgimenez/google-tag-manager-element"
 	}
+	,
+	{
+		"repository": "hmachefe/fps-meter-component"
+	}
 ]
