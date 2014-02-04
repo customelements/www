@@ -208,5 +208,8 @@
 	},
 	{
 		"repository": "samarthwiz/sam-tabbar"
+	},
+	{
+		"repository": "fgimenez/google-tag-manager-element"
 	}
 ]
