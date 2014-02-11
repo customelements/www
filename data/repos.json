@@ -226,5 +226,8 @@
 	},
 	{
 		"repository": "guilhermeventura/youtube-custom-element"
+	},
+	{
+		"repository": "tobz-nz/x-password"
 	}
 ]
