@@ -223,5 +223,8 @@
 	},
 	{
 		"repository": "girliemac/x-twitter-button"
+	},
+	{
+		"repository": "guilhermeventura/youtube-custom-element"
 	}
 ]
