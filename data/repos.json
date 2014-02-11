@@ -211,12 +211,14 @@
 	},
 	{
 		"repository": "fgimenez/google-tag-manager-element"
-	}
-	,
+	},
 	{
 		"repository": "hmachefe/fps-meter-component"
 	},
 	{
 		"repository": "sostenesgomes/character-count"
+	},
+	{
+		"repository": "zenorocha/embed-spotify"
 	}
 ]
