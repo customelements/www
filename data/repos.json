@@ -229,5 +229,8 @@
 	},
 	{
 		"repository": "tobz-nz/x-password"
+	},
+	{
+		"repository": "barrosfilipe/gplus-image-element"
 	}
 ]
