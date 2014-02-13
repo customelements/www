@@ -235,5 +235,8 @@
     },
     {
         "repository": "bernarddeluna/xmas-tree"
+    },
+    {
+        "repository": "stevenrskelton/sortable-table"
     }
 ]
