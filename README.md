@@ -1,6 +1,40 @@
-# Custom Elements
+# [CustomElements.io](http://customelements.io/)
 
 A Web Components Gallery for Modern Web Apps.
+
+## Tasks
+
+We use [Grunt](http://gruntjs.com/), a task-runner in [Node](http://nodejs.org/), to automate things.
+
+To install it and all the other dependencies, run:
+
+```sh
+$ npm install -g grunt-cli
+```
+
+To check [JSHint](http://www.jshint.com/) errors, run:
+
+```sh
+$ grunt jshint
+```
+
+To minify JavaScript files, run:
+
+```sh
+$ grunt uglify
+```
+
+To concat all the JavaScript files, run:
+
+```sh
+$ grunt concat
+```
+
+To check indentation inconsistencies, run:
+
+```sh
+$ grunt lintspaces
+```
 
 ## Browser Support
 
@@ -12,11 +46,11 @@ IE 9+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
 
 ## Team
 
-[Custom Elements](http://customelements.io/) was made with love by these people and a bunch of awesome [contributors](https://github.com/customelements/customelements.io/graphs/contributors).
+[CustomElements.io](http://customelements.io/) was made with love by these guys and a bunch of awesome [contributors](https://github.com/webcomponents/customelements.io/graphs/contributors).
 
-[![Zeno Rocha](http://gravatar.com/avatar/e190023b66e2b8aa73a842b106920c93?s=70)](https://github.com/zenorocha) | [![Bernard De Luna](http://gravatar.com/avatar/bc16c9be1e05e65395487b78b1cc72c0?s=70)](https://github.com/bernarddeluna) | [![Eduardo Lundgren](http://gravatar.com/avatar/42327de520e674a6d1686845b30778d0?s=70)](https://github.com/eduardolundgren) | [![Djalma Araújo](http://gravatar.com/avatar/be74fd9a577ea5ef1ab2e7c71bcfa4b5?s=70)](https://github.com/djalmaaraujo)
+[![Zeno Rocha](http://gravatar.com/avatar/e190023b66e2b8aa73a842b106920c93?s=70)](https://github.com/zenorocha) | [![Bernard De Luna](http://gravatar.com/avatar/bc16c9be1e05e65395487b78b1cc72c0?s=70)](https://github.com/bernarddeluna) | [![Djalma Araújo](http://gravatar.com/avatar/be74fd9a577ea5ef1ab2e7c71bcfa4b5?s=70)](https://github.com/djalmaaraujo) | [![Eduardo Lundgren](http://gravatar.com/avatar/42327de520e674a6d1686845b30778d0?s=70)](https://github.com/eduardolundgren)
 --- | --- | --- | --- | --- | --- | ---
-[Zeno Rocha](https://github.com/zenorocha) | [Bernard De Luna](https://github.com/bernarddeluna) | [Eduardo Lundgren](https://github.com/eduardolundgren) | [Djalma Araújo](https://github.com/djalmaaraujo)
+[Zeno Rocha](https://github.com/zenorocha) | [Bernard De Luna](https://github.com/bernarddeluna) | [Djalma Araújo](https://github.com/djalmaaraujo) | [Eduardo Lundgren](https://github.com/eduardolundgren)
 
 ## Contributing
 
