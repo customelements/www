@@ -248,7 +248,8 @@ input {
     }
 }
 
-.most-popular dt {
+.most-popular dt,
+.latest-popular dt {
     display: block;
     margin-bottom: 0;
 }
