@@ -197,11 +197,15 @@ input {
     Sections
     ========================================================================= */
 
-.submit-own, .most-popular {
+.section {
     width: 47%;
     margin-right: 6%;
     margin-bottom: 6%;
     float: left;
+}
+
+.section:nth-child(even) {
+    margin-right: 0;
 }
 
 .submit-own form {
@@ -225,6 +229,11 @@ input {
 }
 
 @media all and (max-width:45em) {
+    .section {
+        width:100%;
+        padding: 0 1em;
+    }
+
     .submit-own input[type=text] {
         border-radius:4px;
         width:100%;
@@ -237,15 +246,6 @@ input {
         width:100%;
         clear:both;
     }
-
-    .submit-own, .most-popular {
-        width:100%;
-        padding: 0 1em;
-    }
-}
-
-.most-popular {
-    margin-right: 0;
 }
 
 .most-popular dt {
