@@ -67,6 +67,11 @@
                 <div id="most-popular"></div>
             </section>
 
+             <!-- Latest elements -->
+            <section class="latest-popular section">
+                <div id="latest-popular"></div>
+            </section>
+
             <!-- List of elements -->
             <section class="main">
                 <div id="loading">
@@ -80,6 +85,16 @@
     <footer class="credits">
         <p>Made with <span class="love">♥</span> by these <a href="https://github.com/customelements?tab=members">crazy guys.</p>
     </footer>
+
+    <script type="text/template" id="latest-elements-template">
+        <h3>Latest elements</h3>
+        <dl class="dl-horizontal">
+            <% _.each(modules, function (el) { %>
+                <dt><a href="<%- el.url %>"><%- el.name %></a></dt>
+                <dd><%- el.description %></dd>
+            <% }); %>
+        </dl>
+    </script>​
 
     <script type="text/template" id="most-popular-template">
         <h3>Most popular elements</h3>
