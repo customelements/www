@@ -1,24 +1,24 @@
 (function (win, $) {
-	'use strict';
+    'use strict';
 
-	var GithubIssue = function () {
-		var instance = this;
+    var GithubIssue = function () {
+        var instance = this;
 
-		instance.handleFormSubmit();
-	};
+        instance.handleFormSubmit();
+    };
 
-	GithubIssue.prototype.handleFormSubmit = function () {
-		var instance = this;
+    GithubIssue.prototype.handleFormSubmit = function () {
+        var instance = this;
 
-		$('#form-github-add').on('submit', function (e) {
-			e.preventDefault();
+        $('#form-github-add').on('submit', function (e) {
+            e.preventDefault();
 
-			var repoURL = $('#repo').val();
-			var repoName = repoURL.substring(repoURL.lastIndexOf('/') + 1, repoURL.length);
+            var repoURL = $('#repo').val();
+            var repoName = repoURL.substring(repoURL.lastIndexOf('/') + 1, repoURL.length);
 
-			win.location.href = 'https://github.com/customelements/customelements.io/issues/new?title=Add new component - ' + repoName + '&body=' + repoURL;
-		});
-	};
+            win.location.href = 'https://github.com/customelements/customelements.io/issues/new?title=Add new component - ' + repoName + '&body=' + repoURL;
+        });
+    };
 
-	$(function() { new GithubIssue(); });
+    $(function() { new GithubIssue(); });
 })(window, jQuery);

@@ -1,123 +1,132 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Web Components Gallery for Modern Web Apps">
-  <meta itemprop="image" content="http://customelements.io/img/profile-200.jpg">
-  <title>Custom Elements - A Web Components Gallery for Modern Web Apps</title>
-  <link href="favicon.ico" rel="shortcut icon">
-  <script type="text/javascript" src="//use.typekit.net/wyk6ixu.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <link rel="stylesheet" href="css/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Web Components Gallery for Modern Web Apps">
+    <meta itemprop="image" content="http://customelements.io/img/profile-200.jpg">
+    <title>Custom Elements - A Web Components Gallery for Modern Web Apps</title>
+    <link href="favicon.ico" rel="shortcut icon">
+    <script type="text/javascript" src="//use.typekit.net/wyk6ixu.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <header class="header">
-    <div class="wrapper">
-      <img src="img/logo.png" alt="Logo">
-      <h1>Custom Elements</h1>
-      <h2>A Web Components Gallery for Modern Web Apps</h2>
-    </div>
-  </header>
-
-  <main class="content">
-
-    <!-- social -->
-    <ul class="social-buttons">
-      <li class="tweet-btn">
-        <iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.1359159993.html#_=1360010161235&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;size=m&amp;text=http%3A%2F%2Fcustomelements.io ~ A Web Components Gallery for Modern Web Apps&amp;url" class="twitter-share-button twitter-count-horizontal" style="width: 87px; height: 20px;" title="Twitter Tweet Button" data-twttr-rendered="true"></iframe>
-      </li>
-      <li class="fb-btn">
-        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcustomelements.io&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=176947299114210" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
-      </li>
-      <li class="gplus-btn">
-        <div class="g-plusone" data-size="medium"></div>
-        <script type="text/javascript">
-          (function() {
-            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-            po.src = 'https://apis.google.com/js/plusone.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-          })();
-        </script>
-      </li>
-    </ul>
-    <!-- / social -->
-
-    <div class="wrapper">
-      <section class="submit-own">
-        <h3>Submit your own</h3>
-        <p>Got a great idea for a custom element? Awesome! First, take a glance at the <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">Web Components' spec</a>. There's also a <a href="https://github.com/customelements/boilerplate-element">boilerplate</a> you can fork and get up and running with a simple component.</p>
-        <p>When you're ready to go, submit it to the form below and it'll appear on this site for others to play and use!</p>
-        <form action="" id="form-github-add">
-          <input type="text" name="repo" id="repo" placeholder="https://github.com/me/my-element" required>
-          <button class="btn">Submit</button>
-        </form>
-      </section>
-      <section class="most-popular">
-        <div id="most-popular"></div>
-      </section>
-      <section class="main">
-        <div id="loading">
-          <p>Loading elements...</p>
+    <header class="header">
+        <div class="wrapper">
+            <img src="img/logo.png" alt="Logo">
+            <h1>Custom Elements</h1>
+            <h2>A Web Components Gallery for Modern Web Apps</h2>
         </div>
-        <div id="all"></div>
-      </section>
-    </div>
-  </main>
+    </header>
 
-  <footer class="credits">
-    <p>Made with <span class="love">♥</span> by these <a href="https://github.com/customelements?tab=members">crazy guys.</p>
-  </footer>
-  <script type="text/template" id="most-popular-template">
-    <h3>Most popular elements</h3>
-    <dl class="dl-horizontal">
-      <% _.each(modules, function (el) { %>
-        <dt><a href="<%- el.url %>"><%- el.name %></a></dt>
-        <dd><%- el.description %></dd>
-      <% }); %>
-    </dl>
-  </script>​
-  <script type="text/template" id="all-template">
-    <table class="table">
-      <caption>
-        <input style="display:none" class="search input-medium search-query" type="search" placeholder="Search in <%= modules.length %> elements..." autofocus>
-      </caption>
-      <thead>
-        <tr>
-          <th class="sort name" data-sort="name">Name</th>
-          <th class="sort desc" data-sort="desc">Description</th>
-          <th class="sort stars" data-sort="stars">Stars</th>
-          <th class="sort forks" data-sort="forks">Forks</th>
-          <th class="sort author" data-sort="author">Author</th>
-        </tr>
-      </thead>
-      <tbody class="list">
-        <% _.each(modules, function (el) { %>
-          <tr>
-            <td class="name"><a href="<%- el.url %>"><%- el.name %></a></td>
-            <td class="desc"><%- el.description %></td>
-            <td class="stars"><%- el.stars %></td>
-            <td class="forks"><%- el.forks %></td>
-            <td class="author"><a href="<%- el.owner_url %>"><%- el.owner %></a></td>
-          </tr>
-        <% }); %>
-      </tbody>
-    </table>
-  </script>​
-  <script src="//customelementsio.herokuapp.com"></script>
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/vendor/jquery.timeago.js"></script>
-  <script src="js/vendor/list.js"></script>
-  <script src="js/vendor/lodash.js"></script>
-  <script src="js/github.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-4114546-39', 'customelements.io');
-  ga('send', 'pageview');
-  </script>
+    <main class="content">
+        <!-- Social -->
+        <ul class="social-buttons">
+            <li class="tweet-btn">
+                <iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.1359159993.html#_=1360010161235&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;size=m&amp;text=http%3A%2F%2Fcustomelements.io ~ A Web Components Gallery for Modern Web Apps&amp;url" class="twitter-share-button twitter-count-horizontal" style="width: 87px; height: 20px;" title="Twitter Tweet Button" data-twttr-rendered="true"></iframe>
+            </li>
+            <li class="fb-btn">
+                <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcustomelements.io&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=176947299114210" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
+            </li>
+            <li class="gplus-btn">
+                <div class="g-plusone" data-size="medium"></div>
+                <script type="text/javascript">
+                    (function() {
+                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                    po.src = 'https://apis.google.com/js/plusone.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                    })();
+                </script>
+            </li>
+        </ul>
+
+        <!-- Sections -->
+        <div class="wrapper">
+
+            <!-- Submit your own -->
+            <section class="submit-own">
+                <h3>Submit your own</h3>
+                <p>Got a great idea for a custom element? Awesome! First, take a glance at the <a href="http://www.w3.org/TR/2013/WD-components-intro-20130606/">Web Components' spec</a>. There's also a <a href="https://github.com/customelements/boilerplate-element">boilerplate</a> you can fork and get up and running with a simple component.</p>
+                <p>When you're ready to go, submit it to the form below and it'll appear on this site for others to play and use!</p>
+                <form action="" id="form-github-add">
+                    <input type="text" name="repo" id="repo" placeholder="https://github.com/me/my-element" required>
+                    <button class="btn">Submit</button>
+                </form>
+            </section>
+
+            <!-- Most popular elements -->
+            <section class="most-popular">
+                <div id="most-popular"></div>
+            </section>
+
+            <!-- List of elements -->
+            <section class="main">
+                <div id="loading">
+                    <p>Loading elements...</p>
+                </div>
+                <div id="all"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="credits">
+        <p>Made with <span class="love">♥</span> by these <a href="https://github.com/customelements?tab=members">crazy guys.</p>
+    </footer>
+
+    <script type="text/template" id="most-popular-template">
+        <h3>Most popular elements</h3>
+        <dl class="dl-horizontal">
+            <% _.each(modules, function (el) { %>
+                <dt><a href="<%- el.url %>"><%- el.name %></a></dt>
+                <dd><%- el.description %></dd>
+            <% }); %>
+        </dl>
+    </script>​
+
+    <script type="text/template" id="all-template">
+        <table class="table">
+            <caption>
+                <input style="display:none" class="search input-medium search-query" type="search" placeholder="Search in <%= modules.length %> elements..." autofocus>
+            </caption>
+            <thead>
+                <tr>
+                    <th class="sort name" data-sort="name">Name</th>
+                    <th class="sort desc" data-sort="desc">Description</th>
+                    <th class="sort stars" data-sort="stars">Stars</th>
+                    <th class="sort forks" data-sort="forks">Forks</th>
+                    <th class="sort author" data-sort="author">Author</th>
+                </tr>
+            </thead>
+            <tbody class="list">
+                <% _.each(modules, function (el) { %>
+                    <tr>
+                        <td class="name"><a href="<%- el.url %>"><%- el.name %></a></td>
+                        <td class="desc"><%- el.description %></td>
+                        <td class="stars"><%- el.stars %></td>
+                        <td class="forks"><%- el.forks %></td>
+                        <td class="author"><a href="<%- el.owner_url %>"><%- el.owner %></a></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </script>​
+
+    <script src="//customelementsio.herokuapp.com"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/jquery.timeago.js"></script>
+    <script src="js/vendor/list.js"></script>
+    <script src="js/vendor/lodash.js"></script>
+    <script src="js/github.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-4114546-39', 'customelements.io');
+    ga('send', 'pageview');
+    </script>
 </body>
 </html>

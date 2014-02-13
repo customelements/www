@@ -1,242 +1,239 @@
 [
-	{
-		"repository": "x-tag/appbar"
-	},
-	{
-		"repository": "x-tag/flipbox"
-	},
-	{
-		"repository": "x-tag/modal"
-	},
-	{
-		"repository": "x-tag/panel"
-	},
-	{
-		"repository": "x-tag/layout"
-	},
-	{
-		"repository": "x-tag/map"
-	},
-	{
-		"repository": "x-tag/mediaquery"
-	},
-	{
-		"repository": "x-tag/spinner"
-	},
-	{
-		"repository": "x-tag/slidebox"
-	},
-	{
-		"repository": "x-tag/scroll-list"
-	},
-	{
-		"repository": "x-tag/toggle"
-	},
-	{
-		"repository": "eduardolundgren/video-camera-element"
-	},
-	{
-		"repository": "eduardolundgren/google-maps-element"
-	},
-	{
-		"repository": "eduardolundgren/video-tracking-element"
-	},
-	{
-		"repository": "brunoqueiros/youtube-embed"
-	},
-	{
-		"repository": "djalmaaraujo/gravatar-image"
-	},
-	{
-		"repository": "djalmaaraujo/vimeo-embed"
-	},
-	{
-		"repository": "brunoziie/time-ago-element"
-	},
-	{
-		"repository": "rsmelo/twitch-tv-element"
-	},
-	{
-		"repository": "nbluis/github-ribbon-element"
-	},
-	{
-		"repository": "zenorocha/version-badge"
-	},
-	{
-		"repository": "zenorocha/facebook-button"
-	},
-	{
-		"repository": "zenorocha/gplus-button"
-	},
-	{
-		"repository": "zenorocha/github-button"
-	},
-	{
-		"repository": "zenorocha/twitter-button"
-	},
-	{
-		"repository": "gustavoisensee/pinterest-button"
-	},
-	{
-		"repository": "cesarwbr/google-analytics-element"
-	},
-	{
-		"repository": "rsmelo/twitch-tv-chat-element"
-	},
-	{
-		"repository": "gustavoisensee/linkedin-button"
-	},
-	{
-		"repository": "g200kg/webaudio-controls"
-	},
-	{
-		"repository": "luiztiago/facebook-image-element"
-	},
-	{
-		"repository": "viniciusalmeida/ninja-presentation"
-	},
-	{
-		"repository": "vagnervjs/animoby-embed-element"
-	},
-	{
-		"repository": "gustavoisensee/tumblr-button"
-	},
-	{
-		"repository": "ResponsiveImagesCG/x-picture"
-	},
-	{
-		"repository": "devinhalladay/hn-button"
-	},
-	{
-		"repository": "deepak1556/highlight-code-element"
-	},
-	{
-		"repository": "herschel666/author-badge"
-	},
-	{
-		"repository": "educastellano/el-selectable"
-	},
-	{
-		"repository": "educastellano/qr-code"
-	},
-	{
-		"repository": "educastellano/qr-reader"
-	},
-	{
-		"repository": "wmartins/twitter-image-element"
-	},
-	{
-		"repository": "kashiro/pocket-button"
-	},
-	{
-		"repository": "robdodson/mark-down"
-	},
-	{
-		"repository": "x-tag/sparkline"
-	},
-	{
-		"repository": "x-tag/deck"
-	},
-	{
-		"repository": "kashiro/dropbox-button"
-	},
-	{
-		"repository": "roman01la/pdf-reader-web-component"
-	},
-	{
-		"repository": "passy/x-pokemon"
-	},
-	{
-		"repository": "felipenmoura/citation-custom-element"
-	},
-	{
-		"repository": "tcelestino/facebook-likebox"
-	},
-	{
-		"repository": "janantala/love-heart"
-	},
-	{
-		"repository": "alexroutledge/current-location"
-	},
-	{
-		"repository": "ghostoy/a-counter"
-	},
-	{
-		"repository": "ghostoy/a-painter"
-	},
-	{
-		"repository": "PuppetJs/x-html"
-	},
-	{
-		"repository": "webf/x-toolkit"
-	},
-	{
-		"repository": "bernarddeluna/xmas-tree"
-	},
-	{
-		"repository": "arthurfigueiredo/homer-simpson"
-	},
-	{
-		"repository": "tomalec/sortable-flexbox-list"
-	},
-	{
-		"repository": "tomalec/stackexchange-badge"
-	},
-	{
-		"repository": "PascalPrecht/polymer-nooo-button"
-	},
-	{
-		"repository": "ghostoy/a-qrcode"
-	},
-	{
-		"repository": "luanmuniz/facebook-likebox"
-	},
-	{
-		"repository": "samarthwiz/sam-eagerlist"
-	},
-	{
-		"repository": "bradoyler/weather-el"
-	},
-	{
-		"repository": "ghostoy/a-dot"
-	},
-	{
-		"repository": "fzerocentral/fzc-animated-ship"
-	},
-	{
-		"repository": "hmachefe/phono-webcomponent"
-	},
-	{
-		"repository": "samarthwiz/sam-tabbar"
-	},
-	{
-		"repository": "fgimenez/google-tag-manager-element"
-	},
-	{
-		"repository": "hmachefe/fps-meter-component"
-	},
-	{
-		"repository": "sostenesgomes/character-count"
-	},
-	{
-		"repository": "zenorocha/embed-spotify"
-	},
-	{
-		"repository": "girliemac/x-twitter-button"
-	},
-	{
-		"repository": "guilhermeventura/youtube-custom-element"
-	},
-	{
-		"repository": "tobz-nz/x-password"
-	},
-	{
-		"repository": "barrosfilipe/gplus-image-element"
-	},
-	{
-		"repository": "barrosfilipe/x-ragnarok-monster"
-	},
-	{
-		"repository": "bernarddeluna/xmas-tree"
-	}
+    {
+        "repository": "x-tag/appbar"
+    },
+    {
+        "repository": "x-tag/flipbox"
+    },
+    {
+        "repository": "x-tag/modal"
+    },
+    {
+        "repository": "x-tag/panel"
+    },
+    {
+        "repository": "x-tag/layout"
+    },
+    {
+        "repository": "x-tag/map"
+    },
+    {
+        "repository": "x-tag/mediaquery"
+    },
+    {
+        "repository": "x-tag/spinner"
+    },
+    {
+        "repository": "x-tag/slidebox"
+    },
+    {
+        "repository": "x-tag/scroll-list"
+    },
+    {
+        "repository": "x-tag/toggle"
+    },
+    {
+        "repository": "eduardolundgren/video-camera-element"
+    },
+    {
+        "repository": "eduardolundgren/google-maps-element"
+    },
+    {
+        "repository": "eduardolundgren/video-tracking-element"
+    },
+    {
+        "repository": "brunoqueiros/youtube-embed"
+    },
+    {
+        "repository": "djalmaaraujo/gravatar-image"
+    },
+    {
+        "repository": "djalmaaraujo/vimeo-embed"
+    },
+    {
+        "repository": "brunoziie/time-ago-element"
+    },
+    {
+        "repository": "rsmelo/twitch-tv-element"
+    },
+    {
+        "repository": "nbluis/github-ribbon-element"
+    },
+    {
+        "repository": "zenorocha/version-badge"
+    },
+    {
+        "repository": "zenorocha/facebook-button"
+    },
+    {
+        "repository": "zenorocha/gplus-button"
+    },
+    {
+        "repository": "zenorocha/github-button"
+    },
+    {
+        "repository": "zenorocha/twitter-button"
+    },
+    {
+        "repository": "gustavoisensee/pinterest-button"
+    },
+    {
+        "repository": "cesarwbr/google-analytics-element"
+    },
+    {
+        "repository": "rsmelo/twitch-tv-chat-element"
+    },
+    {
+        "repository": "gustavoisensee/linkedin-button"
+    },
+    {
+        "repository": "g200kg/webaudio-controls"
+    },
+    {
+        "repository": "luiztiago/facebook-image-element"
+    },
+    {
+        "repository": "viniciusalmeida/ninja-presentation"
+    },
+    {
+        "repository": "gustavoisensee/tumblr-button"
+    },
+    {
+        "repository": "ResponsiveImagesCG/x-picture"
+    },
+    {
+        "repository": "devinhalladay/hn-button"
+    },
+    {
+        "repository": "deepak1556/highlight-code-element"
+    },
+    {
+        "repository": "herschel666/author-badge"
+    },
+    {
+        "repository": "educastellano/el-selectable"
+    },
+    {
+        "repository": "educastellano/qr-code"
+    },
+    {
+        "repository": "educastellano/qr-reader"
+    },
+    {
+        "repository": "wmartins/twitter-image-element"
+    },
+    {
+        "repository": "kashiro/pocket-button"
+    },
+    {
+        "repository": "robdodson/mark-down"
+    },
+    {
+        "repository": "x-tag/sparkline"
+    },
+    {
+        "repository": "x-tag/deck"
+    },
+    {
+        "repository": "kashiro/dropbox-button"
+    },
+    {
+        "repository": "roman01la/pdf-reader-web-component"
+    },
+    {
+        "repository": "passy/x-pokemon"
+    },
+    {
+        "repository": "felipenmoura/citation-custom-element"
+    },
+    {
+        "repository": "tcelestino/facebook-likebox"
+    },
+    {
+        "repository": "janantala/love-heart"
+    },
+    {
+        "repository": "alexroutledge/current-location"
+    },
+    {
+        "repository": "ghostoy/a-counter"
+    },
+    {
+        "repository": "ghostoy/a-painter"
+    },
+    {
+        "repository": "PuppetJs/x-html"
+    },
+    {
+        "repository": "webf/x-toolkit"
+    },
+    {
+        "repository": "bernarddeluna/xmas-tree"
+    },
+    {
+        "repository": "arthurfigueiredo/homer-simpson"
+    },
+    {
+        "repository": "tomalec/sortable-flexbox-list"
+    },
+    {
+        "repository": "tomalec/stackexchange-badge"
+    },
+    {
+        "repository": "PascalPrecht/polymer-nooo-button"
+    },
+    {
+        "repository": "ghostoy/a-qrcode"
+    },
+    {
+        "repository": "luanmuniz/facebook-likebox"
+    },
+    {
+        "repository": "samarthwiz/sam-eagerlist"
+    },
+    {
+        "repository": "bradoyler/weather-el"
+    },
+    {
+        "repository": "ghostoy/a-dot"
+    },
+    {
+        "repository": "fzerocentral/fzc-animated-ship"
+    },
+    {
+        "repository": "hmachefe/phono-webcomponent"
+    },
+    {
+        "repository": "samarthwiz/sam-tabbar"
+    },
+    {
+        "repository": "fgimenez/google-tag-manager-element"
+    },
+    {
+        "repository": "hmachefe/fps-meter-component"
+    },
+    {
+        "repository": "sostenesgomes/character-count"
+    },
+    {
+        "repository": "zenorocha/embed-spotify"
+    },
+    {
+        "repository": "girliemac/x-twitter-button"
+    },
+    {
+        "repository": "guilhermeventura/youtube-custom-element"
+    },
+    {
+        "repository": "tobz-nz/x-password"
+    },
+    {
+        "repository": "barrosfilipe/gplus-image-element"
+    },
+    {
+        "repository": "barrosfilipe/x-ragnarok-monster"
+    },
+    {
+        "repository": "bernarddeluna/xmas-tree"
+    }
 ]
