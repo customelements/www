@@ -4,6 +4,7 @@
 
     $(function () {
         var modules = customElements;
+        var pageTitle = $('title').text();
 
         var topModules = _.sortBy(modules, function (el) {
             return el.stars;
@@ -14,7 +15,9 @@
         }).reverse().splice(0, 3);
 
         var allModules = _.sortBy(modules, function (el) {
-            el.name = el.name.replace('-custom-element', '').replace('-element', '').replace('-web-component', '');
+            el.name = el.name.replace('-custom-element', '')
+                             .replace('-element', '')
+                             .replace('-web-component', '');
             return el.name;
         });
 
@@ -33,18 +36,22 @@
         $('#loading').remove();
         $('#most-popular').append(mostPopTpl);
         $('#latest-popular').append(latestTpl);
-        $('#all').append(allTpl).find('.search').show().on('keyup', function(){
-            var tVal = $(this).val(),
-                title = $('title').text(),
-                hrefVal;
+        $('#all').append(allTpl);
 
-            if(tVal !== ''){
-                hrefVal = '?q='+tVal;
+        var searchInput = $('.search');
+        searchInput.show();
+
+        searchInput.on('input', function(e) {
+            var inputValue = e.target.value,
+                hrefValue;
+
+            if (inputValue !== '') {
+                hrefValue = '?q=' + inputValue;
             } else {
-                hrefVal = '.';
+                hrefValue = '.';
             }
 
-            history.replaceState(title, title, hrefVal);
+            history.replaceState(pageTitle, pageTitle, hrefValue);
         });
 
         var list = new List('all', {
@@ -58,18 +65,28 @@
         });
 
         var queryString = window.location.search.substring(1);
-        if(queryString !== ''){
+
+        if (queryString !== '') {
             var queryParams = {};
             queryString = queryString.split('&');
 
-            for(var i in queryString) {
+            for (var i in queryString) {
                 var key = queryString[i].split('=');
+
                 if (key.length > 1) {
-                    queryParams[decodeURIComponent(key[0].replace(/\+/g, " "))] = decodeURIComponent(key[1].replace(/\+/g, " "));
+                    var normalizedKey = decodeURIComponent(
+                        key[0].replace(/\+/g, " ")
+                    );
+
+                    var normalizedValue = decodeURIComponent(
+                        key[1].replace(/\+/g, " ")
+                    );
+
+                    queryParams[normalizedKey] = normalizedValue;
                 }
             }
 
-            $('.search').val(queryParams.q);
+            searchInput.val(queryParams.q);
             list.search(queryParams.q);
         }
 
