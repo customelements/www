@@ -14,9 +14,7 @@
         }).reverse().splice(0, 3);
 
         var allModules = _.sortBy(modules, function (el) {
-            el.name = el.name.replace('-custom-element', '');
-            el.name = el.name.replace('-element', '');
-            el.name = el.name.replace('-web-component', '');
+            el.name = el.name.replace('-custom-element', '').replace('-element', '').replace('-web-component', '');
             return el.name;
         });
 
@@ -35,9 +33,21 @@
         $('#loading').remove();
         $('#most-popular').append(mostPopTpl);
         $('#latest-popular').append(latestTpl);
-        $('#all').append(allTpl).find('.search').show();
+        $('#all').append(allTpl).find('.search').show().on('keyup', function(){
+            var tVal = $(this).val(),
+                title = $('title').text(),
+                hrefVal;
 
-        new List('all', {
+            if(tVal !== ''){
+                hrefVal = '?q='+tVal;
+            } else {
+                hrefVal = '.';
+            }
+
+            history.replaceState(title, title, hrefVal);
+        });
+
+        var list = new List('all', {
             valueNames: [
                 'name',
                 'desc',
@@ -46,5 +56,22 @@
                 'author'
             ]
         });
+
+        var queryString = window.location.search.substring(1);
+        if(queryString !== ''){
+            var queryParams = {};
+            queryString = queryString.split('&');
+
+            for(var i in queryString) {
+                var key = queryString[i].split('=');
+                if (key.length > 1) {
+                    queryParams[decodeURIComponent(key[0].replace(/\+/g, " "))] = decodeURIComponent(key[1].replace(/\+/g, " "));
+                }
+            }
+
+            $('.search').val(queryParams.q);
+            list.search(queryParams.q);
+        }
+
     });
 })(window, jQuery);
