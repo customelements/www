@@ -41,18 +41,20 @@
         var searchInput = $('.search');
         searchInput.show();
 
-        searchInput.on('input', function(e) {
-            var inputValue = e.target.value,
-                hrefValue;
+        if(history.replaceState){
+            searchInput.on('input', function(e) {
+                var inputValue = e.target.value,
+                    hrefValue;
 
-            if (inputValue !== '') {
-                hrefValue = '?q=' + inputValue;
-            } else {
-                hrefValue = '.';
-            }
+                if (inputValue !== '') {
+                    hrefValue = '?q=' + inputValue;
+                } else {
+                    hrefValue = '.';
+                }
 
-            history.replaceState(pageTitle, pageTitle, hrefValue);
-        });
+                history.replaceState(pageTitle, pageTitle, hrefValue);
+            });
+        }
 
         var list = new List('all', {
             valueNames: [
