@@ -238,5 +238,8 @@
     },
     {
         "repository": "stevenrskelton/sortable-table"
+    },
+    {
+        "repository": "luizbills/img-sprite"
     }
 ]
