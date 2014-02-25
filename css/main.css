@@ -326,14 +326,16 @@ input {
 }
 
 .button.load-more {
-    padding: 15px 20px;
     background: #9073c0;
+    border-radius: 4px;
     color: white;
-    font-size: 18px;
+    cursor: pointer;
     display: block;
+    font-size: 18px;
+    margin: 20px auto;
+    padding: 15px;
     text-align: center;
     width: 200px;
-    margin: 10px auto;
 }
 
 @media all and (max-width:45em) {
