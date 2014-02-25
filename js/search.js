@@ -1,4 +1,6 @@
 (function (win, $, _) {
+    'use strict';
+
     var Search = function () {
         this.pageTitle   = $('title').text();
         this.searchInput = $('.search');
