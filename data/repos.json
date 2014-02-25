@@ -241,5 +241,8 @@
     },
     {
         "repository": "luizbills/img-sprite"
+    },
+    {
+        "repository": "brenopolanski/xbox-live"
     }
 ]
