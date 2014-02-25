@@ -81,6 +81,7 @@
                     <p>Loading elements...</p>
                 </div>
                 <div id="all"></div>
+                <button type="button" class="button load-more">Load More 30...</button>
             </section>
         </div>
     </main>
@@ -138,7 +139,7 @@
     <script type="text/template" id="all-template">
         <table class="table">
             <caption>
-                <input style="display:none" class="search input-medium search-query" type="search" placeholder="Search in <%= modules.length %> elements..." autofocus>
+                <input class="search input-medium search-query" type="search" placeholder="Search in <%= modules.length %> elements..." autofocus>
             </caption>
             <thead>
                 <tr>

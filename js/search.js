@@ -1,11 +1,14 @@
 (function (win, $, _) {
     'use strict';
 
+    var PER_PAGE_PAGINATION = 30;
+
     var Search = function () {
         this.pageTitle   = $('title').text();
         this.searchInput = $('.search');
 
         this.bindInput();
+        this.bindLoadMore();
         this.createList();
         this.parseQueryString();
     };
@@ -20,8 +23,16 @@
                 'stars',
                 'forks',
                 'author'
-            ]
+            ],
+            page: PER_PAGE_PAGINATION
         });
+    };
+
+    Search.prototype.loadMore = function() {
+        var self      = this;
+        var pageItems = self.list.page;
+
+        self.list.show(1, pageItems+PER_PAGE_PAGINATION);
     };
 
     Search.prototype.bindInput = function() {
@@ -44,6 +55,26 @@
                 history.replaceState(self.pageTitle, self.pageTitle, hrefValue);
             });
         }
+    };
+
+    Search.prototype.bindLoadMore = function() {
+        var self = this;
+
+        $('.button.load-more').on('click', function (event) {
+            event.preventDefault();
+
+            if (!self.hasNextPage()) {
+                $('.button.load-more').hide();
+            }
+
+            self.loadMore();
+        });
+    };
+
+    Search.prototype.hasNextPage = function() {
+        var self = this;
+
+        return (self.list.page <= (self.list.items.length - PER_PAGE_PAGINATION));
     };
 
     Search.prototype.parseQueryString = function() {

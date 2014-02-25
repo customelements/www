@@ -256,6 +256,9 @@ input {
 
 /** Search
     ========================================================================= */
+.search-query {
+    display: none;
+}
 
 .main {
     clear: both;
@@ -320,6 +323,17 @@ input {
 
 .author {
     width: 20%;
+}
+
+.button.load-more {
+    padding: 15px 20px;
+    background: #9073c0;
+    color: white;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    width: 200px;
+    margin: 10px auto;
 }
 
 @media all and (max-width:45em) {
