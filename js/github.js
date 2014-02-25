@@ -20,5 +20,6 @@
         });
     };
 
-    $(function() { new GithubIssue(); });
+    window.GithubIssue = GithubIssue;
+
 })(window, jQuery);

@@ -7,9 +7,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     'dist/main.js': [
-                        'js/vendor/jquery.js',
                         'js/vendor/lodash.js',
-                        'js/vendor/jquery.timeago.js',
                         'js/vendor/list.js',
                         'js/main.js'
                     ]

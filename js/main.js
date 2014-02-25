@@ -7,5 +7,6 @@
         new Stats(window.customElements).append();
         new Repositories(window.customElements).append();
         new Search();
+        new GithubIssue();
     });
 })(window, jQuery);

@@ -27,7 +27,16 @@
         return name;
     };
 
+    Repositories.prototype.sortByStars = function(repos) {
+        return _.sortBy(repos, function (el) {
+            return el.stars;
+        }).reverse();
+    };
+
     Repositories.prototype.parse = function(repos) {
+        var self   = this;
+        var sorted = self.sortByStars(repos);
+
         return _.template($('#all-template').html(), {
             modules: repos
         });
