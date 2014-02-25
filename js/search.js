@@ -5,7 +5,7 @@
         this.pageTitle   = $('title').text();
         this.searchInput = $('.search');
 
-        this.bindInput()
+        this.bindInput();
         this.createList();
         this.parseQueryString();
     };
