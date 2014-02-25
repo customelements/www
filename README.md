@@ -42,6 +42,12 @@ To run all the tasks above and watch for any changes in the JavaScript files, ru
 $ grunt watch
 ```
 
+To fetch dependencies from [Bower](http://bower.io/), run:
+
+```sh
+$ grunt bower
+```
+
 ## Browser Support
 
 We do care about it.

@@ -1,0 +1,22 @@
+{
+    "name": "customelements.io",
+    "version": "0.1.0",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "jquery": "~2.1.0",
+        "listjs": "~1.0.2",
+        "lodash": "~2.4.1"
+    },
+    "exportsOverride": {
+        "jquery": {
+            "vendor": "dist/jquery.min.js"
+        },
+        "listjs": {
+            "vendor": "dist/list.min.js"
+        },
+        "lodash": {
+            "vendor": "dist/lodash.min.js"
+        }
+    }
+}

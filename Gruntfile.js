@@ -1,5 +1,14 @@
 module.exports = function (grunt) {
     grunt.initConfig({
+        bower: {
+            install: {
+                options: {
+                    targetDir: 'js',
+                    cleanBowerDir: true
+                }
+            }
+        },
+
         jshint: {
             files: ['js/*.js']
         },
@@ -44,6 +53,7 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
