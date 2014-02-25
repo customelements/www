@@ -36,6 +36,12 @@ To check indentation inconsistencies, run:
 $ grunt lintspaces
 ```
 
+To run all the tasks above and watch for any changes in the JavaScript files, run:
+
+```sh
+$ grunt watch
+```
+
 ## Browser Support
 
 We do care about it.

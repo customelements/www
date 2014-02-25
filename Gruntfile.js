@@ -36,15 +36,22 @@ module.exports = function (grunt) {
                     editorconfig: '.editorconfig'
                 }
             }
+        },
+
+        watch: {
+            files: ['js/*.js'],
+            tasks: ['default']
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-lintspaces');
 
     grunt.registerTask('default', [
+        'lintspaces',
         'jshint',
         'concat',
         'uglify'
