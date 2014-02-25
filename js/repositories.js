@@ -38,7 +38,7 @@
         var sorted = self.sortByStars(repos);
 
         return _.template($('#all-template').html(), {
-            modules: repos
+            modules: sorted
         });
     };
 
