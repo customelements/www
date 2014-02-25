@@ -3,17 +3,21 @@ module.exports = function (grunt) {
         jshint: {
             files: ['js/*.js']
         },
+
         concat: {
             dist: {
                 files: {
                     'dist/main.js': [
-                        'js/vendor/lodash.js',
-                        'js/vendor/list.js',
+                        'js/github.js',
+                        'js/repositories.js',
+                        'js/search.js',
+                        'js/stats.js',
                         'js/main.js'
                     ]
                 }
             }
         },
+
         uglify: {
             dist: {
                 files: {
@@ -21,6 +25,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+
         lintspaces: {
             all: {
                 src: [
