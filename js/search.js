@@ -6,6 +6,7 @@
     var Search = function () {
         this.pageTitle   = $('title').text();
         this.searchInput = $('.search');
+        this.loadMoreButton = $('.button.load-more');
 
         this.bindInput();
         this.bindLoadMore();
@@ -47,9 +48,11 @@
 
                 if (inputValue !== '') {
                     hrefValue = '?q=' + inputValue;
+                    self.loadMoreButton.hide();
                 }
                 else {
                     hrefValue = '.';
+                    self.loadMoreButton.show();
                 }
 
                 history.replaceState(self.pageTitle, self.pageTitle, hrefValue);
@@ -60,11 +63,11 @@
     Search.prototype.bindLoadMore = function() {
         var self = this;
 
-        $('.button.load-more').on('click', function (event) {
+        self.loadMoreButton.on('click', function (event) {
             event.preventDefault();
 
             if (!self.hasNextPage()) {
-                $('.button.load-more').hide();
+                self.loadMoreButton.hide();
             }
 
             self.loadMore();
@@ -84,6 +87,7 @@
         if (queryString !== '') {
             var queryParams = self.generateQueryParams(queryString.split('&'));
 
+            self.loadMoreButton.hide();
             self.searchInput.val(queryParams.q);
             self.list.search(queryParams.q);
         }
