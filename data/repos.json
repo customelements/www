@@ -244,5 +244,8 @@
     },
     {
         "repository": "brenopolanski/xbox-live"
+    },
+    {
+        "repository": "laat/chess-board"
     }
 ]
