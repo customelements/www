@@ -247,5 +247,8 @@
     },
     {
         "repository": "laat/chess-board"
+    },
+    {
+        "repository": "stevenrskelton/d3-datamaps"
     }
 ]
