@@ -1,38 +1,5 @@
 [
     {
-        "repository": "x-tag/appbar"
-    },
-    {
-        "repository": "x-tag/flipbox"
-    },
-    {
-        "repository": "x-tag/modal"
-    },
-    {
-        "repository": "x-tag/panel"
-    },
-    {
-        "repository": "x-tag/layout"
-    },
-    {
-        "repository": "x-tag/map"
-    },
-    {
-        "repository": "x-tag/mediaquery"
-    },
-    {
-        "repository": "x-tag/spinner"
-    },
-    {
-        "repository": "x-tag/slidebox"
-    },
-    {
-        "repository": "x-tag/scroll-list"
-    },
-    {
-        "repository": "x-tag/toggle"
-    },
-    {
         "repository": "eduardolundgren/video-camera-element"
     },
     {
@@ -126,31 +93,10 @@
         "repository": "kashiro/pocket-button"
     },
     {
-        "repository": "robdodson/mark-down"
-    },
-    {
-        "repository": "x-tag/sparkline"
-    },
-    {
-        "repository": "x-tag/deck"
-    },
-    {
-        "repository": "kashiro/dropbox-button"
-    },
-    {
-        "repository": "roman01la/pdf-reader-web-component"
-    },
-    {
-        "repository": "passy/x-pokemon"
-    },
-    {
         "repository": "felipenmoura/citation-custom-element"
     },
     {
         "repository": "tcelestino/facebook-likebox"
-    },
-    {
-        "repository": "janantala/love-heart"
     },
     {
         "repository": "alexroutledge/current-location"
@@ -189,22 +135,13 @@
         "repository": "luanmuniz/facebook-likebox"
     },
     {
-        "repository": "samarthwiz/sam-eagerlist"
-    },
-    {
         "repository": "bradoyler/weather-el"
     },
     {
         "repository": "ghostoy/a-dot"
     },
     {
-        "repository": "fzerocentral/fzc-animated-ship"
-    },
-    {
         "repository": "hmachefe/phono-webcomponent"
-    },
-    {
-        "repository": "samarthwiz/sam-tabbar"
     },
     {
         "repository": "fgimenez/google-tag-manager-element"
@@ -234,21 +171,9 @@
         "repository": "barrosfilipe/x-ragnarok-monster"
     },
     {
-        "repository": "bernarddeluna/xmas-tree"
-    },
-    {
-        "repository": "stevenrskelton/sortable-table"
-    },
-    {
         "repository": "luizbills/img-sprite"
     },
     {
         "repository": "brenopolanski/xbox-live"
-    },
-    {
-        "repository": "laat/chess-board"
-    },
-    {
-        "repository": "stevenrskelton/d3-datamaps"
     }
 ]
