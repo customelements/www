@@ -181,5 +181,8 @@
     },
     {
         "repository": "ruyadorno/polymer-simple-slider"
+    },
+    {
+        "repository": "admcode/x-alert"
     }
 ]
