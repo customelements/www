@@ -178,5 +178,8 @@
     },
     {
         "repository": "taltk9/github-repos-element"
+    },
+    {
+        "repository": "ruyadorno/polymer-simple-slider"
     }
 ]
