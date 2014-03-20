@@ -187,5 +187,8 @@
     },
     {
         "repository": "h5c3j/polymer-gh-markdown"
+    },
+    {
+        "repository": "geelen/x-gif"
     }
 ]
