@@ -70,4 +70,4 @@ If you want to submit your Web Component, please read the [Contributing](https:/
 
 ## License
 
-[MIT License](http://zenorocha.mit-license.org/) © Zeno Rocha
+[MIT License](http://webcomponentsorg.mit-license.org/) © WebComponents.org
