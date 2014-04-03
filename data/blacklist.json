@@ -10,5 +10,23 @@
     },
     {
         "repository": "vagnervjs/animoby-embed-element"
+    },
+    {
+        "repository": "ezoapp/gk-chart"
+    },
+    {
+        "repository": "ezoapp/gk-ext"
+    },
+    {
+        "repository": "ezoapp/gk-editor"
+    },
+    {
+        "repository": "ezoapp/gk-jquerymobile"
+    },
+    {
+        "repository": "ezoapp/gk-loader"
+    },
+    {
+        "repository": "ezoapp/jquery.gk"
     }
 ]
