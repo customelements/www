@@ -1,11 +1,5 @@
 {
-    "name": "customelements.io",
-    "version": "0.1.0",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/customelements/customelements.io.git"
-    },
+    "private": true,
     "devDependencies": {
         "grunt": "~0.4.2",
         "grunt-bower-task": "~0.3.4",
@@ -14,8 +8,5 @@
         "grunt-contrib-uglify": "~0.2.0",
         "grunt-contrib-watch": "~0.5.3",
         "grunt-lintspaces": "~0.4.1"
-    },
-    "engines": {
-        "node": ">=0.8.0"
     }
 }
