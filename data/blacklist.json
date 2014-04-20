@@ -28,5 +28,14 @@
     },
     {
         "repository": "ezoapp/jquery.gk"
+    },
+    {
+        "repository": "ezoapp/gk-swiper-navbar"
+    },
+    {
+        "repository": "ezoapp/gk-google-font"
+    },
+    {
+        "repository": "cobaimelan/x-spotify"
     }
 ]
