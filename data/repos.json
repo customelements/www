@@ -202,5 +202,8 @@
     },
     {
         "repository": "umarsheikh13/google-static-maps-element"
+    },
+    {
+        "repository": "rmdort/polymer-progress-bar"
     }
 ]
