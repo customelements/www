@@ -205,5 +205,8 @@
     },
     {
         "repository": "rmdort/polymer-progress-bar"
+    },
+    {
+        "repository": "press22day/magic-eight-ball"
     }
 ]
