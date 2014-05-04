@@ -211,5 +211,8 @@
     },
     {
         "repository": "kassyn/x-sky"
+    },
+    {
+        "repository": "tradespoke/polymer-elements"
     }
 ]
