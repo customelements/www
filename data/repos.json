@@ -214,5 +214,8 @@
     },
     {
         "repository": "tradespoke/polymer-elements"
+    },
+    {
+        "repository": "karan/sc-embed"
     }
 ]
