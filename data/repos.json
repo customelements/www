@@ -217,5 +217,8 @@
     },
     {
         "repository": "bosonic/b-toggle-button"
+    },
+    {
+        "repository": "cmartinezv/star-rating"
     }
 ]
