@@ -214,5 +214,8 @@
     },
     {
         "repository": "tradespoke/polymer-elements"
+    },
+    {
+        "repository": "bosonic/b-toggle-button"
     }
 ]
