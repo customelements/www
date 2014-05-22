@@ -10,6 +10,14 @@
     <script type="text/javascript" src="//use.typekit.net/wyk6ixu.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <link rel="stylesheet" href="css/main.css">
+    
+    <link rel="import" href="bower_components/polymer/polymer.html">
+
+    <link rel="import" href="bower_components/facebook-button/src/facebook-button.html">
+    <link rel="import" href="bower_components/twitter-button/src/twitter-button.html">
+    <link rel="import" href="bower_components/github-button/src/github-button.html">
+    <link rel="import" href="bower_components/gplus-button/src/gplus-button.html">
+
 </head>
 <body>
     <header class="header">
@@ -22,7 +30,7 @@
 
     <main class="content">
         <!-- Social -->
-        <ul class="social-buttons">
+        <!-- <ul class="social-buttons">
             <li class="tweet-btn">
                 <iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.1359159993.html#_=1360010161235&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;size=m&amp;text=http%3A%2F%2Fcustomelements.io ~ A Web Components Gallery for Modern Web Apps&amp;url" class="twitter-share-button twitter-count-horizontal" style="width: 100px; height: 20px;" title="Twitter Tweet Button" data-twttr-rendered="true"></iframe>
             </li>
@@ -41,6 +49,21 @@
             </li>
             <li class="gh-btn">
                 <iframe src="http://ghbtns.com/github-btn.html?user=webcomponents&amp;repo=customelements.io&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="85px" height="20px"></iframe>
+            </li>
+        </ul> -->
+
+        <ul class="social-buttons">
+            <li class="tweet-btn">
+                <twitter-button type="share" href="http://customelements.io/" height="20" width="100" text="http://customelements.io ~ A Web Components Gallery for Modern Web Apps"></twitter-button>
+            </li>
+            <li class="fb-btn">
+                <facebook-button href="http://customelements.io/" layout="button_count" height="21" width="90"></facebook-button>
+            </li>
+            <li class="gplus-btn">
+                <gplus-button size="medium" href="http://customelements.io"></gplus-button>
+            </li>
+            <li class="gh-btn">
+                <github-button user="webcomponents" repo="customelements.io"></github-button>
             </li>
         </ul>
 
