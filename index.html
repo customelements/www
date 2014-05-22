@@ -10,6 +10,13 @@
     <script type="text/javascript" src="//use.typekit.net/wyk6ixu.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <link rel="stylesheet" href="css/main.css">
+    
+    <script type="text/javascript" src="bower_components/platform/platform.js"></script>
+    <link rel="import" href="bower_components/facebook-button/dist/facebook-button.html">
+    <link rel="import" href="bower_components/twitter-button/dist/twitter-button.html">
+    <link rel="import" href="bower_components/github-button/dist/github-button.html">
+    <link rel="import" href="bower_components/gplus-button/dist/gplus-button.html">
+
 </head>
 <body>
     <header class="header">
@@ -24,23 +31,16 @@
         <!-- Social -->
         <ul class="social-buttons">
             <li class="tweet-btn">
-                <iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.1359159993.html#_=1360010161235&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;size=m&amp;text=http%3A%2F%2Fcustomelements.io ~ A Web Components Gallery for Modern Web Apps&amp;url" class="twitter-share-button twitter-count-horizontal" style="width: 100px; height: 20px;" title="Twitter Tweet Button" data-twttr-rendered="true"></iframe>
+                <twitter-button type="share" href="http://customelements.io/" height="20" width="100" text="http://customelements.io ~ A Web Components Gallery for Modern Web Apps"></twitter-button>
             </li>
             <li class="fb-btn">
-                <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcustomelements.io&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=176947299114210" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
+                <facebook-button href="http://customelements.io/" layout="button_count" height="21" width="90"></facebook-button>
             </li>
             <li class="gplus-btn">
-                <div class="g-plusone" data-size="medium"></div>
-                <script type="text/javascript">
-                    (function() {
-                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                    po.src = 'https://apis.google.com/js/plusone.js';
-                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                    })();
-                </script>
+                <gplus-button size="medium" href="http://customelements.io"></gplus-button>
             </li>
             <li class="gh-btn">
-                <iframe src="http://ghbtns.com/github-btn.html?user=webcomponents&amp;repo=customelements.io&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="85px" height="20px"></iframe>
+                <github-button user="webcomponents" repo="customelements.io"></github-button>
             </li>
         </ul>
 
