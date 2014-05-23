@@ -1,0 +1,33 @@
+<!-- Import Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!-- Define your custom element -->
+<polymer-element name="facebook-button" attributes="action colorscheme font href layout showfaces height width">
+
+    <template>
+        <iframe src="//www.facebook.com/plugins/like.php?href={{href}}&amp;send=false&amp;layout={{layout}}&amp;width={{width}}&amp;height={{height}}&amp;show_faces={{showfaces}}&amp;font={{font}}&amp;colorscheme={{colorscheme}}&amp;action={{action}}" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+        <style>
+            iframe {
+                border: none;
+                overflow: hidden;
+                height: {{height}}px;
+                width: {{width}}px;
+            }
+        </style>
+    </template>
+
+    <script>
+        Polymer('facebook-button', {
+            action     : 'like',
+            colorscheme: 'light',
+            font       : 'arial',
+            href       : 'http://customelements.io',
+            layout     : 'button_count',
+            showfaces  : 'false',
+            height     : '20',
+            width      : '120'
+        });
+    </script>
+
+</polymer-element>

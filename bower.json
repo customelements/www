@@ -1,27 +1,27 @@
 {
-  "name": "customelements.io",
-  "version": "0.1.0",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "jquery": "~2.1.0",
-    "listjs": "~1.1.1",
-    "lodash": "~2.4.1",
-    "facebook-button": "zenorocha/facebook-button#~0.1.2",
-    "twitter-button": "zenorocha/twitter-button#~0.1.4",
-    "gplus-button": "zenorocha/gplus-button#~0.1.3",
-    "github-button": "zenorocha/github-button#~0.1.2",
-    "polymer": "Polymer/polymer#~0.2.4"
-  },
-  "exportsOverride": {
-    "jquery": {
-      "vendor": "dist/jquery.min.js"
+    "name": "customelements.io",
+    "version": "0.1.0",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "jquery": "~2.1.0",
+        "listjs": "~1.1.1",
+        "lodash": "~2.4.1",
+        "facebook-button": "zenorocha/facebook-button#~0.1.3",
+        "twitter-button": "zenorocha/twitter-button#~0.1.5",
+        "gplus-button": "zenorocha/gplus-button#~0.1.4",
+        "github-button": "zenorocha/github-button#~0.1.3",
+        "polymer": "Polymer/polymer#~0.2.4"
     },
-    "listjs": {
-      "vendor": "dist/list.min.js"
-    },
-    "lodash": {
-      "vendor": "dist/lodash.min.js"
+    "exportsOverride": {
+        "jquery": {
+            "vendor": "dist/jquery.min.js"
+        },
+        "listjs": {
+            "vendor": "dist/list.min.js"
+        },
+        "lodash": {
+            "vendor": "dist/lodash.min.js"
+        }
     }
-  }
 }
