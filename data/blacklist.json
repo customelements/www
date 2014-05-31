@@ -43,5 +43,8 @@
     },
     {
         "repository": "robdodson/x-foo"
+    },
+    {
+        "repository": "arodic/three-attribute-editor"
     }
 ]
