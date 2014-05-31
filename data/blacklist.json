@@ -49,5 +49,8 @@
     },
     {
         "repository": "bosonic/b-toggle-button"
+    },
+    {
+        "repository": "mvaldetaro/twbs-buttons"
     }
 ]
