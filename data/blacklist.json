@@ -40,5 +40,8 @@
     },
     {
         "repository": "gaplyk/input-currency"
+    },
+    {
+        "repository": "robdodson/x-foo"
     }
 ]
