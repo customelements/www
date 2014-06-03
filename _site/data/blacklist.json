@@ -1,0 +1,41 @@
+[
+    {
+        "repository": "x-tag/core"
+    },
+    {
+        "repository": "Polymer/polymer"
+    },
+    {
+        "repository": "components/polymer"
+    },
+    {
+        "repository": "vagnervjs/animoby-embed-element"
+    },
+    {
+        "repository": "ezoapp/gk-chart"
+    },
+    {
+        "repository": "ezoapp/gk-ext"
+    },
+    {
+        "repository": "ezoapp/gk-editor"
+    },
+    {
+        "repository": "ezoapp/gk-jquerymobile"
+    },
+    {
+        "repository": "ezoapp/gk-loader"
+    },
+    {
+        "repository": "ezoapp/jquery.gk"
+    },
+    {
+        "repository": "ezoapp/gk-swiper-navbar"
+    },
+    {
+        "repository": "ezoapp/gk-google-font"
+    },
+    {
+        "repository": "zedesk/zdk-waiting"
+    }
+]
