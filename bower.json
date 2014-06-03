@@ -7,11 +7,10 @@
         "jquery": "~2.1.0",
         "listjs": "~1.1.1",
         "lodash": "~2.4.1",
-        "facebook-button": "zenorocha/facebook-button#~0.1.3",
-        "twitter-button": "zenorocha/twitter-button#~0.1.5",
-        "gplus-button": "zenorocha/gplus-button#~0.1.4",
-        "github-button": "zenorocha/github-button#~0.1.3",
-        "polymer": "Polymer/polymer#~0.2.4",
+        "facebook-button": "facebook-button#~0.1.3",
+        "twitter-button": "twitter-button#~0.1.5",
+        "gplus-button": "gplus-button#~0.1.5",
+        "github-button": "github-button#~0.1.3",
         "love-heart": "~0.2.0"
     },
     "exportsOverride": {
