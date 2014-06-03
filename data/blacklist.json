@@ -42,9 +42,6 @@
         "repository": "robdodson/x-foo"
     },
     {
-        "repository": "arodic/three-attribute-editor"
-    },
-    {
         "repository": "bosonic/b-toggle-button"
     }
 ]
