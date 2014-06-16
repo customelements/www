@@ -1,0 +1,44 @@
+<!-- Import Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!-- Define your custom element -->
+<polymer-element name="twitter-button" attributes="text type href user hashtag height width">
+
+    <template>
+        <template if="{{type == 'follow'}}">
+            <iframe src="https://platform.twitter.com/widgets/follow_button.html?screen_name={{user}}" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+        </template>
+
+        <template if="{{type == 'share'}}">
+            <iframe src="http://platform.twitter.com/widgets/tweet_button.html?url={{href}}&amp;via={{user}}&amp;text={{text}}" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+        </template>
+
+        <template if="{{type == 'hashtag'}}">
+            <iframe src="https://platform.twitter.com/widgets/tweet_button.html?text={{text}}&amp;button_hashtag={{hashtag}}&amp;type=hashtag" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+        </template>
+
+        <template if="{{type == 'mention'}}">
+            <iframe src="https://platform.twitter.com/widgets/tweet_button.html?screen_name={{user}}&amp;type=mention" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+        </template>
+
+        <style>
+            iframe {
+                height: {{height}}px;
+                width: {{width}}px;
+            }
+        </style>
+    </template>
+
+    <script>
+        Polymer('twitter-button', {
+            text   : 'Web Components rocks!',
+            href   : 'http://webcomponents.org',
+            user   : 'Web_Components',
+            hashtag: 'webcomponents',
+            height : '25',
+            width  : '115',
+            type   : 'share'
+        });
+    </script>
+
+</polymer-element>

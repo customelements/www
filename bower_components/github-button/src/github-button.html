@@ -1,0 +1,30 @@
+<!-- Import Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!-- Define your custom element -->
+<polymer-element name="github-button" attributes="user repo type count height width size">
+
+    <template>
+        <iframe src="http://ghbtns.com/github-btn.html?user={{user}}&amp;repo={{repo}}&amp;type={{type}}&amp;count={{count}}&amp;size={{size}}" allowtransparency="true" frameborder="0" scrolling="0"></iframe>
+
+        <style>
+            iframe {
+                height: {{height}}px;
+                width: {{width}}px;
+            }
+        </style>
+    </template>
+
+    <script>
+        Polymer('github-button', {
+            user  : 'webcomponents',
+            repo  : 'webcomponents.github.io',
+            type  : 'watch',
+            count : 'true',
+            height: '30',
+            width : '150',
+            size  : 'regular'
+        });
+    </script>
+
+</polymer-element>

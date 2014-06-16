@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>&lt;love-heart&gt;</title>
+
+  <!-- Importing Web Component's Polyfill -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.3.0/platform.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.3.0/polymer.js"></script>
+
+  <!-- Importing Custom Elements -->
+  <link rel="import" href="love-heart.html">
+  
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:200,300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Titillium Web', sans-serif; 
+      text-align: center;
+    }
+
+    header {
+      background-color: rgb(58,126,198);
+      color: white;
+      padding: 5px 0;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    .title {
+      font-weight: 400px;
+    }
+
+    .content {
+      color: rgb(85, 85, 85);
+      min-height: 500px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .text-left {
+      text-align: left;
+    }
+
+    footer {
+      background-color: rgb(201,70,59);
+      padding: 5px 0;
+    }
+
+    .line {
+      margin: 10px auto;
+    }
+
+    .code {
+      padding: 2px 10px;
+      background-color: rgb(29,31,33);
+      color: rgb(175,186,183);
+      font-family: 'Droid Sans Mono', 'Titillium Web', sans-serif;
+      font-size: 14px;
+    }
+
+    .code-prompt {
+      font-weight: bold;
+    }
+
+    .code-vial {
+      color: rgb(108,143,167);
+    }
+
+    .code-yellow {
+      color: rgb(230,151,70);
+    }
+
+    .red {
+      color: rgb(201,70,59);
+    }
+
+    .white {
+      color: white;
+    }
+
+    .blue {
+      color: blue;
+    }
+
+    .yellow {
+      color: yellow;
+    }
+
+    .big {
+      font-size: 3.4em;
+    }
+
+    .huge {
+      font-size: 7.4em;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="title">&lt;love-heart&gt;</h1>
+    <p><i>Pulsing love heart Web Component</i></p>
+
+    <p class="code">
+      <span class="code-prompt code-vial">❯</span> bower install <span class="code-yellow">love-heart</span>
+    </p>
+
+    <p>
+      <iframe src="http://ghbtns.com/github-btn.html?user=janantala&repo=love-heart&type=watch&count=true"
+    allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+
+      <iframe src="http://ghbtns.com/github-btn.html?user=janantala&repo=love-heart&type=fork"
+    allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
+
+      <iframe src="http://ghbtns.com/github-btn.html?user=janantala&type=follow"
+      allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
+    </p>
+    
+  </header>  
+
+  <div class="content">
+
+    <h3 class="text-left">Default element:</h3>
+
+    <div class="line">
+    <p>Made with <love-heart>love</love-heart> by me</p>
+    <p class="code code-html">
+      Made with <span class="code-vial">&lt;love-heart&gt;&lt;/love-heart&gt;</span> by me
+    </p>
+    </div>
+
+    <h3 class="text-left">Apply your own CSS:</h3>
+
+    <div class="line">
+    <p>Made with <love-heart class="blue">love</love-heart> by me</p>
+    <p class="code code-html">
+      Made with <span class="code-vial">&lt;love-heart <span class="code-yellow">class="blue"</span> &gt;&lt;/love-heart&gt;</span> by me
+    </p>
+    </div>
+
+    <div class="line">
+    <p>Made with <love-heart class="yellow">love</love-heart> by me</p>
+    <p class="code code-html">
+      Made with <span class="code-vial">&lt;love-heart <span class="code-yellow">class="yellow"</span> &gt;&lt;/love-heart&gt;</span> by me
+    </p>
+    </div>
+
+    <div class="line">
+    <p>Made with <love-heart class="big">love</love-heart> by me</p>
+    <p class="code code-html">
+      Made with <span class="code-vial">&lt;love-heart <span class="code-yellow">class="big"</span> &gt;&lt;/love-heart&gt;</span> by me
+    </p>
+    </div>
+
+    <div class="line">
+    <p>Made with <love-heart class="huge">love</love-heart> by me</p>
+    <p class="code code-html">
+      Made with <span class="code-vial">&lt;love-heart <span class="code-yellow">class="huge"</span> &gt;&lt;/love-heart&gt;</span> by me
+    </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Made with <love-heart class="white">love</love-heart> by <a href="http://janantala.com">Jan Antala</a></p>
+    <p>2014 Licensed under <a href="http://opensource.org/licenses/MIT">MIT</a></p>
+  </footer>
+</body>
+</html>

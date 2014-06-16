@@ -1,0 +1,29 @@
+{
+  "name": "gplus-button",
+  "version": "0.1.5",
+  "description": "Web Component wrapper for Google's +1 button using Polymer.",
+  "license": "MIT",
+  "main": "dist/gplus-button.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.1"
+  },
+  "homepage": "https://github.com/zenorocha/gplus-button",
+  "_release": "0.1.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.5",
+    "commit": "a70dd945b9b093488851b0bc1b25ee5a1a09569b"
+  },
+  "_source": "git://github.com/zenorocha/gplus-button.git",
+  "_target": "~0.1.5",
+  "_originalSource": "gplus-button"
+}

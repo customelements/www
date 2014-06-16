@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>&lt;twitter-button&gt;</title>
+
+    <!-- Importing Web Component's Polyfill -->
+    <script src="bower_components/platform/platform.js"></script>
+
+    <!-- Importing Custom Elements -->
+    <link rel="import" href="src/twitter-button.html">
+</head>
+<body>
+
+    <!-- Using Custom Elements -->
+    <twitter-button type="share" text="Web Components rocks!" user="Web_Components" href="http://webcomponents.org/" width="300"></twitter-button>
+
+    <br><br>
+
+    <twitter-button type="follow" user="Web_Components" width="300"></twitter-button>
+
+    <br><br>
+
+    <twitter-button type="hashtag" hashtag="webcomponents" width="300"></twitter-button>
+
+    <br><br>
+
+    <twitter-button type="mention" user="Web_Components" width="300"></twitter-button>
+
+</body>
+</html>

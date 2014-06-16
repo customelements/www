@@ -1,0 +1,41 @@
+<!-- Import Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!-- Define your custom element -->
+<polymer-element name="gplus-follow"
+         attributes="annotation height href lang rel size width">
+
+    <script>
+        Polymer("gplus-follow", {
+            annotation : "bubble",
+            height     : 20,
+            href       : "https://plus.google.com/+WebcomponentsOrg",
+            lang       : "en-US",
+            rel        : "",
+            size       : "standard",
+            width      : 300,
+
+            ready: function () {
+                var script = document.createElement("script"),
+                    div = document.createElement("div"),
+                    body = document.body;
+
+                script.setAttribute("type", "text/javascript");
+                script.setAttribute("src", "https://apis.google.com/js/plusone.js");
+                script.setAttribute("async", true);
+                script.innerHTML = "{lang: '" + this.lang + "'}";
+
+                div.setAttribute("class", "g-follow");
+
+                div.setAttribute("data-href", this.href);
+                div.setAttribute("data-annotation", this.annotation);
+                div.setAttribute("data-rel", this.rel);
+                div.setAttribute("data-height", this.height);
+
+                this.appendChild(div);
+                body.appendChild(script);
+            }
+        });
+    </script>
+
+</polymer-element>
