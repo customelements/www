@@ -211,5 +211,8 @@
     },
     {
         "repository": "pazguille/github-card"
-    }    
+    },
+    {
+        "repository": "hmachefe/kaleidoscopicWebComponent"
+    }
 ]
