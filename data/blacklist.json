@@ -43,5 +43,8 @@
     },
     {
         "repository": "bosonic/b-toggle-button"
+    },
+    {
+        "repository": "adamwulf/Columnizer-jQuery-Plugin"
     }
 ]
