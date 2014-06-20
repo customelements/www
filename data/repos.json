@@ -214,5 +214,8 @@
     },
     {
         "repository": "hmachefe/kaleidoscopicWebComponent"
+    },
+    {
+        "repository": "stopsatgreen/leaflet-map"
     }
 ]
