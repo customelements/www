@@ -217,5 +217,8 @@
     },
     {
         "repository": "stopsatgreen/leaflet-map"
+    },
+    {
+        "repository": "nsisodiya/x-daterange"
     }
 ]
