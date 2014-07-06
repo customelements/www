@@ -46,5 +46,8 @@
     },
     {
         "repository": "votingsystem/votingsystem-texteditor"
+    },
+    {
+        "repository": "elricL/plivo-web-component"
     }
 ]
