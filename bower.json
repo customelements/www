@@ -1,7 +1,4 @@
 {
-    "name": "customelements.io",
-    "version": "0.1.0",
-    "license": "MIT",
     "private": true,
     "dependencies": {
         "jquery": "~2.1.0",
