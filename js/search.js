@@ -39,8 +39,6 @@
     Search.prototype.bindInput = function() {
         var self = this;
 
-        self.searchInput.show();
-
         if (history.replaceState) {
             self.searchInput.on('input', function(e) {
                 var inputValue = e.target.value,
