@@ -1,14 +1,15 @@
 {
+    "name": "customelements.io",
     "private": true,
     "dependencies": {
-        "jquery": "~2.1.0",
+        "jquery": "~2.1.1",
         "listjs": "~1.1.1",
         "lodash": "~2.4.1",
-        "facebook-button": "~0.1.3",
-        "twitter-button": "~0.1.5",
-        "gplus-elements": "~0.2.0",
-        "github-button": "~0.1.3",
-        "love-heart": "~0.2.0"
+        "facebook-button": "~0.1.5",
+        "twitter-button": "~0.1.7",
+        "gplus-elements": "~0.2.1",
+        "github-button": "~0.1.5",
+        "love-heart": "~0.3.0"
     },
     "exportsOverride": {
         "jquery": {

@@ -1,6 +1,6 @@
 {
   "name": "twitter-button",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Web Component wrapper for Twitter's button using Polymer.",
   "license": "MIT",
   "main": "dist/twitter-button.html",
@@ -14,16 +14,16 @@
     "bower_components"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.3.1"
+    "polymer": "Polymer/polymer#>=0.3.0 <1.0.0"
   },
   "homepage": "https://github.com/zenorocha/twitter-button",
-  "_release": "0.1.6",
+  "_release": "0.1.7",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.6",
-    "commit": "ea1007c7083552c7b30516c1ffc4a571afc5ee9c"
+    "tag": "v0.1.7",
+    "commit": "792236bd19269956c3867c505e18058095832e1c"
   },
   "_source": "git://github.com/zenorocha/twitter-button.git",
-  "_target": "~0.1.5",
+  "_target": "~0.1.7",
   "_originalSource": "twitter-button"
 }

@@ -1,26 +1,18 @@
-# &lt;love-heart&gt; v0.2.0
+# &lt;love-heart&gt; v0.3.0
 
 Pulsing love heart web component
-
-#### Demo
-Check out http://janantala.github.io/love-heart/
 
 ![love](https://raw.github.com/janantala/love-heart/master/img/love.gif)
 ```html
 Made with <love-heart></love-heart> by me
 ```
 
-### Apply your own CSS:
+#### Demo
+Check out http://janantala.github.io/love-heart/ or http://customelements.io/
 
-```css
-.blue { color: blue; }
-.big { font-size: 3.4em; }
-```
-
-```html
-Made with <love-heart class="blue"></love-heart> by me
-Made with <love-heart class="big"></love-heart> by me
-```
+##### Our partners 
+<a href="http://customelements.io/"><img src="http://customelements.io/img/profile-200.jpg" height="50px"/></a>
+&nbsp;<a href="http://customelements.io/">customelements.io</a>
 
 # Usage
 
@@ -48,6 +40,18 @@ Made with <love-heart class="big"></love-heart> by me
 	```html
 	<love-heart></love-heart>
 	```
+
+### Apply your own CSS:
+
+```css
+.blue { color: blue; }
+.big { font-size: 3.4em; }
+```
+
+```html
+Made with <love-heart class="blue"></love-heart> by me
+Made with <love-heart class="big"></love-heart> by me
+```
 
 ## Fallback
 
