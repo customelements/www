@@ -1,6 +1,10 @@
 # [CustomElements.io](http://customelements.io/)
 
-A Web Components Gallery for Modern Web Apps.
+[![DevDependencies Status](http://img.shields.io/david/dev/webcomponents/customelements.io.svg?style=flat)](https://david-dm.org/webcomponents/customelements.io#info=devDependencies)
+
+![CustomElements.io Screenshot](https://cloud.githubusercontent.com/assets/398893/3612564/2eb5a1a2-0dad-11e4-8c8f-f1730b437eea.png)
+
+> A Web Components Gallery for Modern Web Apps.
 
 ## Tasks
 
