@@ -217,5 +217,11 @@
     },
     {
         "repository": "nsisodiya/x-daterange"
+    },
+    {
+        "repository": "andybryant/glue-request-dispatcher"
+    },
+    {
+        "repository": "andybryant/glue-command"
     }
 ]
