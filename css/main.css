@@ -178,6 +178,15 @@ input {
     border-radius: 4px;
 }
 
+input[type="search"] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+
 /** Buttons
     ========================================================================= */
 
