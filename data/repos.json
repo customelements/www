@@ -217,5 +217,8 @@
     },
     {
         "repository": "nsisodiya/x-daterange"
+    },
+    {
+        "repository": "oslego/onion-skin"
     }
 ]
