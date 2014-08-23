@@ -1,0 +1,25 @@
+{
+    "version": "1.0",
+    "name": "CustomElements.io",
+    "description": "CustomElements.io is where community-members show their awesome Web Components",
+    "icons": {
+        "60": "/img/profile-60.png",
+        "128": "/img/profile-128.png"
+    },
+    "developer": [{
+        "name": "Zeno Rocha",
+        "url": "https://github.com/zenorocha"
+    }, {
+        "name": "Bernard De Luna",
+        "url": "https://github.com/bernarddeluna"
+    }, {
+        "name": "Djalma Araújo",
+        "url": "https://github.com/djalmaaraujo"
+    }, {
+        "name": "Eduardo Lundgren",
+        "url": "https://github.com/eduardolundgren"
+    }],
+    "installs_allowed_from": ["*"],
+    "default_locale": "en",
+    "launch_path": "/index.html"
+}
