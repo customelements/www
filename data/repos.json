@@ -1,5 +1,8 @@
 [
     {
+        "repository": "avgp/fake-terminal"
+    },
+    {
         "repository": "eduardolundgren/video-camera-element"
     },
     {
