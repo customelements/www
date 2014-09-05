@@ -217,5 +217,152 @@
     },
     {
         "repository": "nsisodiya/x-daterange"
+    },
+    {
+        "repository": "polymer/core-input"
+    },
+    {
+        "repository": "polymer/core-header-panel"
+    },
+    {
+        "repository": "polymer/core-scroll-header-panel"
+    },
+    {
+        "repository": "polymer/core-popup-menu"
+    },
+    {
+        "repository": "polymer/core-item"
+    },
+    {
+        "repository": "polymer/core-elements"
+    },
+    {
+        "repository": "polymer/core-menu-button"
+    },
+    {
+        "repository": "polymer/core-overlay"
+    },
+    {
+        "repository": "polymer/core-range"
+    },
+    {
+        "repository": "polymer/core-selector"
+    },
+    {
+        "repository": "polymer/core-icon"
+    },
+    {
+        "repository": "polymer/core-splitter"
+    },
+    {
+        "repository": "polymer/core-a11y-keys"
+    },
+    {
+        "repository": "polymer/core-menu"
+    },
+    {
+        "repository": "polymer/core-animated-pages"
+    },
+    {
+        "repository": "polymer/core-tooltip"
+    },
+    {
+        "repository": "polymer/core-transition"
+    },
+    {
+        "repository": "polymer/core-toolbar"
+    },
+    {
+        "repository": "polymer/core-tests"
+    },
+    {
+        "repository": "polymer/core-style"
+    },
+    {
+        "repository": "polymer/core-signals"
+    },
+    {
+        "repository": "polymer/core-shared-lib"
+    },
+    {
+        "repository": "polymer/core-selection"
+    },
+    {
+        "repository": "polymer/core-scaffold"
+    },
+    {
+        "repository": "polymer/core-pages"
+    },
+    {
+        "repository": "polymer/core-meta"
+    },
+    {
+        "repository": "polymer/core-media-query"
+    },
+    {
+        "repository": "polymer/core-localstorage"
+    },
+    {
+        "repository": "polymer/core-list"
+    },
+    {
+        "repository": "polymer/core-layout-trbl"
+    },
+    {
+        "repository": "polymer/core-layout-grid"
+    },
+    {
+        "repository": "polymer/core-iconset-svg"
+    },
+    {
+        "repository": "polymer/core-iconset"
+    },
+    {
+        "repository": "polymer/core-icons"
+    },
+    {
+        "repository": "polymer/core-icon-button"
+    },
+    {
+        "repository": "polymer/core-home-page"
+    },
+    {
+        "repository": "polymer/core-field"
+    },
+    {
+        "repository": "polymer/core-drawer-panel"
+    },
+    {
+        "repository": "polymer/core-drag-drop"
+    },
+    {
+        "repository": "polymer/core-docs"
+    },
+    {
+        "repository": "polymer/core-doc-viewer"
+    },
+    {
+        "repository": "polymer/core-component-page"
+    },
+    {
+        "repository": "polymer/core-collapse"
+    },
+    {
+        "repository": "polymer/core-animation"
+    },
+    {
+        "repository": "polymer/core-ajax"
+    },
+    {
+        "repository": "polymer/core-layout"
+    },
+    {
+        "repository": "polymer/core-theme-aware"
+    },
+    {
+        "repository": "polymer/core-sampler"
+    },
+    {
+        "repository": "polymer/core-action-icons"
     }
 ]
