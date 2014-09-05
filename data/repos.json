@@ -370,5 +370,65 @@
     },
     {
         "repository": "polymer/firebase-import"
+    },
+    {
+        "repository": "polymer/paper-ripple"
+    },
+    {
+        "repository": "polymer/paper-dropdown-menu"
+    },
+    {
+        "repository": "polymer/paper-menu-button"
+    },
+    {
+        "repository": "polymer/paper-slider"
+    },
+    {
+        "repository": "polymer/paper-toast"
+    },
+    {
+        "repository": "polymer/paper-toggle-button"
+    },
+    {
+        "repository": "polymer/paper-tabs"
+    },
+    {
+        "repository": "polymer/paper-shadow"
+    },
+    {
+        "repository": "polymer/paper-radio-group"
+    },
+    {
+        "repository": "polymer/paper-radio-button"
+    },
+    {
+        "repository": "polymer/paper-progress"
+    },
+    {
+        "repository": "polymer/paper-item"
+    },
+    {
+        "repository": "polymer/paper-input"
+    },
+    {
+        "repository": "polymer/paper-icon-button"
+    },
+    {
+        "repository": "polymer/paper-focusable"
+    },
+    {
+        "repository": "polymer/paper-fab"
+    },
+    {
+        "repository": "polymer/paper-dialog"
+    },
+    {
+        "repository": "polymer/paper-checkbox"
+    },
+    {
+        "repository": "polymer/paper-calculator"
+    },
+    {
+        "repository": "polymer/paper-button"
     }
 ]
