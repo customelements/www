@@ -364,5 +364,11 @@
     },
     {
         "repository": "polymer/core-action-icons"
+    },
+    {
+        "repository": "polymer/firebase-element"
+    },
+    {
+        "repository": "polymer/firebase-import"
     }
 ]
