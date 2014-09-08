@@ -160,7 +160,23 @@ a:hover {
 .social-buttons li {
     display: inline-block;
     margin: 0 5px;
+    height: 24px;
+    vertical-align: top;
 }
+
+.tweet-btn{
+    width: 100px;
+}
+.fb-btn{
+    width: 100px;
+}
+.gplus-btn{
+    width: 90px;
+}
+.gh-btn{
+    width: 120px;
+}
+
 
 /** Form
     ========================================================================= */
