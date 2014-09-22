@@ -222,6 +222,9 @@
         "repository": "nsisodiya/x-daterange"
     },
     {
+        "repository": "github/time-elements"
+    },
+    {
         "repository": "polymer/core-input"
     },
     {
