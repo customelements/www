@@ -52,18 +52,13 @@
     Featured.prototype.setFeatured = function() {
         var self = this;
 
-        var topModules = _.sortBy(self.modules, function (el, value) {
-            return el.stargazers_count;
-        }).reverse().splice(0, 3);
-
-        self.popularModules = _.template($('#featured-elements-template').html(), {
-            modules: topModules
+        self.featuredModules = _.template($('#list-template').html(), {
+            modules: self.modules.splice(0, 3)
         });
     };
 
     Featured.prototype.append = function() {
-        $('#loading-featured-elements').remove();
-        $('#featured-elements-popular').append(this.popularModules);
+        $('#featured-elements').html(this.featuredModules);
     };
 
     win.Featured = Featured;

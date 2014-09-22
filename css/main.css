@@ -264,14 +264,14 @@ input[type="search"]::-webkit-search-cancel-button {
     }
 }
 
-.most-popular dt,
-.latest-popular dt,
-.featured-elements-popular dt {
+.popular-elements dt,
+.latest-elements dt,
+.featured-elements dt {
     display: block;
     margin-bottom: 0;
 }
 
-.row.three-column .most-popular{
+.row.three-column .popular-elements {
     margin-right: 0;
 }
 

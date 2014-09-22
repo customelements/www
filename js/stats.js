@@ -19,7 +19,7 @@
             return el.stars;
         }).reverse().splice(0, 3);
 
-        self.popularModules = _.template($('#most-popular-template').html(), {
+        self.popularModules = _.template($('#list-template').html(), {
             modules: topModules
         });
     };
@@ -31,14 +31,14 @@
             return el.created;
         }).reverse().splice(0, 3);
 
-        self.latestModules = _.template($('#latest-elements-template').html(), {
+        self.latestModules = _.template($('#list-template').html(), {
             modules: lastModules
         });
     };
 
     Stats.prototype.append = function() {
-        $('#most-popular').append(this.popularModules);
-        $('#latest-popular').append(this.latestModules);
+        $('#popular-elements').html(this.popularModules);
+        $('#latest-elements').html(this.latestModules);
     };
 
     win.Stats = Stats;
