@@ -11,20 +11,8 @@
         var self = this;
 
         self.repositories = _.sortBy(self.modules, function (el) {
-            el.name = self.removeSuffix(el.name);
-
             return el.name;
         });
-    };
-
-    Repositories.prototype.removeSuffix = function(name) {
-        var suffixBlackList = ['-custom-element', '-element', '-web-component'];
-
-        for (var i = 0; i < suffixBlackList.length; i++) {
-            name = name.replace(suffixBlackList[i], '');
-        }
-
-        return name;
     };
 
     Repositories.prototype.sortByStars = function(repos) {
