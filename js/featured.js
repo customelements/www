@@ -8,15 +8,14 @@
     };
 
     Featured.prototype.getFeatured = function() {
-
         var res = (function () {
             var res = null;
             $.ajax({
-                'async': false,
-                'global': false,
-                'url': "/data/featured.json",
-                'dataType': "json",
-                'success': function (data) {
+                async: false,
+                global: false,
+                url: '/data/featured.json',
+                dataType: 'json',
+                success: function (data) {
                     res = data;
                 }
             });
@@ -34,11 +33,11 @@
             var res = [];
             _.each(self.getFeatured(), function(featured){
                 $.ajax({
-                    'async': false,
-                    'global': false,
-                    'url': 'https://api.github.com/repos/'+featured.repository,
-                    'dataType': "json",
-                    'success': function (data) {
+                    async: false,
+                    global: false,
+                    url: 'https://api.github.com/repos/' + featured.repository,
+                    dataType: 'json',
+                    success: function (data) {
                         res.push(data);
                     }
                 });
