@@ -91,20 +91,36 @@
                 </form>
             </section>
 
-            <!-- Latest elements -->
-            <section class="latest-popular section">
-                <div id="latest-popular"></div>
-            </section>
+            <div class="row three-column">
+                <!-- Latest elements -->
+                <section class="latest-elements section">
+                    <h3>Latest elements</h3>
+                    <div id="latest-elements">
+                        <p>Loading...</p>
+                    </div>
+                </section>
 
-            <!-- Most popular elements -->
-            <section class="most-popular section">
-                <div id="most-popular"></div>
-            </section>
+                <!-- Featured elements -->
+                <section class="featured-elements section">
+                    <h3>Featured elements</h3>
+                    <div id="featured-elements">
+                        <p>Loading...</p>
+                    </div>
+                </section>
+
+                <!-- Most popular elements -->
+                <section class="popular-elements section">
+                    <h3>Most popular elements</h3>
+                    <div id="popular-elements">
+                        <p>Loading...</p>
+                    </div>
+                </section>
+            </div>
 
             <!-- List of elements -->
             <section class="main">
                 <div id="loading">
-                    <p>Loading elements...</p>
+                    <p>Loading list of elements...</p>
                 </div>
                 <div id="all"></div>
                 <button type="button" class="button load-more">Load more...</button>
@@ -142,18 +158,7 @@
         </ul>
     </footer>
 
-    <script type="text/template" id="latest-elements-template">
-        <h3>Latest elements</h3>
-        <dl class="dl-horizontal">
-            <% _.each(modules, function (el) { %>
-                <dt><a href="<%- el.url %>"><%- el.name %></a></dt>
-                <dd><%- el.description %></dd>
-            <% }); %>
-        </dl>
-    </script>​
-
-    <script type="text/template" id="most-popular-template">
-        <h3>Most popular elements</h3>
+    <script type="text/template" id="list-template">
         <dl class="dl-horizontal">
             <% _.each(modules, function (el) { %>
                 <dt><a href="<%- el.url %>"><%- el.name %></a></dt>

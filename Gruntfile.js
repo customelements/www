@@ -19,6 +19,7 @@ module.exports = function (grunt) {
                     'dist/main.js': [
                         'js/github.js',
                         'js/repositories.js',
+                        'js/featured.js',
                         'js/search.js',
                         'js/stats.js',
                         'js/main.js'
