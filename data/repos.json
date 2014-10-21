@@ -436,5 +436,9 @@
     },
     {
         "repository": "polymer/paper-button"
+    },
+    {
+        "repository": "Mortega5/star-rate"
     }
+    
 ]
