@@ -3,6 +3,9 @@
         "repository": "avgp/fake-terminal"
     },
     {
+        "repository": "avgp/code-editor"
+    },
+    {
         "repository": "eduardolundgren/video-camera-element"
     },
     {
