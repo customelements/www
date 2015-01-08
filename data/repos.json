@@ -442,5 +442,8 @@
     },
     {
         "repository": "DonSinDRom/svg-star-rating-meter"
+    },
+    {
+        "repository": "potch/flex-box"
     }
 ]
