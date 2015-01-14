@@ -444,6 +444,9 @@
         "repository": "DonSinDRom/svg-star-rating-meter"
     },
     {
-        "repository": "samthor/mobile-first"    
+        "repository": "potch/flex-box"
+    },
+    {
+      "repository": "samthor/mobile-first"    
     }
 ]
