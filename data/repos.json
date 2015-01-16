@@ -234,9 +234,6 @@
         "repository": "polymer/core-scroll-header-panel"
     },
     {
-        "repository": "polymer/core-popup-menu"
-    },
-    {
         "repository": "polymer/core-item"
     },
     {
@@ -333,9 +330,6 @@
         "repository": "polymer/core-home-page"
     },
     {
-        "repository": "polymer/core-field"
-    },
-    {
         "repository": "polymer/core-drawer-panel"
     },
     {
@@ -358,12 +352,6 @@
     },
     {
         "repository": "polymer/core-ajax"
-    },
-    {
-        "repository": "polymer/core-layout"
-    },
-    {
-        "repository": "polymer/core-theme-aware"
     },
     {
         "repository": "polymer/core-sampler"
