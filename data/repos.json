@@ -234,7 +234,13 @@
         "repository": "polymer/core-scroll-header-panel"
     },
     {
+        "repository": "polymer/core-scroll-threshold"
+    },
+    {
         "repository": "polymer/core-item"
+    },
+    {
+        "repository": "polymer/core-image"
     },
     {
         "repository": "polymer/core-elements"
@@ -309,6 +315,9 @@
         "repository": "polymer/core-list"
     },
     {
+        "repository": "polymer/core-label"
+    },
+    {
         "repository": "polymer/core-layout-trbl"
     },
     {
@@ -336,6 +345,12 @@
         "repository": "polymer/core-drag-drop"
     },
     {
+        "repository": "polymer/core-dropdown"
+    },
+    {
+        "repository": "polymer/core-dropdown-menu"
+    },
+    {
         "repository": "polymer/core-docs"
     },
     {
@@ -351,6 +366,9 @@
         "repository": "polymer/core-animation"
     },
     {
+        "repository": "polymer/core-animation-pages"
+    },
+    {
         "repository": "polymer/core-ajax"
     },
     {
@@ -364,6 +382,9 @@
     },
     {
         "repository": "polymer/firebase-import"
+    },
+    {
+        "repository": "polymer/paper-elements"
     },
     {
         "repository": "polymer/paper-ripple"
