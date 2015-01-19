@@ -49,5 +49,8 @@
     },
     {
         "repository": "elricL/plivo-web-component"
+    },
+    {
+        "repository": "allmobilize/amazeui"
     }
 ]
