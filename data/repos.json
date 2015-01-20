@@ -454,5 +454,8 @@
     },
     {
         "repository": "potch/flex-box"
+    },
+    {
+        "repository": "codejet/google-books-search"
     }
 ]
