@@ -3,6 +3,9 @@
         "repository": "avgp/fake-terminal"
     },
     {
+        "repository": "skadimoolam/polymer-currency-filter"
+    },
+    {
         "repository": "eduardolundgren/video-camera-element"
     },
     {
