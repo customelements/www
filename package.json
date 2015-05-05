@@ -1,5 +1,8 @@
 {
     "private": true,
+    "name": "www",
+    "version": "1.0.0",
+    "description": "The customelements.io site",
     "devDependencies": {
         "grunt": "~0.4.2",
         "grunt-bower-task": "~0.4.0",
