@@ -1,8 +1,5 @@
 {
   "private": true,
-  "name": "www",
-  "version": "2.0.0",
-  "description": "The customelements.io site",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
