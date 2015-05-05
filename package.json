@@ -1,12 +1,28 @@
 {
-    "private": true,
-    "devDependencies": {
-        "grunt": "~0.4.2",
-        "grunt-bower-task": "~0.4.0",
-        "grunt-contrib-concat": "~0.5.0",
-        "grunt-contrib-jshint": "~0.10.0",
-        "grunt-contrib-uglify": "~0.5.1",
-        "grunt-contrib-watch": "~0.6.1",
-        "grunt-lintspaces": "~0.6.0"
-    }
+  "private": true,
+  "name": "www",
+  "version": "2.0.0",
+  "description": "The customelements.io site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "good": "^6.1.2",
+    "good-console": "^5.0.0",
+    "hapi": "^8.4.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-bower-task": "~0.4.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-lintspaces": "~0.6.0"
+  },
+  "engines": {
+    "node": "0.12",
+    "npm": "2.x"
+  }
 }
