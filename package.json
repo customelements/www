@@ -2,7 +2,8 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "lab tests"
   },
   "dependencies": {
     "good": "^6.1.2",
@@ -11,13 +12,15 @@
     "newrelic": "^1.18.5"
   },
   "devDependencies": {
+    "chai": "^2.3.0",
     "grunt": "~0.4.2",
     "grunt-bower-task": "~0.4.0",
     "grunt-contrib-concat": "~0.5.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-uglify": "~0.5.1",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-lintspaces": "~0.6.0"
+    "grunt-lintspaces": "~0.6.0",
+    "lab": "^5.8.0"
   },
   "engines": {
     "node": "0.12",
