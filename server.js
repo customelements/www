@@ -21,9 +21,7 @@ server.register({
             reporter: require('good-console'),
             events: {
                 log: '*',
-                error: '*',
-                request: '*',
-                response: '*'
+                error: '*'
             }
         }]
     }
