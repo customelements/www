@@ -3,7 +3,7 @@ module.exports = [
         method: 'GET',
         path: '/',
         handler: function (response, reply) {
-            reply.file('index.html');
+            reply.file('public/index.html');
         }
     },
     {
