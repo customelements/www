@@ -265,35 +265,18 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .popular-elements dt,
-.latest-elements dt,
-.featured-elements dt {
+.latest-elements dt {
     display: block;
     margin-bottom: 0;
-}
-
-.row.three-column .popular-elements {
-    margin-right: 0;
 }
 
 /** =========================================================================
     Container, Row & Columns
     ========================================================================= */
 
-.row{
+.row {
     clear: both;
     overflow: hidden;
-}
-
-.three-column .section {
-    width: 29%;
-    margin-right: 6%;
-}
-
-@media all and (max-width: 800px) {
-    .three-column .section{
-        width: 100%;
-        margin-right: 0%;
-    }
 }
 
 /** Search
