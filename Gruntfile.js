@@ -1,28 +1,19 @@
 module.exports = function (grunt) {
     grunt.initConfig({
-        bower: {
-            install: {
-                options: {
-                    targetDir: 'js',
-                    cleanBowerDir: true
-                }
-            }
-        },
-
         jshint: {
-            files: ['js/*.js']
+            files: ['public/js/*.js']
         },
 
         concat: {
             dist: {
                 files: {
-                    'dist/main.js': [
-                        'js/github.js',
-                        'js/repositories.js',
-                        'js/featured.js',
-                        'js/search.js',
-                        'js/stats.js',
-                        'js/main.js'
+                    'public/dist/main.js': [
+                        'public/js/github.js',
+                        'public/js/repositories.js',
+                        'public/js/featured.js',
+                        'public/js/search.js',
+                        'public/js/stats.js',
+                        'public/js/main.js'
                     ]
                 }
             }
@@ -31,7 +22,7 @@ module.exports = function (grunt) {
         uglify: {
             dist: {
                 files: {
-                    'dist/main.js': 'dist/main.js'
+                    'public/dist/main.js': 'public/dist/main.js'
                 }
             }
         },
@@ -39,7 +30,7 @@ module.exports = function (grunt) {
         lintspaces: {
             all: {
                 src: [
-                    'css/*', 'data/*', 'js/*', 'index.html',
+                    'public/css/*', 'public/data/*', 'public/js/*', 'public/index.html',
                     'Gruntfile.js', 'package.json', 'README.md'
                 ],
                 options: {
@@ -49,12 +40,11 @@ module.exports = function (grunt) {
         },
 
         watch: {
-            files: ['js/*.js'],
+            files: ['public/js/*.js'],
             tasks: ['default']
         }
     });
 
-    grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
