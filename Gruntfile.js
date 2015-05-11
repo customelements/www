@@ -31,7 +31,7 @@ module.exports = function (grunt) {
             all: {
                 src: [
                     'public/css/*', 'public/data/*', 'public/js/*', 'public/index.html',
-                    'Gruntfile.js', 'package.json', 'README.md'
+                    'Gruntfile.js', 'README.md'
                 ],
                 options: {
                     editorconfig: '.editorconfig'

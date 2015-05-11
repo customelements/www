@@ -7,7 +7,7 @@ function controller(request, reply) {
             reply.view('index', {
                 latest: results[0],
                 popular: results[1],
-                firstPage: results[2],
+                firstPage: results[2]
             });
         })
         .catch(reply);
@@ -49,7 +49,7 @@ controller.firstPage = function(data) {
             index: 'customelements',
             type: 'repo',
             sort: 'stargazers_count:desc',
-            size: 30,
+            size: 30
         }).then(function(body) {
             resolve(body.hits.hits);
         }, function (error) {

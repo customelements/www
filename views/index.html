@@ -119,7 +119,7 @@
 
             <!-- List of elements -->
             <section class="main">
-                <table class="table">
+                <table id="all" class="table">
                     <caption>
                         <input class="search input-medium search-query" type="search" placeholder="Search in {{firstPage.length}} elements...">
                     </caption>
@@ -135,16 +135,15 @@
                     <tbody class="list">
                         {{#each firstPage}}
                             <tr>
-                                <td class="name"><a target="_blank" href="{{_source.url}}">{{_source.name}}</a></td>
+                                <td class="name"><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></td>
                                 <td class="desc">{{_source.description}}</td>
                                 <td class="stars">{{_source.stargazers_count}}</td>
                                 <td class="forks">{{_source.forks_count}}</td>
-                                <td class="author"><a target="_blank" href="{{_source.owner_url}}">{{_source.owner}}</a></td>
+                                <td class="author"><a target="_blank" href="https://github.com/{{_source.owner}}/">{{_source.owner}}</a></td>
                             </tr>
                         {{/each}}
                     </tbody>
                 </table>
-                <div id="all"></div>
                 <button type="button" class="button load-more">Load more...</button>
             </section>
         </div>

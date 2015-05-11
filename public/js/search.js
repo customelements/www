@@ -1,4 +1,4 @@
-(function (win, $, _) {
+(function (win, $) {
     'use strict';
 
     var PER_PAGE_PAGINATION = 30;
@@ -115,4 +115,4 @@
 
     window.Search = Search;
 
-})(window, jQuery, _);
+})(window, jQuery);
