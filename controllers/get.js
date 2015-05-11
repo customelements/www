@@ -37,7 +37,7 @@ controller.lastUpdate = function(data) {
         es.search({
             index: 'customelements',
             type: 'repo',
-            sort: 'updated_at:desc',
+            sort: 'pushed_at:desc',
             size: 3,
         }).then(function(body) {
             resolve(body.hits.hits);
