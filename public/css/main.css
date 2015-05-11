@@ -126,7 +126,12 @@ h3 {
     }
 }
 
-p, td, dd, dt {
+ol li {
+    list-style: decimal inside;
+    margin-left: 20px;
+}
+
+p, td, dd, dt, ol li {
     margin-bottom:1em;
     font-size: 1.6em;
     line-height: 1.6em;
@@ -142,6 +147,15 @@ a {
 
 a:hover {
     color: rgba(85, 26, 139, .7);
+}
+
+code {
+    padding: 2px 5px;
+    font-size: 90%;
+    color: rgba(85, 26, 139, 1);
+    background-color: rgba(85, 26, 139, .1);
+    border-radius: 4px;
+    font-family: "adelle", serif;
 }
 
 /** =========================================================================
@@ -222,26 +236,6 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .section:nth-child(even) {
     margin-right: 0;
-}
-
-.submit-own form {
-    background-color: #edecf1;
-    padding: 20px;
-    border-radius: 4px;
-}
-
-.submit-own input[type=text] {
-    border-radius: 4px 0 0 4px;
-    width: 70%;
-    float: left;
-}
-
-.submit-own .btn {
-    border-radius: 0 4px 4px 0;
-    padding: 10px;
-    width: 30%;
-    float: right;
-    text-align: center;
 }
 
 @media all and (max-width:45em) {

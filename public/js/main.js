@@ -2,7 +2,6 @@
     'use strict';
 
     $(function () {
-        new GithubIssue();
         $.ajax({
             url: 'http://search.customelements.io/?perPage=1500',
             dataType: 'json',
@@ -25,7 +24,7 @@
                 });
 
                 $('.list').html(html);
-                $('.search-query').attr('placeholder', 'Search in ' + data.total + ' elements...');
+                $('.search-query').attr('placeholder', 'Search in ' + data.total + ' repos...');
 
                 new Search();
             }

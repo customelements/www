@@ -8,11 +8,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     'public/dist/main.js': [
-                        'public/js/github.js',
-                        'public/js/repositories.js',
-                        'public/js/featured.js',
                         'public/js/search.js',
-                        'public/js/stats.js',
                         'public/js/main.js'
                     ]
                 }
