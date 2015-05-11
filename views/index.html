@@ -96,8 +96,8 @@
                     <div id="latest-elements">
                         <dl class="dl-horizontal">
                         {{#each latest}}
-                            <dt><a target="_blank" href="https://github.com/{{owner}}/{{name}}">{{name}}</a></dt>
-                            <dd>{{description}}</dd>
+                            <dt><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></dt>
+                            <dd>{{_source.description}}</dd>
                         {{/each}}
                         </dl>
                     </div>
@@ -109,8 +109,8 @@
                     <div id="popular-elements">
                         <dl class="dl-horizontal">
                         {{#each popular}}
-                            <dt><a target="_blank" href="https://github.com/{{owner}}/{{name}}">{{name}}</a></dt>
-                            <dd>{{description}}</dd>
+                            <dt><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></dt>
+                            <dd>{{_source.description}}</dd>
                         {{/each}}
                         </dl>
                     </div>
@@ -119,9 +119,31 @@
 
             <!-- List of elements -->
             <section class="main">
-                <div id="loading">
-                    <p>Loading list of elements...</p>
-                </div>
+                <table class="table">
+                    <caption>
+                        <input class="search input-medium search-query" type="search" placeholder="Search in {{firstPage.length}} elements...">
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="sort name" data-sort="name">Name</th>
+                            <th class="sort desc" data-sort="desc">Description</th>
+                            <th class="sort stars" data-sort="stars">Stars</th>
+                            <th class="sort forks" data-sort="forks">Forks</th>
+                            <th class="sort author" data-sort="author">Author</th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        {{#each firstPage}}
+                            <tr>
+                                <td class="name"><a target="_blank" href="{{_source.url}}">{{_source.name}}</a></td>
+                                <td class="desc">{{_source.description}}</td>
+                                <td class="stars">{{_source.stargazers_count}}</td>
+                                <td class="forks">{{_source.forks_count}}</td>
+                                <td class="author"><a target="_blank" href="{{_source.owner_url}}">{{_source.owner}}</a></td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
                 <div id="all"></div>
                 <button type="button" class="button load-more">Load more...</button>
             </section>
@@ -158,48 +180,8 @@
         </ul>
     </footer>
 
-    <script type="text/template" id="list-template">
-        <dl class="dl-horizontal">
-            <% _.each(modules, function (el) { %>
-                <dt><a target="_blank" href="<%- el.url %>"><%- el.name %></a></dt>
-                <dd><%- el.description %></dd>
-            <% }); %>
-        </dl>
-    </script>​
-
-    <script type="text/template" id="all-template">
-        <table class="table">
-            <caption>
-                <input class="search input-medium search-query" type="search" placeholder="Search in <%= modules.length %> elements...">
-            </caption>
-            <thead>
-                <tr>
-                    <th class="sort name" data-sort="name">Name</th>
-                    <th class="sort desc" data-sort="desc">Description</th>
-                    <th class="sort stars" data-sort="stars">Stars</th>
-                    <th class="sort forks" data-sort="forks">Forks</th>
-                    <th class="sort author" data-sort="author">Author</th>
-                </tr>
-            </thead>
-            <tbody class="list">
-                <% _.each(modules, function (el) { %>
-                    <tr>
-                        <td class="name"><a target="_blank" href="<%- el.url %>"><%- el.name %></a></td>
-                        <td class="desc"><%- el.description %></td>
-                        <td class="stars"><%- el.stars %></td>
-                        <td class="forks"><%- el.forks %></td>
-                        <td class="author"><a target="_blank" href="<%- el.owner_url %>"><%- el.owner %></a></td>
-                    </tr>
-                <% }); %>
-            </tbody>
-        </table>
-    </script>​
-
-    <script src="//customelementsio.herokuapp.com"></script>
-
     <script src="vendor/jquery/dist/jquery.min.js"></script>
     <script src="vendor/listjs/dist/list.min.js"></script>
-    <script src="vendor/lodash/dist/lodash.min.js"></script>
 
     <script src="dist/main.js"></script>
 

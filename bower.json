@@ -4,7 +4,6 @@
     "dependencies": {
         "jquery": "~2.1.1",
         "listjs": "~1.1.1",
-        "lodash": "~2.4.1",
         "facebook-button": "~0.1.5",
         "twitter-button": "~0.1.7",
         "gplus-elements": "~0.2.1",
@@ -17,9 +16,6 @@
         },
         "listjs": {
             "vendor": "dist/list.min.js"
-        },
-        "lodash": {
-            "vendor": "dist/lodash.min.js"
         }
     }
 }
