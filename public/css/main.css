@@ -258,10 +258,15 @@ input[type="search"]::-webkit-search-cancel-button {
     }
 }
 
-.popular-elements dt,
-.latest-elements dt {
+.created-repos dt,
+.updated-repos dt,
+.popular-repos dt {
     display: block;
     margin-bottom: 0;
+}
+
+.row.three-column .popular-repos {
+    margin-right: 0;
 }
 
 /** =========================================================================
@@ -271,6 +276,18 @@ input[type="search"]::-webkit-search-cancel-button {
 .row {
     clear: both;
     overflow: hidden;
+}
+
+.three-column .section {
+    width: 29%;
+    margin-right: 6%;
+}
+
+@media all and (max-width: 800px) {
+    .three-column .section{
+        width: 100%;
+        margin-right: 0;
+    }
 }
 
 /** Search

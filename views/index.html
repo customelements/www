@@ -89,13 +89,12 @@
                  </ol>
             </section>
 
-            <div class="row">
-                <!-- Latest elements -->
-                <section class="latest-elements section">
-                    <h3>Latest elements</h3>
-                    <div id="latest-elements">
+            <div class="row three-column">
+                <section class="created-repos section">
+                    <h3>Recently created</h3>
+                    <div id="created-repos">
                         <dl class="dl-horizontal">
-                        {{#each latest}}
+                        {{#each created}}
                             <dt><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></dt>
                             <dd>{{_source.description}}</dd>
                         {{/each}}
@@ -103,10 +102,21 @@
                     </div>
                 </section>
 
-                <!-- Most popular elements -->
-                <section class="popular-elements section">
-                    <h3>Most popular elements</h3>
-                    <div id="popular-elements">
+                <section class="updated-repos section">
+                    <h3>Last updated</h3>
+                    <div id="updated-repos">
+                        <dl class="dl-horizontal">
+                        {{#each updated}}
+                            <dt><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></dt>
+                            <dd>{{_source.description}}</dd>
+                        {{/each}}
+                        </dl>
+                    </div>
+                </section>
+
+                <section class="popular-repos section">
+                    <h3>Most popular</h3>
+                    <div id="popular-repos">
                         <dl class="dl-horizontal">
                         {{#each popular}}
                             <dt><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></dt>
@@ -117,11 +127,11 @@
                 </section>
             </div>
 
-            <!-- List of elements -->
+            <!-- List of repos -->
             <section class="main">
                 <table id="all" class="table">
                     <caption>
-                        <input class="search input-medium search-query" type="search" placeholder="Search in {{firstPage.length}} elements...">
+                        <input class="search input-medium search-query" type="search" placeholder="Search in {{firstPage.length}} repos...">
                     </caption>
                     <thead>
                         <tr>

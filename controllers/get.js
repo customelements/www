@@ -2,18 +2,22 @@ var boom = require('boom');
 var es = require('../configs/es');
 
 function controller(request, reply) {
-    Promise.all([controller.latest(), controller.popular(), controller.firstPage()])
-        .then(function(results) {
-            reply.view('index', {
-                latest: results[0],
-                popular: results[1],
-                firstPage: results[2]
-            });
-        })
-        .catch(reply);
+    Promise.all([
+        controller.mostRecent(), controller.lastUpdate(),
+        controller.mostPopular(), controller.firstPage()
+    ])
+    .then(function(results) {
+        reply.view('index', {
+            created: results[0],
+            updated: results[1],
+            popular: results[2],
+            firstPage: results[3]
+        });
+    })
+    .catch(reply);
 }
 
-controller.latest = function(data) {
+controller.mostRecent = function(data) {
     return new Promise(function(resolve, reject) {
         es.search({
             index: 'customelements',
@@ -28,7 +32,22 @@ controller.latest = function(data) {
     });
 };
 
-controller.popular = function(data) {
+controller.lastUpdate = function(data) {
+    return new Promise(function(resolve, reject) {
+        es.search({
+            index: 'customelements',
+            type: 'repo',
+            sort: 'updated_at:desc',
+            size: 3,
+        }).then(function(body) {
+            resolve(body.hits.hits);
+        }, function (error) {
+            reject(boom.wrap(error));
+        });
+    });
+};
+
+controller.mostPopular = function(data) {
     return new Promise(function(resolve, reject) {
         es.search({
             index: 'customelements',
