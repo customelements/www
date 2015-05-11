@@ -3,7 +3,7 @@
 
     $(function () {
         $.ajax({
-            url: 'http://search.customelements.io/?perPage=1500',
+            url: 'https://search.customelements.io/?perPage=1500',
             dataType: 'json',
             jsonp: 'callback',
             success: function(data) {
