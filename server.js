@@ -12,6 +12,13 @@ server.connection({
 
 server.route(require('./routes'));
 
+server.views({
+    engines: {
+        html: require('handlebars')
+    },
+    path: 'views'
+});
+
 // -- Start --------------------------------------------------------------------
 
 server.register({

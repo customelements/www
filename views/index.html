@@ -94,7 +94,12 @@
                 <section class="latest-elements section">
                     <h3>Latest elements</h3>
                     <div id="latest-elements">
-                        <p>Loading...</p>
+                        <dl class="dl-horizontal">
+                        {{#each latest}}
+                            <dt><a target="_blank" href="https://github.com/{{owner}}/{{name}}">{{name}}</a></dt>
+                            <dd>{{description}}</dd>
+                        {{/each}}
+                        </dl>
                     </div>
                 </section>
 
@@ -102,7 +107,12 @@
                 <section class="popular-elements section">
                     <h3>Most popular elements</h3>
                     <div id="popular-elements">
-                        <p>Loading...</p>
+                        <dl class="dl-horizontal">
+                        {{#each popular}}
+                            <dt><a target="_blank" href="https://github.com/{{owner}}/{{name}}">{{name}}</a></dt>
+                            <dd>{{description}}</dd>
+                        {{/each}}
+                        </dl>
                     </div>
                 </section>
             </div>

@@ -6,8 +6,11 @@
     "test": "lab tests"
   },
   "dependencies": {
+    "boom": "^2.7.1",
+    "elasticsearch": "^4.0.2",
     "good": "^6.1.2",
     "good-console": "^5.0.0",
+    "handlebars": "^3.0.3",
     "hapi": "^8.4.0",
     "newrelic": "^1.18.5"
   },

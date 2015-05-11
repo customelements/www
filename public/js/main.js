@@ -4,9 +4,7 @@
     $(function () {
         $('#loading').remove();
 
-        new Stats(window.customElements).append();
         new Repositories(window.customElements).append();
-        new Featured().append();
         new Search();
         new GithubIssue();
     });
