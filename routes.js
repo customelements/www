@@ -6,12 +6,9 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/{param*}',
+        path: '/assets/{param*}',
         handler: {
-            directory: {
-                path: 'public',
-                listing: true
-            }
+            directory: { path: 'assets' }
         }
     }
 ];
