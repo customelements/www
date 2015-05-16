@@ -2,7 +2,7 @@ module.exports = [
     {
         method: 'GET',
         path: '/',
-        handler: require('./controllers/get.js')
+        handler: require('./controllers/index')
     },
     {
         method: 'GET',

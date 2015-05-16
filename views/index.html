@@ -1,221 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Web Components Gallery for Modern Web Apps">
-    <meta itemprop="image" content="https://customelements.io/img/profile-200.jpg">
-
-    <title>Custom Elements - A Web Components Gallery for Modern Web Apps</title>
-
-    <!-- Web Components' Polyfill -->
-    <script type="text/javascript" src="vendor/platform/platform.js"></script>
-
-    <!-- Fonts -->
-    <script type="text/javascript" src="//use.typekit.net/wyk6ixu.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css">
-
-    <!-- IE Pinned Sites -->
-    <meta name="application-name" content="Custom Elements">
-    <meta name="msapplication-tooltip" content="A Web Components Gallery for Modern Web Apps">
-    <meta name="msapplication-TileImage" content="img/profile-ie.png"/>
-    <meta name="msapplication-TileColor" content="#1e183e"/>
-
-    <!-- iOS Web app -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Custom Elements">
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-
-    <!-- Chrome Mobile -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="img/profile-chrome.png">
-
-    <!-- Web Components -->
-    <link rel="import" href="vendor/facebook-button/dist/facebook-button.html">
-    <link rel="import" href="vendor/twitter-button/dist/twitter-button.html">
-    <link rel="import" href="vendor/github-button/dist/github-button.html">
-    <link rel="import" href="vendor/gplus-elements/dist/gplus-one.html">
-    <link rel="import" href="vendor/love-heart/love-heart.html">
+    <meta charset="UTF-8">
+    <title></title>
 </head>
 <body>
-    <header class="header">
-        <div class="wrapper">
-            <img src="img/logo.png" alt="Logo">
-            <h1>Custom Elements</h1>
-            <h2>A Web Components Gallery for Modern Web Apps</h2>
-        </div>
-    </header>
+    <form action="/search" method="GET">
+        <input type="search" name="q">
+        <input type="submit">
+    </form>
 
-    <main class="content">
-        <!-- Social -->
-        <ul class="social-buttons">
-            <li class="tweet-btn">
-                <twitter-button type="share" href="http://customelements.io/" height="20" width="100" text="http://customelements.io ~ A Web Components Gallery for Modern Web Apps"></twitter-button>
-            </li>
-            <li class="fb-btn">
-                <facebook-button href="http://customelements.io/" layout="button_count" height="20" width="90"></facebook-button>
-            </li>
-            <li class="gplus-btn">
-                <gplus-one size="medium" href="http://customelements.io"></gplus-one>
-            </li>
-            <li class="gh-btn">
-                <github-button height="20" user="customelements" repo="www"></github-button>
-            </li>
-        </ul>
+    <h3>Recently created</h3>
+    <ul>
+    {{#each created}}
+        <li>
+            <p><a href="/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></p>
+            <p>{{_source.description}}</p>
+        </li>
+    {{/each}}
+    </ul>
 
-        <!-- Sections -->
-        <div class="wrapper">
-            <section class="what-is-wc section">
-                <h3>How to create one?</h3>
-                <p>Got a great idea for a custom element? Awesome! There are boilerplates for <a target="_blank" href="https://github.com/webcomponents/polymer-boilerplate">Polymer</a>, <a target="_blank" href="https://github.com/webcomponents/x-tag-boilerplate">X-Tag</a>, and <a target="_blank" href="https://github.com/webcomponents/element-boilerplate">VanillaJS</a> that you can fork and get up and running with a simple component.</p>
-                <p>When you're ready to go, publish it and it'll appear on this site for others to play and use!</p>
-                <p>For lots more information about Web Components, including articles and presentations, check out <a target="_blank" href="http://webcomponents.org">webcomponents.org</a>.</p>
-            </section>
+    <h3>Last updated</h3>
+    <ul>
+    {{#each updated}}
+        <li>
+            <p><a href="/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></p>
+            <p>{{_source.description}}</p>
+        </li>
+    {{/each}}
+    </ul>
 
-            <section class="submit-own section">
-                <h3>How do I add it to this list?</h3>
-                <p>In the past, you just needed to <a href="https://github.com/customelements/www/issues/new">open an issue</a> and we'd manually add your GitHub repository here. Now you need to take the following steps:</p>
-                <ol>
-                     <li>Add the <code>web-components</code> keyword to your <strong>bower.json</strong> or <strong>package.json</strong> file.</li>
-                     <li>Make sure your package is published to <a href="http://bower.io/docs/creating-packages/#register">Bower</a> or <a href="https://docs.npmjs.com/cli/publish">npm</a>.</li>
-                     <li>Wait for it to show up! Shouldn't take longer than an hour.</li>
-                 </ol>
-            </section>
-
-            <div class="row three-column">
-                <section class="created-repos section">
-                    <h3>Recently created</h3>
-                    <div id="created-repos">
-                        <dl class="dl-horizontal">
-                        {{#each created}}
-                            <dt><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></dt>
-                            <dd>{{_source.description}}</dd>
-                        {{/each}}
-                        </dl>
-                    </div>
-                </section>
-
-                <section class="updated-repos section">
-                    <h3>Last updated</h3>
-                    <div id="updated-repos">
-                        <dl class="dl-horizontal">
-                        {{#each updated}}
-                            <dt><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></dt>
-                            <dd>{{_source.description}}</dd>
-                        {{/each}}
-                        </dl>
-                    </div>
-                </section>
-
-                <section class="popular-repos section">
-                    <h3>Most popular</h3>
-                    <div id="popular-repos">
-                        <dl class="dl-horizontal">
-                        {{#each popular}}
-                            <dt><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></dt>
-                            <dd>{{_source.description}}</dd>
-                        {{/each}}
-                        </dl>
-                    </div>
-                </section>
-            </div>
-
-            <!-- List of repos -->
-            <section class="main">
-                <table id="all" class="table">
-                    <caption>
-                        <input class="search input-medium search-query" type="search" placeholder="Search in {{firstPage.length}} repos...">
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th class="sort name" data-sort="name">Name</th>
-                            <th class="sort desc" data-sort="desc">Description</th>
-                            <th class="sort stars" data-sort="stars">Stars</th>
-                            <th class="sort forks" data-sort="forks">Forks</th>
-                            <th class="sort author" data-sort="author">Author</th>
-                        </tr>
-                    </thead>
-                    <tbody class="list">
-                        {{#each firstPage}}
-                            <tr>
-                                <td class="name"><a target="_blank" href="https://github.com/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></td>
-                                <td class="desc">{{_source.description}}</td>
-                                <td class="stars">{{_source.stargazers_count}}</td>
-                                <td class="forks">{{_source.forks_count}}</td>
-                                <td class="author"><a target="_blank" href="https://github.com/{{_source.owner}}/">{{_source.owner}}</a></td>
-                            </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-                <button type="button" class="button load-more">Load more...</button>
-            </section>
-        </div>
-    </main>
-
-    <footer class="credits">
-        <p>Made with <love-heart>♥</love-heart> by these guys and a bunch of awesome <a target="_blank" href="https://github.com/webcomponents/customelements.io/graphs/contributors">contributors</a>.</p>
-        <ul>
-            <li>
-                <p><a target="_blank" href="https://github.com/zenorocha">
-                    <img src="https://2.gravatar.com/avatar/e190023b66e2b8aa73a842b106920c93?size=50" alt="Zeno Rocha">
-                    <span>Zeno Rocha</span>
-                </a></p>
-            </li>
-            <li>
-                <p><a target="_blank" href="https://github.com/bernarddeluna">
-                    <img src="https://2.gravatar.com/avatar/bc16c9be1e05e65395487b78b1cc72c0?size=50" alt="Bernard De Luna">
-                    <span>Bernard De Luna</span>
-                </a></p>
-            </li>
-            <li>
-                <p><a target="_blank" href="https://github.com/djalmaaraujo">
-                    <img src="https://2.gravatar.com/avatar/be74fd9a577ea5ef1ab2e7c71bcfa4b5?size=50" alt="Djalma Araújo">
-                    <span>Djalma Araújo</span>
-                </a></p>
-            </li>
-            <li>
-                <p><a target="_blank" href="https://github.com/eduardolundgren">
-                    <img src="https://2.gravatar.com/avatar/42327de520e674a6d1686845b30778d0?size=50" alt="Eduardo Lundgren">
-                    <span>Eduardo Lundgren</span>
-                </a></p>
-            </li>
-        </ul>
-    </footer>
-
-    <script src="vendor/jquery/dist/jquery.min.js"></script>
-    <script src="vendor/listjs/dist/list.min.js"></script>
-
-    <script src="dist/main.js"></script>
-
-    <!-- Inspectlet -->
-    <script>
-    window.__insp = window.__insp || [];
-    __insp.push(['wid', 2023222068]);
-    (function() {
-        function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); }
-        if (window.attachEvent){
-            window.attachEvent('onload', __ldinsp);
-        }else{
-            window.addEventListener('load', __ldinsp, false);
-        }
-    })();
-    </script>
-
-    <!-- Google Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-4114546-39', 'customelements.io');
-    ga('send', 'pageview');
-    </script>
+    <h3>Most popular</h3>
+    <ul>
+    {{#each popular}}
+        <li>
+            <p><a href="/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></p>
+            <p>{{_source.description}}</p>
+        </li>
+    {{/each}}
+    </ul>
 </body>
 </html>
