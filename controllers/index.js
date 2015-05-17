@@ -3,7 +3,9 @@ var es = require('../configs/es');
 
 function controller(request, reply) {
     Promise.all([
-        controller.recentlyCreated(), controller.lastUpdated(), controller.mostPopular()
+        controller.recentlyCreated(),
+        controller.lastUpdated(),
+        controller.mostPopular()
     ])
     .then(function(results) {
         reply.view('index', {
