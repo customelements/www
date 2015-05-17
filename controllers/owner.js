@@ -8,6 +8,10 @@ function controller(request, reply) {
             return controller.find(result);
         })
         .then(function(result) {
+            return controller.reduce(result);
+        })
+        .then(function(result) {
+            result.owner = request.params.owner;
             return reply.view('owner', result);
         })
         .catch(reply);
@@ -49,19 +53,27 @@ controller.find = function(params) {
         };
 
         es.search(options).then(function(body) {
-            var results = [];
-
-            for (var i = 0; i < body.hits.hits.length; i++) {
-                results.push(body.hits.hits[i]._source);
-            }
-
-            resolve({
-                owner: params.owner,
-                results: results
-            });
+            resolve(body);
         }, function (error) {
             reject(boom.create(error.status, error.message));
         });
+    });
+};
+
+controller.reduce = function(body) {
+    return new Promise(function(resolve, reject) {
+        var results = [];
+
+        if (body.hits.total === 0) {
+            reject(boom.notFound());
+            return;
+        }
+
+        for (var i = 0; i < body.hits.hits.length; i++) {
+            results.push(body.hits.hits[i]._source);
+        }
+
+        resolve({ results: results });
     });
 };
 
