@@ -12,6 +12,7 @@
     "good-console": "^5.0.0",
     "handlebars": "^3.0.3",
     "hapi": "^8.4.0",
+    "joi": "^6.4.1",
     "newrelic": "^1.18.5"
   },
   "devDependencies": {

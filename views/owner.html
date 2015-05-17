@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="/search" method="GET">
+        <input type="search" name="q">
+        <input type="submit">
+    </form>
+
+    <h1>{{owner}}</h1>
+
+    {{#each results}}
+        <h2>
+            <a href="/{{this.owner}}/{{this.name}}">
+                {{this.owner}}/{{this.name}}
+            </a>
+        </h2>
+        <p>Description: {{this.description}}</p>
+        <ul>
+            <li>Stars: {{this.stargazers_count}}</li>
+            <li>Forks: {{this.forks_count}}</li>
+        </ul>
+    {{/each}}
+</body>
+</html>
