@@ -6,11 +6,16 @@ module.exports = [
     },
     {
         method: 'GET',
+        path: '/search',
+        handler: require('./controllers/search')
+    },
     {
         method: 'GET',
         path: '/{owner}',
         handler: require('./controllers/owner')
     },
+    {
+        method: 'GET',
     {
         method: 'GET',
         path: '/assets/{file*}',
