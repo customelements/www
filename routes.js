@@ -16,6 +16,11 @@ module.exports = [
     },
     {
         method: 'GET',
+        path: '/{owner}/{name}',
+        config: {
+            handler: require('./controllers/repo')
+        }
+    },
     {
         method: 'GET',
         path: '/assets/{file*}',
