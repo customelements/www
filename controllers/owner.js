@@ -73,7 +73,10 @@ controller.reduce = function(body) {
             results.push(body.hits.hits[i]._source);
         }
 
-        resolve({ results: results });
+        resolve({
+            total: body.hits.total,
+            results: results
+        });
     });
 };
 

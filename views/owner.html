@@ -1,5 +1,9 @@
 {{!< layout/default}}
 
+<div class="row">
+    <h3 style="text-align:center">{{total}} projects owned by "{{owner}}"</h3>
+</div>
+
 {{#grouped_each 3 results}}
 <div class="row">
     {{#each this}}
