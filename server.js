@@ -20,6 +20,7 @@ server.views({
         html: require('handlebars')
     },
     path: 'views',
+    helpersPath: 'views/helpers',
     layoutPath: 'views/layout',
     layout: 'default'
 });
