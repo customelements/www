@@ -1,43 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    <form action="/search" method="GET">
-        <input type="search" name="q">
-        <input type="submit">
-    </form>
+{{!< layout/default}}
 
-    <h3>Recently created</h3>
-    <ul>
-    {{#each recentlyCreated}}
-        <li>
-            <p><a href="/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></p>
-            <p>{{_source.description}}</p>
-        </li>
-    {{/each}}
-    </ul>
-
-    <h3>Last updated</h3>
-    <ul>
-    {{#each lastUpdated}}
-        <li>
-            <p><a href="/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></p>
-            <p>{{_source.description}}</p>
-        </li>
-    {{/each}}
-    </ul>
-
-    <h3>Most popular</h3>
-    <ul>
-    {{#each mostPopular}}
-        <li>
-            <p><a href="/{{_source.owner}}/{{_source.name}}">{{_source.name}}</a></p>
-            <p>{{_source.description}}</p>
-        </li>
-    {{/each}}
-    </ul>
-</body>
-</html>
+<main class="main container">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Recently created</h3>
+            {{#each recentlyCreated}}
+            <paper-material elevation="1" class="card">
+                <h1><a href="/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></h1>
+                <h2>by <a href="/{{_source.owner}}/">{{_source.owner}}</a></h2>
+                <p>{{_source.description}}</p>
+            </paper-material>
+            {{/each}}
+        </div>
+        <div class="col-md-4">
+            <h3>Last updated</h3>
+            {{#each lastUpdated}}
+            <paper-material elevation="1" class="card">
+                <h1><a href="/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></h1>
+                <h2>by <a href="/{{_source.owner}}/">{{_source.owner}}</a></h2>
+                <p>{{_source.description}}</p>
+            </paper-material>
+            {{/each}}
+        </div>
+        <div class="col-md-4">
+            <h3>Most popular</h3>
+            {{#each mostPopular}}
+            <paper-material elevation="1" class="card">
+                <h1><a href="/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></h1>
+                <h2>by <a href="/{{_source.owner}}/">{{_source.owner}}</a></h2>
+                <p>{{_source.description}}</p>
+            </paper-material>
+            {{/each}}
+        </div>
+    </div>
+</main>

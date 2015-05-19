@@ -1,0 +1,88 @@
+body {
+    background: #eee;
+    font-family: 'Roboto', 'Noto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+}
+
+/* Header
+   ========================================================================== */
+
+.header {
+    background: rgba(103,58,183,1);
+    height: 160px;
+}
+
+.header h1 {
+    color: #fff;
+    margin: 0;
+    padding: 14px;
+    text-transform: uppercase;
+    font-family: 'Roboto Slab', sans-serif;
+    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.header h1 span {
+    color: #9575CD;
+}
+
+/* Main
+   ========================================================================== */
+
+.main {
+    padding-top: 28px;
+}
+
+.main h3 {
+    color: #78909c;
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+/* Cards
+   ========================================================================== */
+
+.card {
+    background: #fff;
+    padding: 24px;
+    height: 200px;
+    margin-bottom: 28px;
+}
+
+.card h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card h1 a,
+.card h1 a:hover {
+    color: #333;
+}
+
+.card h2 {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.card h2 a {
+    color: #ff4081;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.card h2 a:hover {
+    color: #ff4081;
+    text-decoration: underline;
+}
+
+.card p {
+    font-size: 14px;
+    font-weight: 300;
+}
