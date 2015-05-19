@@ -19,7 +19,9 @@ server.views({
     engines: {
         html: require('handlebars')
     },
-    path: 'views'
+    path: 'views',
+    layoutPath: 'views/layout',
+    layout: 'default'
 });
 
 // -- Start --------------------------------------------------------------------
