@@ -10,8 +10,25 @@
     <link rel="import" href="/assets/vendor/paper-material/paper-material.html">
 
     <link rel="stylesheet" href="/assets/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/search.css">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>Custom Elements</h1>
+            <form action="/search" method="GET">
+                <div class="search">
+                    <input name="q" class="search-field" type="text" id="search-search">
+                    <label class="search-label" for="search-search">
+                        <span class="search-label-content">Search...</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </header>
+
     {{{content}}}
+
+    <script src="/assets/scripts/search.js"></script>
 </body>
 </html>
