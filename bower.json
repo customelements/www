@@ -1,0 +1,7 @@
+{
+  "name": "www",
+  "private": true,
+  "dependencies": {
+    "paper-material": "polymerelements/paper-material#~0.9.1"
+  }
+}

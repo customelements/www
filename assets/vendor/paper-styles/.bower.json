@@ -1,0 +1,38 @@
+{
+  "name": "paper-styles",
+  "version": "0.9.3",
+  "description": "Common (global) styles for Material Design elements.",
+  "authors": [
+    "The Polymer Authors"
+  ],
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "paper",
+    "style"
+  ],
+  "main": "paper-styles.html",
+  "license": "MIT",
+  "homepage": "https://github.com/polymerelements/paper-styles/",
+  "ignore": [
+    "/.*",
+    "/demo/"
+  ],
+  "dependencies": {
+    "iron-flex-layout": "polymerelements/iron-flex-layout#^0.9.0",
+    "polymer": "Polymer/polymer#^0.9.0"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "_release": "0.9.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.9.3",
+    "commit": "0c25d9179d45d2c9c87ff3d850abc3710fb0a67e"
+  },
+  "_source": "git://github.com/polymerelements/paper-styles.git",
+  "_target": "^0.9.0",
+  "_originalSource": "polymerelements/paper-styles"
+}
