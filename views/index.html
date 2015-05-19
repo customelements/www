@@ -1,36 +1,34 @@
 {{!< layout/default}}
 
-<main class="main container">
-    <div class="row">
-        <div class="col-md-4">
-            <h3>Recently created</h3>
-            {{#each recentlyCreated}}
-            <paper-material elevation="1" class="card">
-                <h1><a href="/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></h1>
-                <h2>by <a href="/{{_source.owner}}/">{{_source.owner}}</a></h2>
-                <p>{{_source.description}}</p>
-            </paper-material>
-            {{/each}}
-        </div>
-        <div class="col-md-4">
-            <h3>Last updated</h3>
-            {{#each lastUpdated}}
-            <paper-material elevation="1" class="card">
-                <h1><a href="/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></h1>
-                <h2>by <a href="/{{_source.owner}}/">{{_source.owner}}</a></h2>
-                <p>{{_source.description}}</p>
-            </paper-material>
-            {{/each}}
-        </div>
-        <div class="col-md-4">
-            <h3>Most popular</h3>
-            {{#each mostPopular}}
-            <paper-material elevation="1" class="card">
-                <h1><a href="/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></h1>
-                <h2>by <a href="/{{_source.owner}}/">{{_source.owner}}</a></h2>
-                <p>{{_source.description}}</p>
-            </paper-material>
-            {{/each}}
-        </div>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Recently created</h3>
+        {{#each recentlyCreated}}
+        <paper-material elevation="1" class="card">
+            <h1><a href="/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></h1>
+            <h2>by <a href="/{{_source.owner}}/">{{_source.owner}}</a></h2>
+            <p>{{_source.description}}</p>
+        </paper-material>
+        {{/each}}
     </div>
-</main>
+    <div class="col-md-4">
+        <h3>Last updated</h3>
+        {{#each lastUpdated}}
+        <paper-material elevation="1" class="card">
+            <h1><a href="/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></h1>
+            <h2>by <a href="/{{_source.owner}}/">{{_source.owner}}</a></h2>
+            <p>{{_source.description}}</p>
+        </paper-material>
+        {{/each}}
+    </div>
+    <div class="col-md-4">
+        <h3>Most popular</h3>
+        {{#each mostPopular}}
+        <paper-material elevation="1" class="card">
+            <h1><a href="/{{_source.owner}}/{{_source.name}}/">{{_source.name}}</a></h1>
+            <h2>by <a href="/{{_source.owner}}/">{{_source.owner}}</a></h2>
+            <p>{{_source.description}}</p>
+        </paper-material>
+        {{/each}}
+    </div>
+</div>

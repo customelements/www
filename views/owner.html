@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    <form action="/search" method="GET">
-        <input type="search" name="q">
-        <input type="submit">
-    </form>
+{{!< layout/default}}
 
-    <h1>{{owner}}</h1>
-
-    {{#each results}}
-        <h2>
-            <a href="/{{this.owner}}/{{this.name}}">
-                {{this.owner}}/{{this.name}}
-            </a>
-        </h2>
-        <p>Description: {{this.description}}</p>
-        <ul>
-            <li>Stars: {{this.stargazers_count}}</li>
-            <li>Forks: {{this.forks_count}}</li>
-        </ul>
+{{#grouped_each 3 results}}
+<div class="row">
+    {{#each this}}
+    <div class="col-md-4">
+        <paper-material elevation="1" class="card">
+            <h1><a href="/{{owner}}/{{name}}/">{{name}}</a></h1>
+            <h2>by <a href="/{{owner}}/">{{owner}}</a></h2>
+            <p>{{description}}</p>
+        </paper-material>
+    </div>
     {{/each}}
-</body>
-</html>
+</div>
+{{/grouped_each}}
