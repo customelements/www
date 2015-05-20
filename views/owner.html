@@ -1,19 +1,21 @@
 {{!< layout/default}}
 
-<div class="row">
-    <h3 style="text-align:center">{{total}} projects owned by "{{owner}}"</h3>
-</div>
-
-{{#grouped_each 3 results}}
-<div class="row">
-    {{#each this}}
-    <div class="col-md-4">
-        <paper-material elevation="1" class="card">
-            <h1><a href="/{{owner}}/{{name}}/">{{name}}</a></h1>
-            <h2>by <a href="/{{owner}}/">{{owner}}</a></h2>
-            <p>{{description}}</p>
-        </paper-material>
+<main class="main container">
+    <div class="row">
+        <h3 style="text-align:center">{{total}} projects owned by "{{owner}}"</h3>
     </div>
-    {{/each}}
-</div>
-{{/grouped_each}}
+
+    {{#grouped_each 3 results}}
+    <div class="row">
+        {{#each this}}
+        <div class="col-md-4">
+            <paper-material elevation="1" class="card">
+                <h1><a href="/{{owner}}/{{name}}/">{{name}}</a></h1>
+                <h2>by <a href="/{{owner}}/">{{owner}}</a></h2>
+                <p>{{description}}</p>
+            </paper-material>
+        </div>
+        {{/each}}
+    </div>
+    {{/grouped_each}}
+</main>
