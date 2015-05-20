@@ -10,7 +10,7 @@ body {
    ========================================================================== */
 
 .header {
-    background: rgba(103,58,183,1);
+    background: #4a148c;
     height: 160px;
 }
 
@@ -35,7 +35,7 @@ body {
    ========================================================================== */
 
 .main {
-    padding-top: 28px;
+    padding: 28px 0;
 }
 
 .main h3 {
@@ -127,6 +127,53 @@ body {
     vertical-align: middle;
     margin-right: 4px;
 }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.steps {
+    background: #4a148c;
+    padding: 32px;
+}
+
+.steps-title {
+    color: #fff;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+.step-number {
+    background: #fff;
+    border-radius: 50%;
+    color: #ff4081;
+    float: left;
+    font-size: 24px;
+    font-weight: 300;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    width: 64px;
+}
+
+.step-content {
+    color: #fff;
+    float: left;
+    font-size: 18px;
+    font-weight: 300;
+    margin-left: 24px;
+    width: 260px;
+}
+
+.step-content a,
+.step-content a:hover {
+    color: #ff4081;
+    font-weight: 400;
+}
+
+#step-1 { margin-top: -6px; }
+#step-2, #step-3 { margin-top: 6px; }
 
 /* ==========================================================================
    Fonts
