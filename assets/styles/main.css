@@ -5,7 +5,8 @@ body {
     margin: 0;
 }
 
-/* Header
+/* ==========================================================================
+   Header
    ========================================================================== */
 
 .header {
@@ -29,7 +30,8 @@ body {
     color: #9575CD;
 }
 
-/* Main
+/* ==========================================================================
+   Main
    ========================================================================== */
 
 .main {
@@ -44,7 +46,8 @@ body {
     margin-bottom: 24px;
 }
 
-/* Cards
+/* ==========================================================================
+   Card
    ========================================================================== */
 
 .card {
@@ -52,37 +55,111 @@ body {
     padding: 24px;
     height: 200px;
     margin-bottom: 28px;
+    position: relative;
 }
 
-.card h1 {
+/* Card - Header
+   ========================================================================== */
+
+.card-header .card-title {
     font-size: 20px;
     font-weight: 600;
     margin: 0;
 }
 
-.card h1 a,
-.card h1 a:hover {
+.card-header .card-title a,
+.card-header .card-title a:hover {
     color: #333;
 }
 
-.card h2 {
+.card-header .card-subtitle {
     font-size: 14px;
     font-weight: 300;
     margin: 0;
 }
 
-.card h2 a {
+.card-header .card-subtitle a {
     color: #ff4081;
     text-decoration: none;
     font-weight: 400;
 }
 
-.card h2 a:hover {
+.card-header .card-subtitle a:hover {
     color: #ff4081;
     text-decoration: underline;
 }
 
-.card p {
+/* Card - Body
+   ========================================================================== */
+
+.card-body .card-description {
     font-size: 14px;
     font-weight: 300;
+}
+
+/* Card - Footer
+   ========================================================================== */
+
+.card-footer .card-info-list {
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    padding: 24px 0;
+}
+
+.card-footer .card-info-item {
+    list-style: none;
+    display: inline-block;
+    margin-right: 24px;
+}
+
+.card-footer .card-info-item .icon-star {
+    color: #fbc02d;
+    font-size: 16px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.card-footer .card-info-item .icon-fork {
+    color: #7c949f;
+    font-size: 16px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@font-face {
+    font-family: 'CustomElements';
+    src:url('../fonts/CustomElements.eot?');
+    src:url('../fonts/CustomElements.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CustomElements.woff?') format('woff'),
+        url('../fonts/CustomElements.ttf?') format('truetype'),
+        url('../fonts/CustomElements.svg?#CustomElements') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'CustomElements';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fork:before {
+    content: "\e601";
+}
+
+.icon-star:before {
+    content: "\e600";
 }
