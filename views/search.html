@@ -9,9 +9,9 @@
     {{#each this}}
     <div class="col-md-4">
         <paper-material elevation="1" class="card">
-            <h1><a href="/{{owner}}/{{name}}/">{{name}}</a></h1>
+            <h1><a href="/{{owner}}/{{name}}/">{{{trim_string name 0 19}}}</a></h1>
             <h2>by <a href="/{{owner}}/">{{owner}}</a></h2>
-            <p>{{description}}</p>
+            <p>{{{trim_string description 0 90}}}</p>
         </paper-material>
     </div>
     {{/each}}
