@@ -129,7 +129,7 @@ body {
 }
 
 /* ==========================================================================
-   Footer
+   Steps
    ========================================================================== */
 
 .steps {
@@ -174,6 +174,75 @@ body {
 
 #step-1 { margin-top: -6px; }
 #step-2, #step-3 { margin-top: 6px; }
+
+/** =========================================================================
+    Footer
+    ========================================================================= */
+
+.credits {
+    background: #fff;
+}
+
+.credits p {
+    float: left;
+    font-size: 15px;
+}
+
+.credits-link {
+    color: #3a99d7;
+}
+
+.credits-link:hover {
+    text-decoration: underline;
+}
+
+.credits .love {
+    color: #e74c3c;
+    display: inline-block;
+    font-size: 1.4em;
+    position: relative;
+    top: .2em;
+    -webkit-transform: scale(.9);
+    -moz-transform: scale(.9);
+    transform: scale(.9);
+    -webkit-animation: love .5s infinite linear alternate-reverse;
+    -moz-animation: love .5s infinite linear alternate-reverse;
+    animation: love .5s infinite linear alternate-reverse;
+}
+
+@-webkit-keyframes love {
+    to { -webkit-transform: scale(1.2); }
+}
+
+@-moz-keyframes love {
+    to { -moz-transform: scale(1.2); }
+}
+
+@keyframes love {
+    to { transform: scale(1.2); }
+}
+
+/* Social buttons
+============================================================================= */
+
+.social-buttons {
+    float: right;
+    list-style: none;
+    text-align: right;
+    margin-right: 40px;
+}
+
+.social-buttons li {
+    display: inline-block;
+    margin-left: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.tweet-btn  { width: 100px; }
+.fb-btn     { width: 85px;  }
+.gplus-btn  { width: 70px;  }
+.github-btn { width: 85px;  }
 
 /* ==========================================================================
    Fonts
