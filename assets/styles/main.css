@@ -10,24 +10,50 @@ body {
    ========================================================================== */
 
 .header {
-    background: #4a148c;
-    height: 160px;
+background: #6a1b9a;
+background: -moz-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+background: -webkit-gradient(left bottom, right top, color-stop(0%, #6a1b9a), color-stop(100%, #4a148c));
+background: -webkit-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+background: -o-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+background: -ms-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+background: linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a1b9a', endColorstr='#4a148c', GradientType=1 );
 }
 
 .header h1 {
     color: #fff;
-    margin: 0;
-    padding: 14px;
-    text-transform: uppercase;
+    margin: 40px 0 0;
     font-family: 'Roboto Slab', sans-serif;
-    letter-spacing: 2px;
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 47px;
+    font-weight: 400;
     text-align: center;
 }
 
-.header h1 span {
-    color: #9575CD;
+.header h2 {
+    color: #B388FF;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.header .learn-more {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 50px 0 10px;
+}
+
+.header .learn-more a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all .2s linear;
+}
+
+.header .learn-more a:hover {
+    color: #B388FF;
+    text-decoration: none;
 }
 
 /* ==========================================================================
@@ -133,8 +159,8 @@ body {
    ========================================================================== */
 
 .steps {
-    background: #4a148c;
-    padding: 32px;
+    background: #1f2036;
+    padding: 50px;
 }
 
 .steps-title {
