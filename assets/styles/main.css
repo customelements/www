@@ -1,5 +1,5 @@
 body {
-    background: #eee;
+    background: #ececec;
     font-family: 'Roboto', 'Noto', sans-serif;
     -webkit-font-smoothing: antialiased;
     margin: 0;
@@ -10,38 +10,31 @@ body {
    ========================================================================== */
 
 .header {
-  background: #6a1b9a;
-  background: -moz-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-  background: -webkit-gradient(left bottom, right top, color-stop(0%, #6a1b9a), color-stop(100%, #4a148c));
-  background: -webkit-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-  background: -o-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-  background: -ms-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-  background: linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a1b9a', endColorstr='#4a148c', GradientType=1 );
+    background: #6a1b9a;
+    background: -moz-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #6a1b9a), color-stop(100%, #4a148c));
+    background: -webkit-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+    background: -o-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+    background: -ms-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+    background: linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a1b9a', endColorstr='#4a148c', GradientType=1 );
 }
 
-.header .logo {
+.header .header-title {
     color: #fff;
     margin: 40px 0 0;
     font-family: 'Roboto Slab', sans-serif;
     font-size: 47px;
     font-weight: 400;
     text-align: center;
-    display: block;
-    line-height: 40px;
 }
 
-.header .logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.header h2 {
+.header .header-subtitle {
     color: #B388FF;
     text-align: center;
     margin-bottom: 10px;
     margin-top: -10px;
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 300;
 }
 
