@@ -4,16 +4,39 @@
     <h3 style="text-align:center">{{total}} results for "{{q}}"</h3>
 </div>
 
-{{#grouped_each 3 results}}
-<div class="row">
-    {{#each this}}
-    <div class="col-md-4">
-        <paper-material elevation="1" class="card">
-            <h1><a href="/{{owner}}/{{name}}/">{{{trim_string name 0 19}}}</a></h1>
-            <h2>by <a href="/{{owner}}/">{{owner}}</a></h2>
-            <p>{{{trim_string description 0 90}}}</p>
-        </paper-material>
-    </div>
-    {{/each}}
-</div>
-{{/grouped_each}}
+<main class="main container">
+  {{#grouped_each 3 results}}
+  <div class="row">
+      {{#each this}}
+      <div class="col-md-4">
+          <paper-material class="card" elevation="1" animated>
+              <a href="/{{owner}}/{{name}}/" class="intercept-click"></a>
+              <div class="card-header">
+                  <h1 class="card-title">
+                      <a target="_blank" href="https://github.com/{{owner}}/{{name}}/">{{{trim_string name 0 30}}}</a>
+                  </h1>
+                  <h2 class="card-subtitle">
+                      by <a target="_blank" href="https://github.com/{{owner}}/">{{owner}}</a>
+                  </h2>
+              </div>
+              <div class="card-body">
+                  <p class="card-description">{{{ trim_string description 0 120}}}</p>
+              </div>
+              <div class="card-footer">
+                  <ul class="card-info-list">
+                      <li class="card-info-item">
+                          <span class="icon-star"></span>
+                          {{stargazers_count}}
+                      </li>
+                      <li class="card-info-item">
+                          <span class="icon-fork"></span>
+                          {{forks_count}}
+                      </li>
+                  </ul>
+              </div>
+          </paper-material>
+      </div>
+      {{/each}}
+  </div>
+  {{/grouped_each}}
+</main>
