@@ -23,7 +23,7 @@ controller.recentlyCreated = function(data) {
             index: 'customelements',
             type: 'repo',
             sort: 'created_at:desc',
-            size: 3,
+            size: 5,
         }).then(function(body) {
             resolve(body.hits.hits);
         }, function (error) {
@@ -38,7 +38,7 @@ controller.lastUpdated = function(data) {
             index: 'customelements',
             type: 'repo',
             sort: 'pushed_at:desc',
-            size: 3,
+            size: 5,
         }).then(function(body) {
             resolve(body.hits.hits);
         }, function (error) {
@@ -53,7 +53,7 @@ controller.mostPopular = function(data) {
             index: 'customelements',
             type: 'repo',
             sort: 'stargazers_count:desc',
-            size: 3,
+            size: 5,
         }).then(function(body) {
             resolve(body.hits.hits);
         }, function (error) {
