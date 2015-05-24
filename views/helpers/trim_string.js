@@ -1,9 +1,13 @@
-module.exports = function trim_string( passedString, startstring, endstring ) {
-  var theString = passedString.substring( startstring, endstring );
+module.exports = function trim_string(passedString, charLimit) {
+    var resultString = passedString.substring(0, charLimit);
 
-  if ( theString.length === endstring ) {
-    theString = theString + '...';
-  }
+    if (resultString.length === charLimit) {
+        resultString += '...';
+    }
 
-  return String(theString).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
+    return resultString
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+};
