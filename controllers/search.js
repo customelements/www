@@ -1,6 +1,10 @@
 var boom = require('boom');
 var es = require('../configs/es');
 var joi = require('joi');
+var paginate = require('handlebars-paginate');
+var Handlebars = require('handlebars');
+var template = require('../views/layout/template.hbs');
+Handlebars.registerHelper('paginate', paginate);
 
 function controller(request, reply) {
     if (!request.query.q) {
@@ -59,11 +63,15 @@ controller.find = function(params) {
                 results.push(body.hits.hits[i]._source);
             }
 
+            var html = template({pagination: {
+              page: params.page,
+              pageCount: Math.ceil(body.hits.total / params.perPage)
+            }});
+
             resolve({
                 q: params.q,
                 total: body.hits.total,
-                page: params.page,
-                pages: Math.ceil(body.hits.total / params.perPage),
+                pagination: html,
                 results: results
             });
         }, function (error) {
