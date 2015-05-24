@@ -1,6 +1,6 @@
 {{!< layout/default}}
 
-<header class="header">
+<header class="header gradient">
     <div class="container">
         <img class="header-logo" src="/assets/images/logo.svg" alt="Logo">
         <h1 class="header-title">Custom Elements</h1>
@@ -114,3 +114,33 @@
         </div>
     </div>
 </main>
+
+<section id="steps" class="steps gradient">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="steps-title">How do I add it to this list?</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="step-number">1</div>
+                <div id="step-1" class="step-content">
+                    Add the <strong>web-components</strong> keyword to your <em>bower.json</em> or <em>package.json</em> file
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-number">2</div>
+                <div id="step-2" class="step-content">
+                    Make sure your package is published to <a href="http://bower.io/docs/creating-packages/#register">Bower</a> or <a href="https://docs.npmjs.com/cli/publish">npm</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-number">3</div>
+                <div id="step-3" class="step-content">
+                    Wait for it to show up! Shouldn't take longer than an hour :)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

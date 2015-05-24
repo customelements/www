@@ -5,11 +5,7 @@ body {
     margin: 0;
 }
 
-/* ==========================================================================
-   Header
-   ========================================================================== */
-
-.header {
+.gradient {
     background: #673ab7;
     background: -moz-linear-gradient(left, #673ab7 0%, #7e57c2 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, #673ab7), color-stop(100%, #7e57c2));
@@ -19,6 +15,10 @@ body {
     background: linear-gradient(to right, #673ab7 0%, #7e57c2 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#673ab7', endColorstr='#7e57c2', GradientType=1 );
 }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
 
 .header .header-logo {
     margin: 40px auto 0;
@@ -47,7 +47,7 @@ body {
 .header .learn-more {
     text-transform: uppercase;
     text-align: center;
-    margin: 30px 0 10px;
+    margin: 50px 0 10px;
 }
 
 .header .learn-more a {
@@ -227,7 +227,6 @@ body {
    ========================================================================== */
 
 .steps {
-    background: #1f2036;
     padding: 50px;
 }
 
@@ -262,8 +261,8 @@ body {
 
 .step-content a,
 .step-content a:hover {
-    color: #ff4081;
-    font-weight: 400;
+    color: #fff;
+    font-weight: 600;
 }
 
 #step-1 { margin-top: -6px; }
