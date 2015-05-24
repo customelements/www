@@ -1,19 +1,27 @@
-<div class="pagination">
-  <ul>
+<nav class="pagination">
     {{#paginate pagination type="previous"}}
-      <li {{#if disabled}}class="disabled"{{/if}}>
-          <a href="?page={{n}}">Prev</a>
+      <li>
+          {{#if disabled}}
+          <span class="prev disabled"><b>&laquo;</b> Previus</span>
+          {{else}}
+            <a href="?page={{n}}" class="prev"><b>&laquo;</b> Previus</a>
+          {{/if}}
       </li>
     {{/paginate}}
+
     {{#paginate pagination type="middle" limit="7"}}
       <li {{#if active}}class="active"{{/if}}>
-          <a href="?page={{n}}">{{n}}</a>
+          <a href="?page={{n}}" class="itens">{{n}}</a>
       </li>
     {{/paginate}}
+
     {{#paginate pagination type="next"}}
-      <li {{#if disabled}}class="disabled"{{/if}}>
-          <a href="?page={{n}}">Next</a>
+      <li>
+          {{#if disabled}}
+            <span class="next disabled">Next <b>&raquo;</b> </span>
+          {{else}}
+            <a href="?page={{n}}" class="next">Next <b>&raquo;</b> </a>
+          {{/if}}
       </li>
     {{/paginate}}
-  </ul>
-</div>
+</nav>
