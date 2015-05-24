@@ -7,7 +7,9 @@ var template = require('../views/layout/template.hbs');
 Handlebars.registerHelper('paginate', paginate);
 
 function controller(request, reply) {
-    if (!request.query.q) {
+    request.params.term = request.params.term.replace(/\+/g, ' ');
+
+    if (!request.params.term) {
         return reply.redirect('/');
     }
 
@@ -24,7 +26,7 @@ function controller(request, reply) {
 controller.validate = function(request) {
     return new Promise(function(resolve, reject) {
         var params = {
-            q: request.query.q,
+            q: request.params.term,
             page: request.query.page,
             perPage: request.query.perPage
         };
@@ -63,17 +65,23 @@ controller.find = function(params) {
                 results.push(body.hits.hits[i]._source);
             }
 
+            var response = {
+                q: params.q,
+                total: body.hits.total,
+                results: results
+            }
+
             var html = template({pagination: {
               page: params.page,
               pageCount: Math.ceil(body.hits.total / params.perPage)
             }});
 
-            resolve({
-                q: params.q,
-                total: body.hits.total,
-                pagination: html,
-                results: results
-            });
+            if ( Math.ceil(body.hits.total / params.perPage) > 1 ) {
+                response.pagination = html;
+            }
+
+            resolve(response);
+
         }, function (error) {
             reject(boom.create(error.status, error.message));
         });

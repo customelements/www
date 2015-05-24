@@ -2,17 +2,17 @@
   <ul>
     {{#paginate pagination type="previous"}}
       <li {{#if disabled}}class="disabled"{{/if}}>
-          <a href="page={{n}}">Prev</a>
+          <a href="?page={{n}}">Prev</a>
       </li>
     {{/paginate}}
     {{#paginate pagination type="middle" limit="7"}}
       <li {{#if active}}class="active"{{/if}}>
-          <a href="page={{n}}">{{n}} </a>
+          <a href="?page={{n}}">{{n}}</a>
       </li>
     {{/paginate}}
     {{#paginate pagination type="next"}}
       <li {{#if disabled}}class="disabled"{{/if}}>
-          <a href="page={{n}}">Next</a>
+          <a href="?page={{n}}">Next</a>
       </li>
     {{/paginate}}
   </ul>
