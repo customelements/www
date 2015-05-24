@@ -1,12 +1,13 @@
 {{!< layout/default}}
 
-<div class="row">
-    <h3 style="text-align:center">{{total}} results for "{{q}}"</h3>
-</div>
 
 <main class="main container">
-  {{#grouped_each 3 results}}
-  <div class="row">
+    <div class="row">
+        <h3 style="text-align:center">{{total}} result(s) for "<strong>{{q}}</strong>"</h3>
+    </div>
+
+    {{#grouped_each 3 results}}
+    <div class="row">
       {{#each this}}
       <div class="col-md-4">
           <paper-material class="card" elevation="1" animated>
@@ -37,6 +38,6 @@
           </paper-material>
       </div>
       {{/each}}
-  </div>
-  {{/grouped_each}}
+    </div>
+    {{/grouped_each}}
 </main>
