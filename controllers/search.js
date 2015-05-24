@@ -53,7 +53,7 @@ controller.find = function(params) {
             index: 'customelements',
             type: 'repo',
             sort: 'stargazers_count:desc',
-            q: params.q,
+            q: params.q + '*',
             size: params.perPage,
             from: (params.page - 1) * params.perPage
         };
