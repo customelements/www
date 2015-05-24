@@ -56,6 +56,43 @@ body {
     text-decoration: none;
 }
 
+/* Header - Collapse
+   ========================================================================== */
+
+.header-collapse .header-title {
+    font-size: 24px;
+    text-align: left;
+    margin: 24px 0 24px 0;
+    float: left;
+}
+
+.header-collapse .header-title a {
+    color: #fff;
+    transition: all .2s linear;
+}
+.header-collapse .header-title a:hover {
+    color: #B388FF;
+    text-decoration: none;
+}
+
+.header-collapse .search {
+    float: right;
+    margin-top: 15px;
+}
+
+.header-collapse .search-field {
+    padding: 0.4em;
+}
+
+.header-collapse .search-label::before {
+    top: 30%;
+}
+
+.header-collapse .search-label-content {
+    padding-top: .9em;
+}
+
+
 /* ==========================================================================
    Main
    ========================================================================== */

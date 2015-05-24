@@ -1,12 +1,26 @@
 {{!< layout/default}}
 
-<div class="row">
-    <h3 style="text-align:center">{{total}} results for "{{q}}"</h3>
-</div>
+<header class="header header-collapse">
+    <div class="container">
+        <h1 class="header-title"><a href="/">Custom Elements</a></h1>
+        <form action="/search" method="GET">
+            <div class="search">
+                <input name="q" class="search-field" type="text" id="search-field" autocomplete="off">
+                <label class="search-label" for="search-field">
+                    <span class="search-label-content">Search...</span>
+                </label>
+            </div>
+        </form>
+    </div>
+</header>
 
 <main class="main container">
-  {{#grouped_each 3 results}}
-  <div class="row">
+    <div class="row">
+        <h3 style="text-align:center">{{total}} result(s) for "<strong>{{q}}</strong>"</h3>
+    </div>
+
+    {{#grouped_each 3 results}}
+    <div class="row">
       {{#each this}}
       <div class="col-md-4">
           <paper-material class="card" elevation="1" animated>
@@ -41,5 +55,4 @@
   {{/grouped_each}}
 
   {{{pagination}}}
-
 </main>
