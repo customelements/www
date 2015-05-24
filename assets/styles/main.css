@@ -10,19 +10,25 @@ body {
    ========================================================================== */
 
 .header {
-    background: #6a1b9a;
-    background: -moz-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, #6a1b9a), color-stop(100%, #4a148c));
-    background: -webkit-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-    background: -o-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-    background: -ms-linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-    background: linear-gradient(45deg, #6a1b9a 0%, #4a148c 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a1b9a', endColorstr='#4a148c', GradientType=1 );
+    background: #673ab7;
+    background: -moz-linear-gradient(left, #673ab7 0%, #7e57c2 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, #673ab7), color-stop(100%, #7e57c2));
+    background: -webkit-linear-gradient(left, #673ab7 0%, #7e57c2 100%);
+    background: -o-linear-gradient(left, #673ab7 0%, #7e57c2 100%);
+    background: -ms-linear-gradient(left, #673ab7 0%, #7e57c2 100%);
+    background: linear-gradient(to right, #673ab7 0%, #7e57c2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#673ab7', endColorstr='#7e57c2', GradientType=1 );
+}
+
+.header .header-logo {
+    margin: 40px auto 0;
+    display: block;
+    width: 80px;
 }
 
 .header .header-title {
     color: #fff;
-    margin: 40px 0 0;
+    margin: 0;
     font-family: 'Roboto Slab', sans-serif;
     font-size: 47px;
     font-weight: 400;
@@ -59,10 +65,14 @@ body {
 /* Header - Collapse
    ========================================================================== */
 
+.header-collapse .container {
+    padding: 0;
+}
+
 .header-collapse .header-title {
     font-size: 24px;
     text-align: left;
-    margin: 24px 0 24px 0;
+    margin: 10px 0;
     float: left;
 }
 
@@ -73,6 +83,15 @@ body {
 .header-collapse .header-title a:hover {
     color: #B388FF;
     text-decoration: none;
+}
+
+.header-collapse .header-title img {
+    width: 55px;
+}
+
+.header-collapse .header-title span {
+    margin-left: 10px;
+    display: inline-block;
 }
 
 .header-collapse .search {
