@@ -1,3 +1,5 @@
+// Search
+
 var searchField = document.querySelector('.search-field');
 var searchFilled = 'search-filled';
 
@@ -22,4 +24,16 @@ searchField.addEventListener('blur', function(evt) {
     if (evt.target.value.trim() === '') {
         searchField.parentNode.classList.remove(searchFilled);
     }
+});
+
+// Card
+
+[].forEach.call(document.querySelectorAll('.card'), function(elem) {
+    elem.addEventListener('mouseenter', function(e) {
+        elem.elevation++;
+    });
+
+    elem.addEventListener('mouseleave', function(e) {
+        elem.elevation--;
+    });
 });
