@@ -5,5 +5,5 @@ module.exports = function trim_string( passedString, startstring, endstring ) {
     theString = theString + '...';
   }
 
-  return theString;
+  return String(theString).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
