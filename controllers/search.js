@@ -7,7 +7,7 @@ var template = require('../views/layout/template.hbs');
 Handlebars.registerHelper('paginate', paginate);
 
 function controller(request, reply) {
-    request.params.term = request.params.term.replace(/\+/g, ' ');
+    request.params.term = request.params.term.replace(/\+/g, ' ').replace(/\-/g, ' ');
 
     controller.validate(request)
         .then(function(result) {
