@@ -319,7 +319,7 @@ body {
    ========================================================================== */
 
 .steps {
-    padding: 50px;
+    padding: 50px 38px;
 }
 
 .steps-title {
@@ -348,7 +348,7 @@ body {
     font-size: 18px;
     font-weight: 300;
     margin-left: 24px;
-    width: 260px;
+    width: 70%;
 }
 
 .step-content a,
@@ -530,4 +530,84 @@ body {
 
 .icon-star:before {
     content: "\e600";
+}
+
+/* ==========================================================================
+   Media Querys
+   ========================================================================== */
+   /* Large desktop */
+@media (max-width: 1200px) {
+    
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    .container{
+        width: auto;
+    }
+    .main{
+        padding:28px 15px;
+    }
+    #steps .col-md-4{
+        float: left;
+        margin-bottom: 35px;
+        width: 100%;
+    }
+    #steps .col-md-4:last-child{
+        margin-bottom: 0;
+    }
+    .credits p{
+        float: none;
+        text-align: center;
+    }
+    .social-buttons{
+        float: none;
+        text-align: center;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+   .main{
+        padding: 28px 15px;
+   }
+    #steps .col-md-4{
+        width: 100%;
+        float: left;
+        margin-bottom: 25px;
+    }
+    .credits p{
+        float: none;
+        text-align: center;
+    }
+    .social-buttons{
+        float: none;
+        text-align: center;
+    }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+    .header .header-title{
+        line-height: 45px;
+        margin-bottom: 16px;
+    }
+    .card{
+        height: 230px;
+    }
+    .steps-title{
+        text-align: center;
+    }
+    .step-number{
+        float: none;
+        display: table;
+        margin: 0 auto;
+    }
+    .step-content{
+        width: 100%;
+        margin-left: auto;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 15px !important;
+    }
 }
