@@ -13,7 +13,8 @@
     "handlebars-paginate": "0.0.3",
     "hapi": "^8.4.0",
     "joi": "^6.4.1",
-    "newrelic": "^1.18.5"
+    "newrelic": "^1.18.5",
+    "url": "^0.10.3"
   },
   "engines": {
     "node": "0.12",
