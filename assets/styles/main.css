@@ -76,10 +76,6 @@ body {
 /* Header - Collapse
    ========================================================================== */
 
-.header-collapse .container {
-    padding: 0;
-}
-
 .header-collapse .header-title {
     font-size: 24px;
     text-align: left;
@@ -565,6 +561,11 @@ body {
         float: none;
         text-align: center;
     }
+    .header-collapse .row{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
 }
 
 /* Landscape phone to portrait tablet */
@@ -584,7 +585,15 @@ body {
     .social-buttons{
         float: none;
         text-align: center;
+    }   
+    .header-collapse .row{
+        margin-left: 0;
+        margin-right: 0;
     }
+    .header-collapse .search{
+        font-size: 22px;
+    }
+
 }
  
 /* Landscape phones and down */
@@ -610,5 +619,17 @@ body {
         text-align: center;
         font-size: 16px;
         margin-top: 15px !important;
+    }
+    .header-collapse .header-title{
+        float: none;
+        text-align: center;
+    }
+    .header-collapse .search{
+        float: none;
+        clear: both;
+    }
+    .header-collapse .row{
+        margin-left: -15px;
+        margin-right: -15px;
     }
 }
