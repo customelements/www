@@ -6,7 +6,7 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/search/{term}',
+        path: '/search',
         handler: require('./controllers/search')
     },
     {
