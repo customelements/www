@@ -1,6 +1,6 @@
 ## Contributing
 
-There are three ways to submit your custom element to this gallery. They all require you to have a GitHub repository, so make sure to write the appropriate repository name and description.
+There are two ways to submit your elements to this list. Both require you to have a GitHub repository, so make sure you write a good repository name and description for better discoverability.
 
 ### Using [Bower](http://bower.io/)
 
@@ -23,7 +23,7 @@ There are three ways to submit your custom element to this gallery. They all req
 $ bower register <my-package-name> <git-endpoint>
     ```
 
-3. Wait for it to show up! Shouldn't take longer than few hours.
+3. Wait for it to show up! Shouldn't take longer than an hour.
 
 ### Using [npm](https://www.npmjs.com/)
 
@@ -46,7 +46,7 @@ $ bower register <my-package-name> <git-endpoint>
 $ npm publish
     ```
 
-3. Wait for it to show up! Shouldn't take longer than few hours.
+3. Wait for it to show up! Shouldn't take longer than an hour.
 
 ### Manual Submission
 
