@@ -2,6 +2,10 @@ var boom = require('boom');
 var es = require('../configs/es');
 
 function controller(request, reply) {
+    if (request.query && request.query.q) {
+        return reply.redirect('/search/' + request.query.q);
+    }
+
     Promise.all([
         controller.recentlyCreated(),
         controller.lastUpdated(),
