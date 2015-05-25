@@ -603,6 +603,10 @@ body {
     .header-collapse .search {
         font-size: 22px;
     }
+    .pagination li:first-child,
+    .pagination li:last-child{
+        display: none;
+    }
 }
 
 /* Landscape phones and down */
@@ -647,5 +651,9 @@ body {
     .header-collapse .row {
         margin-left: -15px;
         margin-right: -15px;
+    }
+    .pagination li:first-child,
+    .pagination li:last-child{
+        display: none;
     }
 }
