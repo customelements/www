@@ -323,10 +323,11 @@ body {
 }
 
 .steps-title {
-    color: #fff;
+    color: #B388FF;
     font-size: 24px;
     margin-top: 0;
     margin-bottom: 32px;
+    font-weight: 300;
 }
 
 .step-number {
