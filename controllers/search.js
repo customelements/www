@@ -7,12 +7,11 @@ var template = require('../views/layout/template.hbs');
 Handlebars.registerHelper('paginate', paginate);
 
 function controller(request, reply) {
-    // request.params.term = request.params.term.replace(/\+/g, ' ');
-    request.params.term = request.query.q;
+    request.params.term = request.params.term.replace(/\+/g, ' ');
 
-    // if (!request.params.term) {
-    //     return reply.redirect('/');
-    // }
+    if (!request.params.term) {
+        return reply.redirect('/');
+    }
 
     controller.validate(request)
         .then(function(result) {
