@@ -6,6 +6,13 @@ module.exports = [
     },
     {
         method: 'GET',
+        path: '/search',
+        handler: function(request, reply) {
+            return reply.redirect('/');
+        }
+    },
+    {
+        method: 'GET',
         path: '/search/{term}',
         handler: require('./controllers/search')
     },

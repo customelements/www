@@ -9,10 +9,6 @@ Handlebars.registerHelper('paginate', paginate);
 function controller(request, reply) {
     request.params.term = request.params.term.replace(/\+/g, ' ');
 
-    if (!request.params.term) {
-        return reply.redirect('/');
-    }
-
     controller.validate(request)
         .then(function(result) {
             return controller.find(result);
