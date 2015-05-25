@@ -1,5 +1,6 @@
 var boom = require('boom');
 var es = require('../configs/es');
+var url = require('../configs/base-url');
 
 function controller(request, reply) {
     if (request.query && request.query.q) {
@@ -15,7 +16,8 @@ function controller(request, reply) {
         reply.view('index', {
             recentlyCreated: results[0],
             lastUpdated: results[1],
-            mostPopular: results[2]
+            mostPopular: results[2],
+            base_url: url(request)
         });
     })
     .catch(reply);

@@ -4,6 +4,7 @@ var joi = require('joi');
 var paginate = require('handlebars-paginate');
 var Handlebars = require('handlebars');
 var template = require('../views/layout/template.hbs');
+var url = require('../configs/base-url');
 Handlebars.registerHelper('paginate', paginate);
 
 function controller(request, reply) {
@@ -14,6 +15,7 @@ function controller(request, reply) {
             return controller.find(result);
         })
         .then(function(result) {
+            result.base_url = url(request);
             return reply.view('search', result);
         })
         .catch(reply);
