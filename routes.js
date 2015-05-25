@@ -16,18 +16,6 @@ module.exports = [
         path: '/search/{term}',
         handler: require('./controllers/search')
     },
-    // {
-    //     method: 'GET',
-    //     path: '/{owner}',
-    //     handler: require('./controllers/owner')
-    // },
-    // {
-    //     method: 'GET',
-    //     path: '/{owner}/{name}',
-    //     config: {
-    //         handler: require('./controllers/repo')
-    //     }
-    // },
     {
         method: 'GET',
         path: '/assets/{file*}',
@@ -37,9 +25,9 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/{p*}',
+        path: '/{path*}',
         handler: function(request, reply) {
-            return reply.view('404')
+            return reply.view('404');
         }
     }
 ];
