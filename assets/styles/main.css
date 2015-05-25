@@ -354,13 +354,18 @@ body {
     font-weight: 600;
 }
 
-#step-1 { margin-top: -6px; }
-#step-2, #step-3 { margin-top: 6px; }
+#step-1 {
+    margin-top: -6px;
+}
 
+#step-2, #step-3 {
+    margin-top: 6px;
+}
 
 /** =========================================================================
     Pagination
     ========================================================================= */
+
 .pagination {
   display: block;
   text-align: center;
@@ -421,7 +426,6 @@ body {
 .pagination .disabled {
   color: #777777;
 }
-
 
 /** =========================================================================
     Footer
@@ -530,105 +534,117 @@ body {
 }
 
 /* ==========================================================================
-   Media Querys
+   Media Queries
    ========================================================================== */
-   /* Large desktop */
-@media (max-width: 1200px) {
-    
-}
- 
+
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-    .container{
+    .container {
         width: auto;
     }
-    .main{
+
+    .main {
         padding:28px 15px;
     }
-    #steps .col-md-4{
+
+    #steps .col-md-4 {
         float: left;
         margin-bottom: 35px;
         width: 100%;
     }
-    #steps .col-md-4:last-child{
+
+    #steps .col-md-4:last-child {
         margin-bottom: 0;
     }
-    .credits p{
+
+    .credits p {
         float: none;
         text-align: center;
     }
-    .social-buttons{
+
+    .social-buttons {
         float: none;
         text-align: center;
     }
-    .header-collapse .row{
+
+    .header-collapse .row {
         margin-left: 0;
         margin-right: 0;
     }
-
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-   .main{
+   .main {
         padding: 28px 15px;
    }
-    #steps .col-md-4{
+
+    #steps .col-md-4 {
         width: 100%;
         float: left;
         margin-bottom: 25px;
     }
-    .credits p{
+
+    .credits p {
         float: none;
         text-align: center;
     }
-    .social-buttons{
+
+    .social-buttons {
         float: none;
         text-align: center;
-    }   
-    .header-collapse .row{
+    }
+
+    .header-collapse .row {
         margin-left: 0;
         margin-right: 0;
     }
-    .header-collapse .search{
+
+    .header-collapse .search {
         font-size: 22px;
     }
-
 }
- 
+
 /* Landscape phones and down */
-@media (max-width: 480px) { 
-    .header .header-title{
+@media (max-width: 480px) {
+    .header .header-title {
         line-height: 45px;
         margin-bottom: 16px;
     }
-    .card{
+
+    .card {
         height: 230px;
     }
-    .steps-title{
+
+    .steps-title {
         text-align: center;
     }
-    .step-number{
+
+    .step-number {
         float: none;
         display: table;
         margin: 0 auto;
     }
-    .step-content{
+
+    .step-content {
         width: 100%;
         margin-left: auto;
         text-align: center;
         font-size: 16px;
         margin-top: 15px !important;
     }
-    .header-collapse .header-title{
+
+    .header-collapse .header-title {
         float: none;
         text-align: center;
     }
-    .header-collapse .search{
+
+    .header-collapse .search {
         float: none;
         clear: both;
     }
-    .header-collapse .row{
+
+    .header-collapse .row {
         margin-left: -15px;
         margin-right: -15px;
     }

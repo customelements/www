@@ -65,19 +65,20 @@ controller.find = function(params) {
                 q: params.q,
                 total: body.hits.total,
                 results: results
-            }
+            };
 
-            var html = template({pagination: {
-              page: params.page,
-              pageCount: Math.ceil(body.hits.total / params.perPage)
-            }});
+            var html = template({
+                pagination: {
+                    page: params.page,
+                    pageCount: Math.ceil(body.hits.total / params.perPage)
+                }
+            });
 
-            if ( Math.ceil(body.hits.total / params.perPage) > 1 ) {
+            if (Math.ceil(body.hits.total / params.perPage) > 1) {
                 response.pagination = html;
             }
 
             resolve(response);
-
         }, function (error) {
             reject(boom.create(error.status, error.message));
         });
