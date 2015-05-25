@@ -1,5 +1,6 @@
 // Search
 
+var search = document.querySelector('.search');
 var searchField = document.querySelector('.search-field');
 var searchFilled = 'search-filled';
 
@@ -7,13 +8,12 @@ if (searchField.value.trim() !== '') {
     searchField.parentNode.classList.add(searchFilled);
 }
 
-searchField.addEventListener('keypress', function(evt) {
-  var code = evt.keyCode || evt.which;
+search.addEventListener('submit', function(evt) {
+  evt.preventDefault();
 
-  if(code === 13) {
-      var value = this.value.replace(/(\/|\?)/g, '').replace(/ /g, '+');
-      window.location = window.location.origin + '/search/' + value;
-  }
+  var value = evt.target[0].value;
+  value = value.replace(/(\/|\?)/g, '').replace(/ /g, '+');
+  window.location = window.location.origin + '/search/' + value;
 });
 
 searchField.addEventListener('focus', function(evt) {
