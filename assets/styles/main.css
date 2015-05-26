@@ -428,21 +428,21 @@ body {
 }
 
 /** =========================================================================
-    No Results
+    Error message
     ========================================================================= */
 
-.results-message{
+.error-msg {
     margin: 50px auto;
 }
 
-.results-message img{
+.error-msg img {
     display: table;
     height: auto;
     margin: 0 auto;
     width: 258px;
 }
 
-.results-message h4{
+.error-msg h4 {
     color: #ff4081;
     font-size: 36px;
     font-weight: 700;
@@ -452,13 +452,20 @@ body {
     text-transform: uppercase;
 }
 
-.results-message p{
+.error-msg p {
     color: #683bb7;
     font-size: 24px;
     text-align: center;
     font-weight: 300;
     margin: 0;
 }
+
+.error-msg a,
+.error-msg a:hover {
+    color: #683bb7;
+    font-weight: 700;
+}
+
 /** =========================================================================
     Footer
     ========================================================================= */
