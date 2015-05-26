@@ -12,7 +12,7 @@ function controller(request, reply) {
 
     controller.validate(request)
         .then(function(result) {
-            return controller.find(result);
+            return controller.find(result, reply);
         })
         .then(function(result) {
             result.base_url = url(request);
@@ -45,7 +45,7 @@ controller.validate = function(request) {
     });
 };
 
-controller.find = function(params) {
+controller.find = function(params, reply) {
     return new Promise(function(resolve, reject) {
         var options = {
             index: 'customelements',
@@ -57,6 +57,10 @@ controller.find = function(params) {
         };
 
         es.search(options).then(function(body) {
+            if (body.hits.total === 0) {
+                resolve(reply.view('search-zero'));
+            }
+
             var results = [];
 
             for (var i = 0; i < body.hits.hits.length; i++) {
