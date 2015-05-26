@@ -488,8 +488,9 @@ body {
     font-size: 15px;
 }
 
-.credits-link {
-    color: #3a99d7;
+.credits-link,
+.credits-link:hover {
+    color: #683bb7;
 }
 
 .credits-link:hover {
