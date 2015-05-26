@@ -428,6 +428,38 @@ body {
 }
 
 /** =========================================================================
+    No Results
+    ========================================================================= */
+
+.results-message{
+    margin: 50px auto;
+}
+
+.results-message img{
+    display: table;
+    height: auto;
+    margin: 0 auto;
+    width: 258px;
+}
+
+.results-message h4{
+    color: #ec3185;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: -65px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.results-message p{
+    color: #683bb7;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 300;
+    margin: 0;
+}
+/** =========================================================================
     Footer
     ========================================================================= */
 
