@@ -8,7 +8,7 @@ var url = require('../configs/base-url');
 Handlebars.registerHelper('paginate', paginate);
 
 function controller(request, reply) {
-    //request.params.term = request.params.term.replace(/\+/g, ' ').replace(/\-/g, ' ');
+    request.params.term = request.params.term.replace(/\+/g, ' ').replace(/\-/g, ' ');
 
     controller.validate(request)
         .then(function(result) {
