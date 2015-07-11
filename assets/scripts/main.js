@@ -2,6 +2,7 @@
 
 var search = document.querySelector('.search');
 var searchField = document.querySelector('.search-field');
+var sort = document.querySelector('#sort');
 var searchFilled = 'search-filled';
 
 if (searchField.value.trim() !== '') {
@@ -37,3 +38,12 @@ searchField.addEventListener('blur', function(evt) {
         elem.elevation--;
     });
 });
+
+// Sort
+sort.addEventListener('change', function(evt) {
+    var value = evt.target.value,
+        search = window.location.pathname.split('/')[2];
+
+    window.location = window.location.origin + '/search/' + search + '?s=' + value
+});
+

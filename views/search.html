@@ -21,7 +21,20 @@
 
 <main class="main container">
     <div class="row">
-        <h3 style="text-align:center">{{total}} result(s) for "<strong>{{q}}</strong>"</h3>
+        <h3 style="margin-left: 15px; float: left">We've found {{total}} result(s) for "<strong>{{q}}</strong>"</h3>
+
+        <form action="" class="sort">
+            <div class="form-group">
+                <select id="sort">
+                    <option {{selected sort "stargazers_count:desc"}} value="stargazers_count:desc">Sort: Most Stars</option>
+                    <option {{selected sort "stargazers_count:asc"}} value="stargazers_count:asc">Sort: Fewest Stars</option>
+                    <option {{selected sort "forks_count:desc"}} value="forks_count:desc">Sort: Most Forks</option>
+                    <option {{selected sort "forks_count:asc"}} value="forks_count:asc">Sort: Fewest Forks</option>
+                    <option {{selected sort "pushed_at:desc"}} value="pushed_at:desc">Sort: Recently updated</option>
+                    <option {{selected sort "pushed_at:asc"}} value="pushed_at:asc">Sort: Least Recently updated</option>
+                </select>
+            </div>
+        </form>
     </div>
 
     {{#grouped_each 3 results}}
