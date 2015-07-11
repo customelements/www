@@ -7,7 +7,7 @@ var Hapi = require('hapi');
 var server = new Hapi.Server();
 
 server.connection({
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 4000,
     router: {
         stripTrailingSlash: true
     }
