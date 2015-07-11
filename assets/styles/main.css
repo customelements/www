@@ -200,6 +200,32 @@ body {
     transform: scale3d(38, 38, 1);
 }
 
+.sort {
+    float: right;
+}
+
+.form-radio, .form-group {
+  position: relative;
+    margin-right: 15px;
+}
+
+.form-group select {
+  width: 100%;
+  font-size: 19px;
+  height: 29px;
+  padding: 2px 2px 1px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  line-height: 29px;
+  color: #78909c;
+  font-weight: 300;
+}
+
+.form-group select:focus {
+  outline: none;
+}
+
 /* ==========================================================================
    Main
    ========================================================================== */

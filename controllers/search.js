@@ -26,13 +26,15 @@ controller.validate = function(request) {
         var params = {
             q: request.params.term,
             page: request.query.page,
-            perPage: request.query.perPage
+            perPage: request.query.perPage,
+            sort: request.query.s || 'stargazers_count:desc'
         };
 
         var schema = {
             q: joi.string(),
             page: joi.number().min(1).default(1),
-            perPage: joi.number().min(1).default(30)
+            perPage: joi.number().min(1).default(30),
+            sort: joi.string()
         };
 
         joi.validate(params, schema, function(err, result) {
@@ -50,7 +52,7 @@ controller.find = function(params) {
         var options = {
             index: 'customelements',
             type: 'repo',
-            sort: 'stargazers_count:desc',
+            sort: params.sort,
             q: params.q + '*',
             size: params.perPage,
             from: (params.page - 1) * params.perPage
@@ -65,6 +67,7 @@ controller.find = function(params) {
 
             var response = {
                 q: params.q,
+                sort: params.sort,
                 total: body.hits.total,
                 results: results
             };
