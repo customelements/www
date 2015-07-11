@@ -22,6 +22,7 @@ server.views({
     path: 'views',
     helpersPath: 'views/helpers',
     layoutPath: 'views/layout',
+    partialsPath: 'views/partials',
     layout: 'default'
 });
 

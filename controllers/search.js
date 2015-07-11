@@ -8,11 +8,9 @@ var url = require('../configs/base-url');
 Handlebars.registerHelper('paginate', paginate);
 
 function controller(request, reply) {
-    request.params.term = request.params.term.replace(/\+/g, ' ').replace(/\-/g, ' ');
-
     controller.validate(request)
         .then(function(result) {
-            return controller.find(result);
+            return controller.find(result, reply);
         })
         .then(function(result) {
             result.base_url = url(request);
@@ -45,18 +43,31 @@ controller.validate = function(request) {
     });
 };
 
-controller.find = function(params) {
+controller.find = function(params, reply) {
     return new Promise(function(resolve, reject) {
+        params.q = params.q.replace(/\+/g, ' ');
+        console.log(params.q);
         var options = {
             index: 'customelements',
             type: 'repo',
             sort: 'stargazers_count:desc',
-            q: params.q + '*',
             size: params.perPage,
-            from: (params.page - 1) * params.perPage
+            from: (params.page - 1) * params.perPage,
+            body: {
+                query: {
+                    multi_match: {
+                        fields: ['q.q', 'q.alternate'],
+                        query: params.q + '*'
+                    }
+                }
+            }
         };
 
         es.search(options).then(function(body) {
+            if (body.hits.total === 0) {
+                resolve(reply.view('search-zero'));
+            }
+
             var results = [];
 
             for (var i = 0; i < body.hits.hits.length; i++) {
