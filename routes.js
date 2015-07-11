@@ -27,7 +27,7 @@ module.exports = [
         method: 'GET',
         path: '/{path*}',
         handler: function(request, reply) {
-            return reply.view('error');
+            return reply.view('404');
         }
     }
 ];
