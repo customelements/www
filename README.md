@@ -28,7 +28,7 @@ npm install
 npm start
     ```
 
-The server should be initialized at `localhost:3000`.
+The server should be initialized at `localhost:4000`.
 
 ## Contributing
 
