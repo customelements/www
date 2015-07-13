@@ -26,12 +26,9 @@
         <form action="" class="sort">
             <div class="form-group">
                 <select id="sort">
-                    <option {{selected sort "stargazers_count:desc"}} value="stargazers_count:desc">Sort: Most Stars</option>
-                    <option {{selected sort "stargazers_count:asc"}} value="stargazers_count:asc">Sort: Fewest Stars</option>
-                    <option {{selected sort "forks_count:desc"}} value="forks_count:desc">Sort: Most Forks</option>
-                    <option {{selected sort "forks_count:asc"}} value="forks_count:asc">Sort: Fewest Forks</option>
-                    <option {{selected sort "pushed_at:desc"}} value="pushed_at:desc">Sort: Recently updated</option>
-                    <option {{selected sort "pushed_at:asc"}} value="pushed_at:asc">Sort: Least Recently updated</option>
+                    <option {{selected sort "stargazers_count:desc"}} value="stargazers_count:desc">Most Stars</option>
+                    <option {{selected sort "forks_count:desc"}} value="forks_count:desc">Most Forks</option>
+                    <option {{selected sort "pushed_at:desc"}} value="pushed_at:desc">Recently updated</option>
                 </select>
             </div>
         </form>
