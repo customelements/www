@@ -6,13 +6,6 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/owner',
-        handler: function(request, reply) {
-            return reply.view('owner');
-        }
-    },
-    {
-        method: 'GET',
         path: '/search',
         handler: function(request, reply) {
             return reply.redirect('/');
@@ -32,9 +25,7 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/{path*}',
-        handler: function(request, reply) {
-            return reply.view('404');
-        }
+        path: '/{owner}',
+        handler: require('./controllers/owner.js')
     }
 ];

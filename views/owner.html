@@ -20,25 +20,70 @@
 </header>
 
 <div class="owner gradient">
-    <img class="owner-avatar" src="https://avatars0.githubusercontent.com/u/1066253?v=3&s=300" alt="Owner's avatar">
-    <h1 class="owner-name">Rob Dodson</h1>
+    <img class="owner-avatar" src="{{owner.avatar_url}}&s=300" alt="Owner's avatar">
+    <h1 class="owner-name">{{#if owner.name}}{{owner.name}}{{else}}{{owner.login}}{{/if}}</h1>
+    {{#if owner.company}}
     <p class="owner-company">
         <span class="icon-organization"></span>
-        Google
+        {{owner.company}}
     </p>
+    {{/if}}
+    {{#if owner.location}}
     <p class="owner-location">
         <span class="icon-location"></span>
-        San Francisco, CA
+        {{owner.location}}
     </p>
+    {{/if}}
     <p class="owner-links">
-        <a class="owner-link" target="_blank" href="http://robdodson.me">
+        {{#if owner.blog}}
+        <a class="owner-link" target="_blank" href="{{owner.blog}}">
             <span class="owner-icon icon-sphere"></span>
         </a>
-        <a class="owner-link" target="_blank" href="mailto:robdodson@google.com">
+        {{/if}}
+        {{#if owner.email}}
+        <a class="owner-link" href="mailto:{{owner.email}}">
             <span class="owner-icon icon-mail"></span>
         </a>
-        <a class="owner-link" target="_blank" href="https://github.com/robdodson">
+        {{/if}}
+        <a class="owner-link" target="_blank" href="https://github.com/{{owner.login}}">
             <span class="owner-icon icon-github"></span>
         </a>
     </p>
 </div>
+
+<main class="main container">
+    {{#grouped_each 3 repos}}
+    <div class="row">
+      {{#each this}}
+      <div class="col-md-4">
+          <paper-material class="card" elevation="1" animated>
+              <a class="card-link" target="_blank" href="https://github.com/{{owner.login}}/{{name}}/"></a>
+              <div class="card-header">
+                  <h1 class="card-title">
+                      <a target="_blank" href="https://github.com/{{owner.login}}/{{name}}/">{{{trim_string name 30}}}</a>
+                  </h1>
+                  <h2 class="card-subtitle">
+                      by <a target="_blank" href="https://github.com/{{owner.login}}/">{{owner.login}}</a>
+                  </h2>
+              </div>
+              <div class="card-body">
+                  <p class="card-description">{{{trim_string description 120}}}</p>
+              </div>
+              <div class="card-footer">
+                  <ul class="card-info-list">
+                      <li class="card-info-item">
+                          <span class="icon-star"></span>
+                          {{stargazers_count}}
+                      </li>
+                      <li class="card-info-item">
+                          <span class="icon-fork"></span>
+                          {{forks_count}}
+                      </li>
+                  </ul>
+              </div>
+          </paper-material>
+      </div>
+      {{/each}}
+  </div>
+  {{/grouped_each}}
+</main>
