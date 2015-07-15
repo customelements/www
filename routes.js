@@ -6,6 +6,13 @@ module.exports = [
     },
     {
         method: 'GET',
+        path: '/owner',
+        handler: function(request, reply) {
+            return reply.view('owner');
+        }
+    },
+    {
+        method: 'GET',
         path: '/search',
         handler: function(request, reply) {
             return reply.redirect('/');
