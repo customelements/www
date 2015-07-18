@@ -1,5 +1,5 @@
 var boom = require('boom');
-var es = require('../configs/es');
+var request = require('request');
 var joi = require('joi');
 var paginate = require('handlebars-paginate');
 var Handlebars = require('handlebars');
@@ -10,10 +10,7 @@ Handlebars.registerHelper('paginate', paginate);
 function controller(request, reply) {
     request.params.term = request.params.term.replace(/\+/g, ' ').replace(/\-/g, ' ');
 
-    controller.validate(request)
-        .then(function(result) {
-            return controller.find(result);
-        })
+    controller.find(request)
         .then(function(result) {
             result.base_url = url(request);
             return reply.view('search', result);
@@ -21,71 +18,58 @@ function controller(request, reply) {
         .catch(reply);
 }
 
-controller.validate = function(request) {
+controller.find = function(search) {
     return new Promise(function(resolve, reject) {
-        var params = {
-            q: request.params.term,
-            page: request.query.page,
-            perPage: request.query.perPage,
-            sort: request.query.s || 'stargazers_count:desc'
-        };
 
-        var schema = {
-            q: joi.string(),
-            page: joi.number().min(1).default(1),
-            perPage: joi.number().min(1).default(30),
-            sort: joi.string()
-        };
+        // Params Default
+        var params = [];
+            params.push('q=' + search.params.term);
 
-        joi.validate(params, schema, function(err, result) {
-            if (err) {
-                reject(boom.badRequest(err));
+        if ( search.query.page ) {
+            params.push('page=' + search.query.page);
+        }
+
+        if ( search.query.perPage ) {
+            params.push('perPage=' + search.query.perPage);
+        }
+
+        if ( search.query.s ) {
+            var sort = search.query.s.split(':')
+            params.push('sort=' + sort[0])
+            params.push('order=' + sort[1])
+        }
+
+        request({
+            url: 'https://api.customelements.io/search/repos?' + params.join('&'),
+            json: true
+        }, function (error, response, body) {
+            if (error) {
+                reject(boom.wrap(error));
             }
-
-            resolve(result);
-        });
-    });
-};
-
-controller.find = function(params) {
-    return new Promise(function(resolve, reject) {
-        var options = {
-            index: 'customelements',
-            type: 'repo',
-            sort: params.sort,
-            q: params.q + '*',
-            size: params.perPage,
-            from: (params.page - 1) * params.perPage
-        };
-
-        es.search(options).then(function(body) {
-            var results = [];
-
-            for (var i = 0; i < body.hits.hits.length; i++) {
-                results.push(body.hits.hits[i]._source);
+            else if (response.statusCode !== 200) {
+                var errorMsg = 'Error when requesting: find => ' + params.join('&');
+                reject(boom.create(response.statusCode, errorMsg));
             }
+            else {
 
-            var response = {
-                q: params.q,
-                sort: params.sort,
-                total: body.hits.total,
-                results: results
-            };
-
-            var html = template({
-                pagination: {
-                    page: params.page,
-                    pageCount: Math.ceil(body.hits.total / params.perPage)
+                body.q = search.params.term
+                if ( search.query.s ) {
+                    body.sort = search.query.s
                 }
-            });
 
-            if (Math.ceil(body.hits.total / params.perPage) > 1) {
-                response.pagination = html;
+                var html = template({
+                    pagination: {
+                        page: body.page,
+                        pageCount: Math.ceil(body.total / body.pages)
+                    }
+                });
+
+                if (Math.ceil(body.total / body.pages) > 1) {
+                    body.pagination = html;
+                }
+
+                resolve(body);
             }
-
-            resolve(response);
-        }, function (error) {
-            reject(boom.create(error.status, error.message));
         });
     });
 };
