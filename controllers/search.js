@@ -1,11 +1,10 @@
 var boom = require('boom');
 var request = require('request');
 var joi = require('joi');
-var paginate = require('handlebars-paginate');
 var Handlebars = require('handlebars');
 var template = require('../views/layout/template.hbs');
 var url = require('../configs/base-url');
-Handlebars.registerHelper('paginate', paginate);
+Handlebars.registerHelper('paginate', require('handlebars-paginate'));
 
 function controller(request, reply) {
     request.params.term = request.params.term.replace(/\+/g, ' ').replace(/\-/g, ' ');
@@ -25,13 +24,11 @@ controller.find = function(search) {
         var params = [];
             params.push('q=' + search.params.term);
 
-        if ( search.query.page ) {
-            params.push('page=' + search.query.page);
-        }
+        search.query.page = search.query.page || 1;
+        params.push('page=' + search.query.page);
 
-        if ( search.query.perPage ) {
-            params.push('perPage=' + search.query.perPage);
-        }
+        search.query.perPage = search.query.perPage || 15;
+        params.push('perPage=' + search.query.perPage);
 
         if ( search.query.s ) {
             var sort = search.query.s.split(':')
@@ -57,15 +54,13 @@ controller.find = function(search) {
                     body.sort = search.query.s
                 }
 
-                var html = template({
-                    pagination: {
-                        page: body.page,
-                        pageCount: Math.ceil(body.total / body.pages)
-                    }
-                });
-
-                if (Math.ceil(body.total / body.pages) > 1) {
-                    body.pagination = html;
+                if (body.pages > 1) {
+                    body.pagination = template({
+                        pagination: {
+                            page: body.page,
+                            pageCount: body.pages
+                        }
+                    });
                 }
 
                 resolve(body);
