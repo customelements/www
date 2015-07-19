@@ -1,0 +1,41 @@
+.owner {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.owner-avatar {
+    background: white;
+    border-radius: 50%;
+    border: 2px solid #B388FF;
+    height: 150px;
+    width: 150px;
+}
+
+.owner-name {
+    color: white;
+    font-weight: 300;
+}
+
+.owner-location,
+.owner-company {
+    color: #B388FF;
+    font-size: 16px;
+    margin: 0;
+}
+
+.owner-links {
+    margin: 20px 0 0;
+}
+
+.owner-link {
+    color: white;
+    font-size: 20px;
+    margin: 0 5px;
+    transition: all .2s linear;
+}
+
+.owner-link:focus,
+.owner-link:hover {
+    color: #B388FF;
+    text-decoration: none;
+}

@@ -25,9 +25,7 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/{path*}',
-        handler: function(request, reply) {
-            return reply.view('404');
-        }
+        path: '/{owner}',
+        handler: require('./controllers/owner.js')
     }
 ];

@@ -200,32 +200,6 @@ body {
     transform: scale3d(38, 38, 1);
 }
 
-.sort {
-    float: right;
-}
-
-.form-radio, .form-group {
-  position: relative;
-    margin-right: 15px;
-}
-
-.form-group select {
-  width: 100%;
-  font-size: 19px;
-  height: 29px;
-  padding: 2px 2px 1px;
-  font-size: 18px;
-  background: none;
-  border: none;
-  line-height: 29px;
-  color: #78909c;
-  font-weight: 300;
-}
-
-.form-group select:focus {
-  outline: none;
-}
-
 /* ==========================================================================
    Main
    ========================================================================== */
@@ -234,16 +208,42 @@ body {
     padding: 28px 0;
 }
 
-.main h3 {
+/* Search Result
+   ========================================================================== */
+
+.search-result {
     color: #78909c;
+    float: left;
     font-size: 24px;
     font-weight: 300;
-    margin-top: 0;
-    margin-bottom: 24px;
+    margin: 0 0 24px 15px;
 }
 
-/* ==========================================================================
-   Card
+.sort-form {
+    color: #78909c;
+    float: right;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.sort-container {
+    display: inline-block;
+    margin-right: 15px;
+    margin-left: -7px;
+    position: relative;
+}
+
+.sort-container select {
+    background: none;
+    border: none;
+    font-weight: 400;
+}
+
+.sort-container select:focus {
+    outline: none;
+}
+
+/* Card
    ========================================================================== */
 
 .card {
@@ -551,11 +551,31 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-fork:before {
-    content: "\e601";
+.icon-mail:before {
+    content: "\f03b";
+}
+
+.icon-github:before {
+    content: "\f00a";
+}
+
+.icon-organization:before {
+    content: "\f037";
+}
+
+.icon-location:before {
+    content: "\e947";
+}
+
+.icon-sphere:before {
+    content: "\e9c9";
 }
 
 .icon-star:before {
+    content: "\e601";
+}
+
+.icon-fork:before {
     content: "\e600";
 }
 
@@ -640,6 +660,12 @@ body {
     .header .header-title {
         line-height: 45px;
         margin-bottom: 16px;
+    }
+
+    .search-result,
+    .sort-form {
+        float: none;
+        text-align: center;
     }
 
     .card {
