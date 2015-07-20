@@ -22,12 +22,5 @@ module.exports = [
         handler: {
             directory: { path: 'assets' }
         }
-    },
-    {
-        method: 'GET',
-        path: '/{path*}',
-        handler: function(request, reply) {
-            return reply.view('404');
-        }
     }
 ];

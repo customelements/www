@@ -551,11 +551,31 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-fork:before {
-    content: "\e601";
+.icon-mail:before {
+    content: "\f03b";
+}
+
+.icon-github:before {
+    content: "\f00a";
+}
+
+.icon-organization:before {
+    content: "\f037";
+}
+
+.icon-location:before {
+    content: "\e947";
+}
+
+.icon-sphere:before {
+    content: "\e9c9";
 }
 
 .icon-star:before {
+    content: "\e601";
+}
+
+.icon-fork:before {
     content: "\e600";
 }
 
