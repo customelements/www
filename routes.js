@@ -22,5 +22,10 @@ module.exports = [
         handler: {
             directory: { path: 'assets' }
         }
+    },
+    {
+        method: 'GET',
+        path: '/{owner}',
+        handler: require('./controllers/owner.js')
     }
 ];
