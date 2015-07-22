@@ -14,6 +14,9 @@ body {
     font-family: 'Roboto', 'Noto', sans-serif;
     -webkit-font-smoothing: antialiased;
     margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .gradient {
@@ -206,6 +209,7 @@ body {
 
 .main {
     padding: 28px 0;
+    flex: 1;
 }
 
 /* Search Result
