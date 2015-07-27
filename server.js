@@ -28,6 +28,15 @@ server.views({
 // -- Error --------------------------------------------------------------------
 
 server.ext('onPreResponse', function (request, reply) {
+    if (request.response.output) {
+        if (request.response.output.statusCode === 404) {
+            return reply.view('error', {
+                errorImg: '404',
+                errorMsg: 'Uh oh! We could\'nt find the page you are looking for'
+            });
+        }
+    }
+
     if (request.response.isBoom) {
         return reply.view('error', {
             errorImg: '500',
