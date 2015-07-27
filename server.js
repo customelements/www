@@ -25,6 +25,19 @@ server.views({
     layout: 'default'
 });
 
+// -- Error --------------------------------------------------------------------
+
+server.ext('onPreResponse', function (request, reply) {
+    if (request.response.isBoom) {
+        return reply.view('error', {
+            errorImg: '500',
+            errorMsg: 'Oops! An unexpected error seems to have occurred'
+        });
+    }
+
+    return reply.continue();
+});
+
 // -- Start --------------------------------------------------------------------
 
 server.register({

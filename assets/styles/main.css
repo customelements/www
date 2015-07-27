@@ -527,6 +527,31 @@ body {
 .github-btn { width: 85px;  }
 
 /* ==========================================================================
+   Error
+   ========================================================================== */
+
+.main.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error .error-container {
+    text-align: center;
+}
+
+.error .error-img {
+    max-width: 100%;
+}
+
+.error .error-msg {
+    color: #78909c;
+    font-size: 24px;
+    line-height: 24px;
+    margin: 36px 0 0;
+}
+
+/* ==========================================================================
    Fonts
    ========================================================================== */
 
