@@ -34,6 +34,11 @@ The server should be initialized at `localhost:4000`.
 
 If you want to submit your project to this list, please read the [Contributing](https://github.com/customelements/www/blob/master/CONTRIBUTING.md) guide.
 
+## Credits
+
+* Error icons by [Julien Deveaux](https://thenounproject.com/Julihan/)
+* Search input effect by [Manoela Ilic](https://github.com/crnacura)
+
 ## License
 
 [MIT License](http://webcomponentsorg.mit-license.org/) © WebComponents.org
