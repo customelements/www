@@ -32,7 +32,13 @@ server.ext('onPreResponse', function (request, reply) {
         if (request.response.output.statusCode === 404) {
             return reply.view('error', {
                 errorImg: '404',
-                errorMsg: 'Uh oh! We could\'nt find the page you are looking for'
+                errorMsg: 'Uh-oh! We couldn\'t find the page you are looking for'
+            });
+        }
+        else if (request.response.output.statusCode === 400) {
+            return reply.view('error', {
+                errorImg: '400',
+                errorMsg: 'Argh! No results were found, try a different search'
             });
         }
     }

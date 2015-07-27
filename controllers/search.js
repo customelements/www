@@ -48,6 +48,9 @@ controller.find = function(search) {
                 reject(boom.create(response.statusCode, errorMsg));
             }
             else {
+                if (body.total === 0) {
+                    reject(boom.create(400, 'No results were found'));
+                }
 
                 body.q = search.params.term
                 if ( search.query.s ) {
