@@ -13,7 +13,6 @@ search.addEventListener('submit', function(evt) {
   evt.preventDefault();
 
   var value = evt.target[0].value;
-  value = value.replace(/(\/|\?)/g, '').replace(/ /g, '+');
   window.location = window.location.origin + '/search/' + value;
 });
 

@@ -7,8 +7,6 @@ var url = require('../configs/base-url');
 Handlebars.registerHelper('paginate', require('handlebars-paginate'));
 
 function controller(request, reply) {
-    request.params.term = request.params.term.replace(/\+/g, ' ').replace(/\-/g, ' ');
-
     controller.find(request)
         .then(function(result) {
             result.base_url = url(request);
@@ -32,8 +30,12 @@ controller.find = function(search) {
 
         if ( search.query.s ) {
             var sort = search.query.s.split(':')
-            params.push('sort=' + sort[0])
-            params.push('order=' + sort[1])
+            params.push('sort=' + sort[0]);
+            params.push('order=' + sort[1]);
+        }
+        else {
+            params.push('sort=stargazers_count');
+            params.push('order=desc');
         }
 
         request({
