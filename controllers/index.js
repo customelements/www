@@ -16,12 +16,12 @@ function controller(request, reply) {
     ])
     .then(function(results) {
         reply.view('index', {
-            recentlyCreated: results[0],
-            lastUpdated: results[1],
-            mostPopular: results[2],
-            totalRepos: results[3],
-            totalOwners: results[4],
             base_url: url(request)
+            recently_created: results[0],
+            last_updated: results[1],
+            most_popular: results[2],
+            total_repos: results[3],
+            total_owners: results[4]
         });
     })
     .catch(reply);

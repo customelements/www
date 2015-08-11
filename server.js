@@ -31,22 +31,22 @@ server.ext('onPreResponse', function (request, reply) {
     if (request.response.output) {
         if (request.response.output.statusCode === 404) {
             return reply.view('error', {
-                errorImg: '404',
-                errorMsg: 'Uh-oh! We couldn\'t find the page you are looking for'
+                error_img: '404',
+                error_msg: 'Uh-oh! We couldn\'t find the page you are looking for'
             });
         }
         else if (request.response.output.statusCode === 400) {
             return reply.view('error', {
-                errorImg: '400',
-                errorMsg: 'Argh! No results were found, try a different search'
+                error_img: '400',
+                error_msg: 'Argh! No results were found, try a different search'
             });
         }
     }
 
     if (request.response.isBoom) {
         return reply.view('error', {
-            errorImg: '500',
-            errorMsg: 'Oops! An unexpected error seems to have occurred'
+            error_img: '500',
+            error_msg: 'Oops! An unexpected error seems to have occurred'
         });
     }
 

@@ -15,14 +15,14 @@
             <a href="#steps">Learn about adding your elements here</a>
         </p>
     </div>
-    <h3 class="total">Featuring <strong>{{totalRepos}}</strong> repositories from <strong>{{totalOwners}}</strong> authors</h3>
+    <h3 class="total">Featuring <strong>{{total_repos}}</strong> repositories from <strong>{{total_owners}}</strong> authors</h3>
 </header>
 
 <main class="main container">
     <div class="row">
         <div class="col-md-4">
-            <h3>Recently created</h3>
-            {{#each recentlyCreated}}
+            <h3 class="section-title">Recently created</h3>
+            {{#each recently_created}}
             <paper-material class="card" elevation="1" animated>
                 <a class="card-link" target="_blank" href="https://github.com/{{owner.login}}/{{name}}/"></a>
                 <div class="card-header">
@@ -52,8 +52,8 @@
             {{/each}}
         </div>
         <div class="col-md-4">
-            <h3>Last updated</h3>
-            {{#each lastUpdated}}
+            <h3 class="section-title">Last updated</h3>
+            {{#each last_updated}}
             <paper-material class="card" elevation="1" animated>
                 <a class="card-link" target="_blank" href="https://github.com/{{owner.login}}/{{name}}/"></a>
                 <div class="card-header">
@@ -83,8 +83,8 @@
             {{/each}}
         </div>
         <div class="col-md-4">
-            <h3>Most popular</h3>
-            {{#each mostPopular}}
+            <h3 class="section-title">Most popular</h3>
+            {{#each most_popular}}
             <paper-material class="card" elevation="1" animated>
                 <a class="card-link" target="_blank" href="https://github.com/{{owner.login}}/{{name}}/"></a>
                 <div class="card-header">
