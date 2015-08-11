@@ -7,7 +7,12 @@ function controller(request, reply) {
         controller.getRepos(request.params.owner)
     ])
     .then(function(results) {
+        var pageTitle = request.params.owner + ' • CustomElements.io';
+        var pageDescription = 'Listing ' + results[1].length + ' repo(s) from ' + request.params.owner;
+
         reply.view('owner', {
+            page_title: pageTitle,
+            page_description: pageDescription,
             owner: results[0],
             repos: results[1]
         });

@@ -15,8 +15,13 @@ function controller(request, reply) {
         controller.totalOwners()
     ])
     .then(function(results) {
+        var pageTitle = 'CustomElements.io • Explore the world of Web Components';
+        var pageDescription = 'CustomElements.io is where community find awesome Web Components. Featuring more than ' + results[3] + ' repositories from ' + results[4] + ' authors.';
+
         reply.view('index', {
-            base_url: url(request)
+            base_url: url(request),
+            page_title: pageTitle,
+            page_description: pageDescription,
             recently_created: results[0],
             last_updated: results[1],
             most_popular: results[2],
