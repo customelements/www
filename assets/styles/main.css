@@ -76,6 +76,17 @@ body {
     text-decoration: none;
 }
 
+.header .total {
+    background: rgba(0, 0, 0, .1);
+    color: #B388FF;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 28px;
+    margin: 0;
+    padding: 24px;
+    text-align: center;
+}
+
 /* Header - Collapse
    ========================================================================== */
 
