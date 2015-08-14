@@ -4,13 +4,21 @@ var joi = require('joi');
 var Handlebars = require('handlebars');
 var template = require('../views/layout/template.hbs');
 var url = require('../configs/base-url');
+
 Handlebars.registerHelper('paginate', require('handlebars-paginate'));
 
 function controller(request, reply) {
     controller.find(request)
-        .then(function(result) {
-            result.base_url = url(request);
-            return reply.view('search', result);
+        .then(function(results) {
+            var pageTitle = 'Search results for "' + request.params.term + '" • CustomElements.io';
+            var pageDescription = 'Listing ' + results.total + ' search results for "' + request.params.term + '"';
+
+            return reply.view('search', {
+                base_url: url(request),
+                page_title: pageTitle,
+                page_description: pageDescription,
+                search: results
+            });
         })
         .catch(reply);
 }

@@ -15,13 +15,18 @@ function controller(request, reply) {
         controller.totalOwners()
     ])
     .then(function(results) {
+        var pageTitle = 'CustomElements.io • Explore the world of Web Components';
+        var pageDescription = 'CustomElements.io is where community find awesome Web Components. Featuring more than ' + results[3] + ' repositories from ' + results[4] + ' authors.';
+
         reply.view('index', {
-            recentlyCreated: results[0],
-            lastUpdated: results[1],
-            mostPopular: results[2],
-            totalRepos: results[3],
-            totalOwners: results[4],
-            base_url: url(request)
+            base_url: url(request),
+            page_title: pageTitle,
+            page_description: pageDescription,
+            recently_created: results[0],
+            last_updated: results[1],
+            most_popular: results[2],
+            total_repos: results[3],
+            total_owners: results[4]
         });
     })
     .catch(reply);

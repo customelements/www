@@ -21,7 +21,7 @@
 
 <main class="main container">
     <div class="row">
-        <h3 class="search-result">We've found {{total}} result(s) for "<strong>{{q}}</strong>"</h3>
+        <h3 class="search-result">We've found {{search.total}} result(s) for "<strong>{{search.q}}</strong>"</h3>
 
         <form class="sort-form">
             Sort by
@@ -35,7 +35,7 @@
         </form>
     </div>
 
-    {{#grouped_each 3 results}}
+    {{#grouped_each 3 search.results}}
     <div class="row">
       {{#each this}}
       <div class="col-md-4">
