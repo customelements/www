@@ -10,7 +10,7 @@ Handlebars.registerHelper('paginate', require('handlebars-paginate'));
 function controller(request, reply) {
     controller.find(request)
         .then(function(results) {
-            var pageTitle = 'Search results for "' + request.params.term + '" • CustomElements.io';
+            var pageTitle = 'Search results for "' + request.params.term + '" · CustomElements.io';
             var pageDescription = 'Listing ' + results.total + ' search results for "' + request.params.term + '"';
 
             return reply.view('search', {
