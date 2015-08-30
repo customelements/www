@@ -322,6 +322,23 @@ body {
     text-decoration: underline;
 }
 
+.card-header .card-avatar {
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    z-index: 2;
+}
+
+.card-header .card-avatar:hover {
+    opacity: 0.6;
+}
+
+.card-header .card-avatar img {
+    border-radius: 50%;
+}
+
 /* Card - Body
    ========================================================================== */
 
