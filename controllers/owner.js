@@ -1,5 +1,6 @@
 var boom = require('boom');
 var request = require('request');
+var system = require('../configs/system');
 
 function controller(request, reply) {
     Promise.all([
@@ -23,7 +24,7 @@ function controller(request, reply) {
 controller.getOwner = function(owner) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/owners/' + owner,
+            url: system.api_url + '/owners/' + owner,
             json: true
         }, function (error, response, body) {
             if (error) {
@@ -43,7 +44,7 @@ controller.getOwner = function(owner) {
 controller.getRepos = function(owner) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/repos/' + owner,
+            url: system.api_url + '/repos/' + owner,
             json: true
         }, function (error, response, body) {
             if (error) {

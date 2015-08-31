@@ -1,6 +1,7 @@
 var boom = require('boom');
 var request = require('request');
 var url = require('../configs/base-url');
+var system = require('../configs/system');
 
 function controller(request, reply) {
     if (request.query && request.query.q) {
@@ -35,7 +36,7 @@ function controller(request, reply) {
 controller.recentlyCreated = function(data) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/search/repos?sort=created_at&order=desc&perPage=5',
+            url: system.api_url + '/search/repos?sort=created_at&order=desc&perPage=5',
             json: true,
         }, function (error, response, body) {
             if (error) {
@@ -55,7 +56,7 @@ controller.recentlyCreated = function(data) {
 controller.lastUpdated = function(data) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/search/repos?sort=pushed_at&order=desc&perPage=5',
+            url: system.api_url + '/search/repos?sort=pushed_at&order=desc&perPage=5',
             json: true,
         }, function (error, response, body) {
             if (error) {
@@ -75,7 +76,7 @@ controller.lastUpdated = function(data) {
 controller.mostPopular = function(data) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/search/repos?sort=stargazers_count&order=desc&perPage=5',
+            url: system.api_url + '/search/repos?sort=stargazers_count&order=desc&perPage=5',
             json: true,
         }, function (error, response, body) {
             if (error) {
@@ -95,7 +96,7 @@ controller.mostPopular = function(data) {
 controller.totalRepos = function(data) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/count/repos',
+            url: system.api_url + '/count/repos',
             json: true,
         }, function (error, response, body) {
             if (error) {
@@ -115,7 +116,7 @@ controller.totalRepos = function(data) {
 controller.totalOwners = function(data) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/count/owners',
+            url: system.api_url + '/count/owners',
             json: true,
         }, function (error, response, body) {
             if (error) {

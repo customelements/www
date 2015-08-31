@@ -3,5 +3,8 @@
   "private": true,
   "dependencies": {
     "paper-material": "polymerelements/paper-material#~0.9.1"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.4"
   }
 }

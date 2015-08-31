@@ -147,7 +147,7 @@ body {
     z-index: 1;
 }
 
-.search-field {
+.search-field, input[text="search"] {
     background: transparent;
     border-radius: 0;
     border: none;
@@ -159,6 +159,7 @@ body {
     position: relative;
     width: 100%;
     z-index: 10;
+    box-sizing: border-box !important;
 }
 
 .search-field:focus {

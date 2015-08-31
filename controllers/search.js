@@ -4,6 +4,7 @@ var joi = require('joi');
 var Handlebars = require('handlebars');
 var template = require('../views/layout/template.hbs');
 var url = require('../configs/base-url');
+var system = require('../configs/system');
 
 Handlebars.registerHelper('paginate', require('handlebars-paginate'));
 
@@ -47,7 +48,7 @@ controller.find = function(search) {
         }
 
         request({
-            url: 'https://api.customelements.io/search/repos?' + params.join('&'),
+            url: system.api_url + '/search/repos?' + params.join('&'),
             json: true
         }, function (error, response, body) {
             if (error) {
