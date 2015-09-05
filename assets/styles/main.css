@@ -90,6 +90,10 @@ body {
 /* Header - Collapse
    ========================================================================== */
 
+.header-collapse {
+    background: rgba(0, 0, 0, .1);
+}
+
 .header-collapse .header-title {
     font-size: 24px;
     text-align: left;
