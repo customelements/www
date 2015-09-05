@@ -24,10 +24,10 @@
             <h3 class="section-title">Recently created</h3>
             {{#each recently_created}}
             <paper-material class="card" elevation="1" animated>
-                <a class="card-link" target="_blank" href="https://github.com/{{owner.login}}/{{name}}/"></a>
+                <a class="card-link" href="/{{owner.login}}/{{name}}/"></a>
                 <div class="card-header">
                     <h1 class="card-title">
-                        <a target="_blank" href="https://github.com/{{owner.login}}/{{name}}/">{{{trim_string name 30}}}</a>
+                        <a href="/{{owner.login}}/{{name}}/">{{{trim_string name 30}}}</a>
                     </h1>
                     <h2 class="card-subtitle">
                         by <a href="/{{owner.login}}/">{{owner.login}}</a>
@@ -58,10 +58,10 @@
             <h3 class="section-title">Last updated</h3>
             {{#each last_updated}}
             <paper-material class="card" elevation="1" animated>
-                <a class="card-link" target="_blank" href="https://github.com/{{owner.login}}/{{name}}/"></a>
+                <a class="card-link" href="/{{owner.login}}/{{name}}/"></a>
                 <div class="card-header">
                     <h1 class="card-title">
-                        <a target="_blank" href="https://github.com/{{owner.login}}/{{name}}/">{{name}}</a>
+                        <a href="/{{owner.login}}/{{name}}/">{{name}}</a>
                     </h1>
                     <h2 class="card-subtitle">
                         by <a href="/{{owner.login}}/">{{owner.login}}</a>
@@ -92,10 +92,10 @@
             <h3 class="section-title">Most popular</h3>
             {{#each most_popular}}
             <paper-material class="card" elevation="1" animated>
-                <a class="card-link" target="_blank" href="https://github.com/{{owner.login}}/{{name}}/"></a>
+                <a class="card-link" href="/{{owner.login}}/{{name}}/"></a>
                 <div class="card-header">
                     <h1 class="card-title">
-                        <a target="_blank" href="https://github.com/{{owner.login}}/{{name}}/">{{name}}</a>
+                        <a href="/{{owner.login}}/{{name}}/">{{name}}</a>
                     </h1>
                     <h2 class="card-subtitle">
                         by <a href="{{base_url}}/{{owner.login}}/">{{owner.login}}</a>
