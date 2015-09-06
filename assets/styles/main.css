@@ -652,7 +652,7 @@ body {
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
     .container {
-        width: auto;
+        width: 100%;
     }
 
     .main {
@@ -690,6 +690,10 @@ body {
    .main {
         padding: 28px 15px;
    }
+
+   .container {
+        width: 100%;
+    }
 
     #steps .col-md-4 {
         width: 100%;
