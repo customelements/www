@@ -598,11 +598,11 @@ body {
 
 @font-face {
     font-family: 'CustomElements';
-    src:url('../fonts/CustomElements.eot?');
-    src:url('../fonts/CustomElements.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/CustomElements.woff?') format('woff'),
-        url('../fonts/CustomElements.ttf?') format('truetype'),
-        url('../fonts/CustomElements.svg?#CustomElements') format('svg');
+    src:url('../fonts/CustomElements.eot?bzeh4l');
+    src:url('../fonts/CustomElements.eot?#iefixbzeh4l') format('embedded-opentype'),
+        url('../fonts/CustomElements.ttf?bzeh4l') format('truetype'),
+        url('../fonts/CustomElements.woff?bzeh4l') format('woff'),
+        url('../fonts/CustomElements.svg?bzeh4l#CustomElements') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -621,33 +621,52 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-clock:before {
+    content: "\f046";
+}
+.icon-cloud-download:before {
+    content: "\f00b";
+}
+.icon-eye:before {
+    content: "\f04e";
+}
+.icon-hourglass:before {
+    content: "\f09e";
+}
+.icon-link-external:before {
+    content: "\f07f";
+}
+.icon-package:before {
+    content: "\f0c4";
+}
+.icon-sync:before {
+    content: "\f087";
+}
+.icon-tag:before {
+    content: "\f015";
+}
 .icon-mail:before {
     content: "\f03b";
 }
-
 .icon-github:before {
     content: "\f00a";
 }
-
 .icon-organization:before {
     content: "\f037";
 }
-
 .icon-location:before {
     content: "\e947";
 }
-
 .icon-sphere:before {
     content: "\e9c9";
 }
-
 .icon-star:before {
     content: "\e601";
 }
-
 .icon-fork:before {
     content: "\e600";
 }
+
 
 /* ==========================================================================
    Media Queries
