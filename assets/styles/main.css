@@ -314,7 +314,7 @@ body {
 }
 
 .card-header .card-subtitle a {
-    color: #ff4081;
+    color: #7C4DFF;
     text-decoration: none;
     font-weight: 400;
     z-index: 2;
@@ -322,7 +322,7 @@ body {
 }
 
 .card-header .card-subtitle a:hover {
-    color: #ff4081;
+    color: #7C4DFF;
     text-decoration: underline;
 }
 
@@ -400,7 +400,7 @@ body {
 .step-number {
     background: #fff;
     border-radius: 50%;
-    color: #ff4081;
+    color: #7C4DFF;
     float: left;
     font-size: 24px;
     font-weight: 300;
@@ -480,17 +480,17 @@ body {
 }
 
 .pagination .itens:hover {
-    background: #ff4081;
+    background: #7C4DFF;
 }
 
 .pagination b {
-    color: #ff4081;
+    color: #7C4DFF;
 }
 
 .pagination .active .itens,
 .pagination .active .itens:hover {
   z-index: 2;
-  background-color: #ff4081;
+  background-color: #7C4DFF;
   cursor: default;
 }
 
@@ -590,6 +590,31 @@ body {
     font-size: 24px;
     line-height: 24px;
     margin: 36px 0 0;
+}
+
+/* ==========================================================================
+   Button
+   ========================================================================== */
+
+.btn {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+}
+
+.btn paper-button {
+    background: #673ab7;
+    color: white;
+    font-size: 16px;
+    text-transform: none;
+    width: 100%;
+}
+
+.btn [class^="icon-"],
+.btn [class*=" icon-"] {
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
 }
 
 /* ==========================================================================

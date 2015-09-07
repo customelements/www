@@ -1,0 +1,166 @@
+/* Header
+   ========================================================================== */
+
+.repo {
+    padding: 50px 0;
+}
+
+.repo-avatar {
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+    float: left;
+    margin: 9px 10px 0 0;
+}
+
+.repo-avatar:hover {
+    opacity: 0.6;
+}
+
+.repo-avatar img {
+    background: white;
+    border-radius: 50%;
+    border: 2px solid #B388FF;
+    height: 36px;
+    width: 36px;
+}
+
+.repo-name {
+    color: #B388FF;
+    font-size: 34px;
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+
+.repo-name a:first-child {
+    color: #B388FF;
+    margin-right: 5px;
+}
+
+.repo-name a:last-child {
+    color: white;
+    margin-left: 5px;
+}
+
+.repo-description {
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0 0 10px;
+}
+
+.repo-info-list {
+    margin: 0;
+    padding: 0;
+}
+
+.repo-info-item {
+    color: white;
+    display: inline-block;
+    list-style: none;
+    margin-right: 24px;
+}
+
+.repo-info-item [class^="icon-"],
+.repo-info-item [class*=" icon-"] {
+    color: #B388FF;
+    font-size: 16px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+/* Readme
+   ========================================================================== */
+
+.repo-readme {
+    margin: 0 0 28px;
+}
+
+.markdown-body {
+    background: white;
+    font-family: 'Roboto', 'Noto', sans-serif;
+    margin: 0 0 20px;
+    padding: 30px;
+}
+
+.markdown-body pre,
+.markdown-body code {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.markdown-body a {
+    color: #7C4DFF;
+}
+
+/* Sidebar
+   ========================================================================== */
+
+.repo-sidebar {
+    background: white;
+    margin: 0 0 30px;
+    padding: 30px;
+}
+
+.repo-sidebar-title {
+    font-size: 20px;
+    margin: 0 0 20px;
+}
+
+.repo-btn {
+    margin: -6px 0 24px -5px;
+}
+
+/* Download
+   ========================================================================== */
+
+.repo-download-snippet {
+    background: #f7f7f7;
+    border: 0;
+    cursor: text;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0 0 10px;
+    overflow-x: auto;
+    overflow: visible;
+    padding: 10px;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.repo-download-btn {
+    margin: 10px 0 0 -5px;
+}
+
+/* Activity
+   ========================================================================== */
+
+.repo-activity-item {
+    color: #333;
+    font-size: 16px;
+    margin: 10px 0 0;
+}
+
+.repo-activity-item [class^="icon-"],
+.repo-activity-item [class*=" icon-"] {
+    color: #999;
+    font-size: 18px;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+
+/* Bower
+   ========================================================================== */
+
+.repo-deps-item {
+    color: #333;
+    font-size: 16px;
+    margin: 10px 0 0;
+}
+
+.repo-deps-item [class^="icon-"],
+.repo-deps-item [class*=" icon-"] {
+    color: #999;
+    font-size: 18px;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}

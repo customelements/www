@@ -1,0 +1,141 @@
+{{!< layout/default}}
+
+<link rel="stylesheet" href="{{base_url}}/assets/vendor/github-markdown-css/github-markdown.css">
+<link rel="stylesheet" href="{{base_url}}/assets/styles/repo.css">
+<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Mono'>
+<link rel="import" href="{{base_url}}/assets/vendor/paper-button/paper-button.html">
+
+<div class="gradient">
+    <header class="header header-collapse">
+        <div class="container">
+            <h1 class="header-title">
+                <a href="/">
+                    <img src="{{base_url}}/assets/images/logo.svg" alt="Logo">
+                    <span>Custom Elements</span>
+                </a>
+            </h1>
+            <form class="search">
+                <input name="q" class="search-field" type="text" id="search-field" autocomplete="off">
+                <label class="search-label" for="search-field">
+                    <span class="search-label-content">Search...</span>
+                </label>
+            </form>
+        </div>
+    </header>
+</div>
+
+<div class="repo gradient">
+    <div class="container">
+        <a class="repo-avatar" href="/{{repo.owner.login}}">
+            <img src="{{repo.owner.avatar_url}}&s=72" alt="Owner's avatar">
+        </a>
+        <h1 class="repo-name">
+            <a href="/{{repo.owner.login}}">{{repo.owner.login}}</a>/<a href="/{{repo.owner.login}}/{{repo.name}}">{{repo.name}}</a>
+        </h1>
+        {{#if repo.description}}
+        <h2 class="repo-description">{{repo.description}}</h2>
+        {{/if}}
+        <ul class="repo-info-list">
+            <li class="repo-info-item">
+                <span class="icon-star"></span>
+                {{repo.stargazers_count}}
+            </li>
+            <li class="repo-info-item">
+                <span class="icon-fork"></span>
+                {{repo.forks_count}}
+            </li>
+            <li class="repo-info-item">
+                <span class="icon-eye"></span>
+                {{repo.subscribers_count}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<main class="main container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="repo-readme section-title">Overview</h3>
+            <paper-material class="markdown-body" elevation="1">
+                {{#if repo.readme}}
+                    {{{repo.readme}}}
+                {{else}}
+                    No README has been provided by the author :(
+                {{/if}}
+            </paper-material>
+        </div>
+
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                    {{#if repo.homepage}}
+                        <a class="repo-btn btn" target="_blank" href="{{repo.homepage}}">
+                            <paper-button raised>
+                                <span class="icon-link-external"></span> Homepage
+                            </paper-button>
+                        </a>
+                    {{/if}}
+                </div>
+                <div class="col-md-6">
+                    <a class="repo-btn btn" target="_blank" href="https://github.com/{{repo.owner.login}}/{{repo.name}}/">
+                        <paper-button raised>
+                            <span class="icon-github"></span> GitHub
+                        </paper-button>
+                    </a>
+                </div>
+            </div>
+            <paper-material class="repo-sidebar repo-download" elevation="1">
+                <h4 class="repo-sidebar-title">Download</h4>
+                {{#if repo.npm}}
+                    <input class="repo-download-snippet" value="npm i {{repo.npm.name}} -S" readonly>
+                {{/if}}
+                {{#if repo.bower}}
+                    <input class="repo-download-snippet" value="bower i {{repo.bower.name}} -S" readonly>
+                {{else}}
+                    <input class="repo-download-snippet" value="bower i {{repo.owner.login}}/{{repo.name}} -S" readonly>
+                {{/if}}
+                <a class="repo-download-btn btn" href="https://github.com/{{repo.owner.login}}/{{repo.name}}/archive/{{repo.default_branch}}.zip" download>
+                    <paper-button raised>
+                        <span class="icon-cloud-download"></span> Download ZIP
+                    </paper-button>
+                </a>
+            </paper-material>
+
+            <paper-material class="repo-sidebar repo-activity" elevation="1">
+                <h4 class="repo-sidebar-title">Activity</h4>
+                <p class="repo-activity-item">
+                    <span class="icon-clock"></span> Created {{repo.created_at}}
+                </p>
+                <p class="repo-activity-item">
+                    <span class="icon-sync"></span> Last updated {{repo.pushed_at}}
+                </p>
+            </paper-material>
+
+            {{#if repo.bower}}
+                {{#if repo.bower.dependencies}}
+                    <paper-material class="repo-sidebar repo-deps" elevation="1">
+                        <h4 class="repo-sidebar-title">Bower Dependencies</h4>
+                        {{#each repo.bower.dependencies}}
+                            <p class="repo-deps-item">
+                                <span class="icon-package"></span> {{name}} {{version}}
+                            </p>
+                        {{/each}}
+                    </paper-material>
+                {{/if}}
+            {{/if}}
+
+            {{#if repo.npm}}
+                {{#if repo.npm.dependencies}}
+                    <paper-material class="repo-sidebar repo-deps" elevation="1">
+                        <h4 class="repo-sidebar-title">npm Dependencies</h4>
+                        {{#each repo.npm.dependencies}}
+                            <p class="repo-deps-item">
+                                <span class="icon-package"></span> {{name}} {{version}}
+                            </p>
+                        {{/each}}
+                    </paper-material>
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</main>
