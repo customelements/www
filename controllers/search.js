@@ -42,7 +42,6 @@ controller.find = function(search) {
             params.push('order=' + sort[1]);
         }
         else {
-            params.push('sort=stargazers_count');
             params.push('order=desc');
         }
 
