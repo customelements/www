@@ -7,15 +7,16 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 --><link rel="import" href="polymer-micro.html">
+
 <script>Polymer.Base._addFeature({
 _prepTemplate: function () {
 this._template = this._template || Polymer.DomModule.import(this.is, 'template');
-if (!this._template) {
-var script = document._currentScript || document.currentScript;
-var prev = script && script.previousElementSibling;
-if (prev && prev.localName === 'template') {
-this._template = prev;
+if (this._template && this._template.hasAttribute('is')) {
+this._warn(this._logf('_prepTemplate', 'top-level Polymer template ' + 'must not be a type-extension, found', this._template, 'Move inside simple <template>.'));
 }
+if (this._template && !this._template.content && HTMLTemplateElement.bootstrap) {
+HTMLTemplateElement.decorate(this._template);
+HTMLTemplateElement.bootstrap(this._template.content);
 }
 },
 _stampTemplate: function () {
@@ -28,7 +29,6 @@ var dom = document.importNode(template._content || template.content, true);
 return dom;
 }
 });
-
 (function () {
 var baseAttachedCallback = Polymer.Base.attachedCallback;
 Polymer.Base._addFeature({
@@ -61,12 +61,12 @@ return !this.dataHost || this.dataHost._clientsReadied;
 },
 _ready: function () {
 this._beforeClientsReady();
+this._setupRoot();
 this._readyClients();
 this._afterClientsReady();
 this._readySelf();
 },
 _readyClients: function () {
-this._setupRoot();
 this._beginDistribute();
 var c$ = this._clients;
 for (var i = 0, l = c$.length, c; i < l && (c = c$[i]); i++) {
@@ -88,8 +88,11 @@ _beforeClientsReady: function () {
 },
 _afterClientsReady: function () {
 },
+_beforeAttached: function () {
+},
 attachedCallback: function () {
 if (this._readied) {
+this._beforeAttached();
 baseAttachedCallback.call(this);
 } else {
 this._attachedPending = true;
@@ -97,7 +100,6 @@ this._attachedPending = true;
 }
 });
 }());
-
 Polymer.ArraySplice = function () {
 function newSplice(index, removed, addedCount) {
 return {
@@ -268,7 +270,6 @@ return currentValue === previousValue;
 };
 return new ArraySplice();
 }();
-
 Polymer.EventApi = function () {
 var Settings = Polymer.Settings;
 var EventApi = function (event) {
@@ -324,7 +325,6 @@ return event.__eventApi;
 };
 return { factory: factory };
 }();
-
 Polymer.domInnerHTML = function () {
 var escapeAttrRegExp = /[&\u00A0"]/g;
 var escapeDataRegExp = /[&\u00A0<>]/g;
@@ -423,7 +423,6 @@ return s;
 }
 return { getInnerHTML: getInnerHTML };
 }();
-
 Polymer.DomApi = function () {
 'use strict';
 var Settings = Polymer.Settings;
@@ -431,87 +430,84 @@ var getInnerHTML = Polymer.domInnerHTML.getInnerHTML;
 var nativeInsertBefore = Element.prototype.insertBefore;
 var nativeRemoveChild = Element.prototype.removeChild;
 var nativeAppendChild = Element.prototype.appendChild;
-var dirtyRoots = [];
+var nativeCloneNode = Element.prototype.cloneNode;
+var nativeImportNode = Document.prototype.importNode;
 var DomApi = function (node) {
 this.node = node;
 if (this.patch) {
 this.patch();
 }
 };
+if (window.wrap && Settings.useShadow && !Settings.useNativeShadow) {
+DomApi = function (node) {
+this.node = wrap(node);
+if (this.patch) {
+this.patch();
+}
+};
+}
 DomApi.prototype = {
 flush: function () {
-for (var i = 0, host; i < dirtyRoots.length; i++) {
-host = dirtyRoots[i];
-host.flushDebouncer('_distribute');
-}
-dirtyRoots = [];
+Polymer.dom.flush();
 },
 _lazyDistribute: function (host) {
-if (host.shadyRoot) {
+if (host.shadyRoot && host.shadyRoot._distributionClean) {
 host.shadyRoot._distributionClean = false;
-}
-if (!host.isDebouncerActive('_distribute')) {
-host.debounce('_distribute', host._distributeContent);
-dirtyRoots.push(host);
+Polymer.dom.addDebouncer(host.debounce('_distribute', host._distributeContent));
 }
 },
 appendChild: function (node) {
-var distributed;
-this._removeNodeFromHost(node);
-if (this._nodeIsInLogicalTree(this.node)) {
-var host = this._hostForNode(this.node);
-this._addLogicalInfo(node, this.node, host && host.shadyRoot);
-this._addNodeToHost(node);
-if (host) {
-distributed = this._maybeDistribute(node, this.node, host);
-}
-}
-if (!distributed) {
-var container = this.node._isShadyRoot ? this.node.host : this.node;
-nativeAppendChild.call(container, node);
-addToComposedParent(container, node);
-}
-return node;
+return this._addNode(node);
 },
 insertBefore: function (node, ref_node) {
-if (!ref_node) {
-return this.appendChild(node);
+return this._addNode(node, ref_node);
+},
+_addNode: function (node, ref_node) {
+this._removeNodeFromHost(node, true);
+var addedInsertionPoint;
+var root = this.getOwnerRoot();
+if (root) {
+addedInsertionPoint = this._maybeAddInsertionPoint(node, this.node);
 }
-var distributed;
-this._removeNodeFromHost(node);
-if (this._nodeIsInLogicalTree(this.node)) {
-saveLightChildrenIfNeeded(this.node);
+if (this._nodeHasLogicalChildren(this.node)) {
+if (ref_node) {
 var children = this.childNodes;
 var index = children.indexOf(ref_node);
 if (index < 0) {
 throw Error('The ref_node to be inserted before is not a child ' + 'of this node');
 }
-var host = this._hostForNode(this.node);
-this._addLogicalInfo(node, this.node, host && host.shadyRoot, index);
+}
+this._addLogicalInfo(node, this.node, index);
+}
 this._addNodeToHost(node);
-if (host) {
-distributed = this._maybeDistribute(node, this.node, host);
-}
-}
-if (!distributed) {
+if (!this._maybeDistribute(node, this.node) && !this._tryRemoveUndistributedNode(node)) {
+if (ref_node) {
 ref_node = ref_node.localName === CONTENT ? this._firstComposedNode(ref_node) : ref_node;
+}
 var container = this.node._isShadyRoot ? this.node.host : this.node;
-nativeInsertBefore.call(container, node, ref_node);
 addToComposedParent(container, node, ref_node);
+if (ref_node) {
+nativeInsertBefore.call(container, node, ref_node);
+} else {
+nativeAppendChild.call(container, node);
+}
+}
+if (addedInsertionPoint) {
+this._updateInsertionPoints(root.host);
 }
 return node;
 },
 removeChild: function (node) {
-var distributed;
-if (this._nodeIsInLogicalTree(this.node)) {
-var host = this._hostForNode(this.node);
-distributed = this._maybeDistribute(node, this.node, host);
-this._removeNodeFromHost(node);
+if (factory(node).parentNode !== this.node) {
+console.warn('The node to be removed is not a child of this node', node);
 }
-if (!distributed) {
+this._removeNodeFromHost(node);
+if (!this._maybeDistribute(node, this.node)) {
 var container = this.node._isShadyRoot ? this.node.host : this.node;
-nativeRemoveChild.call(container, node);
+if (container === node.parentNode) {
 removeFromComposedParent(container, node);
+nativeRemoveChild.call(container, node);
+}
 }
 return node;
 },
@@ -519,6 +515,9 @@ replaceChild: function (node, ref_node) {
 this.insertBefore(node, ref_node);
 this.removeChild(ref_node);
 return node;
+},
+_hasCachedOwnerRoot: function (node) {
+return Boolean(node._ownerShadyRoot !== undefined);
 },
 getOwnerRoot: function () {
 return this._ownerShadyRootForNode(this.node);
@@ -543,77 +542,145 @@ node._ownerShadyRoot = root;
 }
 return node._ownerShadyRoot;
 },
-_maybeDistribute: function (node, parent, host) {
-var nodeNeedsDistribute = this._nodeNeedsDistribution(node);
-var distribute = this._parentNeedsDistribution(parent) || nodeNeedsDistribute;
-if (nodeNeedsDistribute) {
-this._updateInsertionPoints(host);
-}
-if (distribute) {
+_maybeDistribute: function (node, parent) {
+var fragContent = node.nodeType === Node.DOCUMENT_FRAGMENT_NODE && !node.__noContent && Polymer.dom(node).querySelector(CONTENT);
+var wrappedContent = fragContent && Polymer.dom(fragContent).parentNode.nodeType !== Node.DOCUMENT_FRAGMENT_NODE;
+var hasContent = fragContent || node.localName === CONTENT;
+if (hasContent) {
+var root = this._ownerShadyRootForNode(parent);
+if (root) {
+var host = root.host;
 this._lazyDistribute(host);
 }
-return distribute;
+}
+var parentNeedsDist = this._parentNeedsDistribution(parent);
+if (parentNeedsDist) {
+this._lazyDistribute(parent);
+}
+return parentNeedsDist || hasContent && !wrappedContent;
+},
+_maybeAddInsertionPoint: function (node, parent) {
+var added;
+if (node.nodeType === Node.DOCUMENT_FRAGMENT_NODE && !node.__noContent) {
+var c$ = factory(node).querySelectorAll(CONTENT);
+for (var i = 0, n, np, na; i < c$.length && (n = c$[i]); i++) {
+np = factory(n).parentNode;
+if (np === node) {
+np = parent;
+}
+na = this._maybeAddInsertionPoint(n, np);
+added = added || na;
+}
+} else if (node.localName === CONTENT) {
+saveLightChildrenIfNeeded(parent);
+saveLightChildrenIfNeeded(node);
+added = true;
+}
+return added;
+},
+_tryRemoveUndistributedNode: function (node) {
+if (this.node.shadyRoot) {
+var parent = getComposedParent(node);
+if (parent) {
+nativeRemoveChild.call(parent, node);
+}
+return true;
+}
 },
 _updateInsertionPoints: function (host) {
-host.shadyRoot._insertionPoints = factory(host.shadyRoot).querySelectorAll(CONTENT);
+var i$ = host.shadyRoot._insertionPoints = factory(host.shadyRoot).querySelectorAll(CONTENT);
+for (var i = 0, c; i < i$.length; i++) {
+c = i$[i];
+saveLightChildrenIfNeeded(c);
+saveLightChildrenIfNeeded(factory(c).parentNode);
+}
 },
-_nodeIsInLogicalTree: function (node) {
-return Boolean(node.lightParent || node._isShadyRoot || this._ownerShadyRootForNode(node) || node.shadyRoot);
-},
-_hostForNode: function (node) {
-var root = node.shadyRoot || (node._isShadyRoot ? node : this._ownerShadyRootForNode(node));
-return root && root.host;
+_nodeHasLogicalChildren: function (node) {
+return Boolean(node._lightChildren !== undefined);
 },
 _parentNeedsDistribution: function (parent) {
-return parent.shadyRoot && hasInsertionPoint(parent.shadyRoot);
+return parent && parent.shadyRoot && hasInsertionPoint(parent.shadyRoot);
 },
-_nodeNeedsDistribution: function (node) {
-return node.localName === CONTENT || node.nodeType === Node.DOCUMENT_FRAGMENT_NODE && node.querySelector(CONTENT);
-},
-_removeNodeFromHost: function (node) {
-if (node.lightParent) {
-var root = this._ownerShadyRootForNode(node);
+_removeNodeFromHost: function (node, ensureComposedRemoval) {
+var hostNeedsDist;
+var root;
+var parent = node._lightParent;
+if (parent) {
+factory(node)._distributeParent();
+root = this._ownerShadyRootForNode(node);
 if (root) {
 root.host._elementRemove(node);
+hostNeedsDist = this._removeDistributedChildren(root, node);
 }
-this._removeLogicalInfo(node, node.lightParent);
+this._removeLogicalInfo(node, node._lightParent);
 }
 this._removeOwnerShadyRoot(node);
+if (root && hostNeedsDist) {
+this._updateInsertionPoints(root.host);
+this._lazyDistribute(root.host);
+} else if (ensureComposedRemoval) {
+removeFromComposedParent(getComposedParent(node), node);
+}
+},
+_removeDistributedChildren: function (root, container) {
+var hostNeedsDist;
+var ip$ = root._insertionPoints;
+for (var i = 0; i < ip$.length; i++) {
+var content = ip$[i];
+if (this._contains(container, content)) {
+var dc$ = factory(content).getDistributedNodes();
+for (var j = 0; j < dc$.length; j++) {
+hostNeedsDist = true;
+var node = dc$[j];
+var parent = node.parentNode;
+if (parent) {
+removeFromComposedParent(parent, node);
+nativeRemoveChild.call(parent, node);
+}
+}
+}
+}
+return hostNeedsDist;
+},
+_contains: function (container, node) {
+while (node) {
+if (node == container) {
+return true;
+}
+node = factory(node).parentNode;
+}
 },
 _addNodeToHost: function (node) {
-var checkNode = node.nodeType === Node.DOCUMENT_FRAGMENT_NODE ? node.firstChild : node;
-var root = this._ownerShadyRootForNode(checkNode);
+var root = this.getOwnerRoot();
 if (root) {
 root.host._elementAdd(node);
 }
 },
-_addLogicalInfo: function (node, container, root, index) {
-saveLightChildrenIfNeeded(container);
+_addLogicalInfo: function (node, container, index) {
 var children = factory(container).childNodes;
 index = index === undefined ? children.length : index;
 if (node.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
 var c$ = Array.prototype.slice.call(node.childNodes);
 for (var i = 0, n; i < c$.length && (n = c$[i]); i++) {
 children.splice(index++, 0, n);
-n.lightParent = container;
+n._lightParent = container;
 }
 } else {
 children.splice(index, 0, node);
-node.lightParent = container;
+node._lightParent = container;
 }
 },
 _removeLogicalInfo: function (node, container) {
 var children = factory(container).childNodes;
 var index = children.indexOf(node);
-if (index < 0 || container !== node.lightParent) {
+if (index < 0 || container !== node._lightParent) {
 throw Error('The node to be removed is not a child of this node');
 }
 children.splice(index, 1);
-node.lightParent = null;
+node._lightParent = null;
 },
 _removeOwnerShadyRoot: function (node) {
-var hasCachedRoot = factory(node).getOwnerRoot() !== undefined;
-if (hasCachedRoot) {
+if (this._hasCachedOwnerRoot(node)) {
 var c$ = factory(node).childNodes;
 for (var i = 0, l = c$.length, n; i < l && (n = c$[i]); i++) {
 this._removeOwnerShadyRoot(n);
@@ -697,9 +764,34 @@ this.node.removeAttribute(name);
 this._distributeParent();
 },
 _distributeParent: function () {
-if (this.parentNode && this.parentNode.shadyRoot) {
+if (this._parentNeedsDistribution(this.parentNode)) {
 this._lazyDistribute(this.parentNode);
 }
+},
+cloneNode: function (deep) {
+var n = nativeCloneNode.call(this.node, false);
+if (deep) {
+var c$ = this.childNodes;
+var d = factory(n);
+for (var i = 0, nc; i < c$.length; i++) {
+nc = factory(c$[i]).cloneNode(true);
+d.appendChild(nc);
+}
+}
+return n;
+},
+importNode: function (externalNode, deep) {
+var doc = this.node instanceof Document ? this.node : this.node.ownerDocument;
+var n = nativeImportNode.call(doc, externalNode, false);
+if (deep) {
+var c$ = factory(externalNode).childNodes;
+var d = factory(n);
+for (var i = 0, nc; i < c$.length; i++) {
+nc = factory(doc).importNode(c$[i], true);
+d.appendChild(nc);
+}
+}
+return n;
 }
 };
 Object.defineProperty(DomApi.prototype, 'classList', {
@@ -727,6 +819,9 @@ this.domApi._distributeParent();
 toggle: function () {
 this.node.classList.toggle.apply(this.node.classList, arguments);
 this.domApi._distributeParent();
+},
+contains: function () {
+return this.node.classList.contains.apply(this.node.classList, arguments);
 }
 };
 if (!Settings.useShadow) {
@@ -748,7 +843,7 @@ configurable: true
 },
 parentNode: {
 get: function () {
-return this.node.lightParent || (this.node.__patched ? this.node._composedParent : this.node.parentNode);
+return this.node._lightParent || getComposedParent(this.node);
 },
 configurable: true
 },
@@ -816,37 +911,50 @@ configurable: true
 },
 textContent: {
 get: function () {
-if (this.node.nodeType === Node.TEXT_NODE) {
+var nt = this.node.nodeType;
+if (nt === Node.TEXT_NODE || nt === Node.COMMENT_NODE) {
 return this.node.textContent;
 } else {
-return Array.prototype.map.call(this.childNodes, function (c) {
-return c.textContent;
-}).join('');
+var tc = [];
+for (var i = 0, cn = this.childNodes, c; c = cn[i]; i++) {
+if (c.nodeType !== Node.COMMENT_NODE) {
+tc.push(c.textContent);
+}
+}
+return tc.join('');
 }
 },
 set: function (text) {
+var nt = this.node.nodeType;
+if (nt === Node.TEXT_NODE || nt === Node.COMMENT_NODE) {
+this.node.textContent = text;
+} else {
 this._clear();
 if (text) {
 this.appendChild(document.createTextNode(text));
+}
 }
 },
 configurable: true
 },
 innerHTML: {
 get: function () {
-if (this.node.nodeType === Node.TEXT_NODE) {
+var nt = this.node.nodeType;
+if (nt === Node.TEXT_NODE || nt === Node.COMMENT_NODE) {
 return null;
 } else {
 return getInnerHTML(this.node);
 }
 },
 set: function (text) {
-if (this.node.nodeType !== Node.TEXT_NODE) {
+var nt = this.node.nodeType;
+if (nt !== Node.TEXT_NODE || nt !== Node.COMMENT_NODE) {
 this._clear();
 var d = document.createElement('div');
 d.innerHTML = text;
-for (var e = d.firstChild; e; e = e.nextSibling) {
-this.appendChild(e);
+var c$ = Array.prototype.slice.call(d.childNodes);
+for (var i = 0; i < c$.length; i++) {
+this.appendChild(c$[i]);
 }
 }
 },
@@ -857,6 +965,18 @@ DomApi.prototype._getComposedInnerHTML = function () {
 return getInnerHTML(this.node, true);
 };
 } else {
+var forwardMethods = [
+'cloneNode',
+'appendChild',
+'insertBefore',
+'removeChild',
+'replaceChild'
+];
+forwardMethods.forEach(function (name) {
+DomApi.prototype[name] = function () {
+return this.node[name].apply(this.node, arguments);
+};
+});
 DomApi.prototype.querySelectorAll = function (selector) {
 return Array.prototype.slice.call(this.node.querySelectorAll(selector));
 };
@@ -869,12 +989,16 @@ return n;
 n = n.parentNode;
 }
 };
+DomApi.prototype.importNode = function (externalNode, deep) {
+var doc = this.node instanceof Document ? this.node : this.node.ownerDocument;
+return doc.importNode(externalNode, deep);
+};
 DomApi.prototype.getDestinationInsertionPoints = function () {
-var n$ = this.node.getDestinationInsertionPoints();
+var n$ = this.node.getDestinationInsertionPoints && this.node.getDestinationInsertionPoints();
 return n$ ? Array.prototype.slice.call(n$) : [];
 };
 DomApi.prototype.getDistributedNodes = function () {
-var n$ = this.node.getDistributedNodes();
+var n$ = this.node.getDistributedNodes && this.node.getDistributedNodes();
 return n$ ? Array.prototype.slice.call(n$) : [];
 };
 DomApi.prototype._distributeParent = function () {
@@ -911,7 +1035,7 @@ return this.node.innerHTML = value;
 configurable: true
 }
 });
-var forwards = [
+var forwardProperties = [
 'parentNode',
 'firstChild',
 'lastChild',
@@ -922,7 +1046,7 @@ var forwards = [
 'nextElementSibling',
 'previousElementSibling'
 ];
-forwards.forEach(function (name) {
+forwardProperties.forEach(function (name) {
 Object.defineProperty(DomApi.prototype, name, {
 get: function () {
 return this.node[name];
@@ -946,9 +1070,45 @@ return Polymer.EventApi.factory(obj);
 return factory(obj, patch);
 }
 };
-Polymer.dom.flush = DomApi.prototype.flush;
+Polymer.Base.extend(Polymer.dom, {
+_flushGuard: 0,
+_FLUSH_MAX: 100,
+_needsTakeRecords: !Polymer.Settings.useNativeCustomElements,
+_debouncers: [],
+_finishDebouncer: null,
+flush: function () {
+for (var i = 0; i < this._debouncers.length; i++) {
+this._debouncers[i].complete();
+}
+if (this._finishDebouncer) {
+this._finishDebouncer.complete();
+}
+this._flushPolyfills();
+if (this._debouncers.length && this._flushGuard < this._FLUSH_MAX) {
+this._flushGuard++;
+this.flush();
+} else {
+if (this._flushGuard >= this._FLUSH_MAX) {
+console.warn('Polymer.dom.flush aborted. Flush may not be complete.');
+}
+this._flushGuard = 0;
+}
+},
+_flushPolyfills: function () {
+if (this._needsTakeRecords) {
+CustomElements.takeRecords();
+}
+},
+addDebouncer: function (debouncer) {
+this._debouncers.push(debouncer);
+this._finishDebouncer = Polymer.Debounce(this._finishDebouncer, this._finishFlush);
+},
+_finishFlush: function () {
+Polymer.dom._debouncers = [];
+}
+});
 function getLightChildren(node) {
-var children = node.lightChildren;
+var children = node._lightChildren;
 return children ? children : node.childNodes;
 }
 function getComposedChildren(node) {
@@ -962,20 +1122,20 @@ var children = getComposedChildren(parent);
 var i = ref_node ? children.indexOf(ref_node) : -1;
 if (node.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
 var fragChildren = getComposedChildren(node);
-fragChildren.forEach(function (c) {
-addNodeToComposedChildren(c, parent, children, i);
-});
+for (var j = 0; j < fragChildren.length; j++) {
+addNodeToComposedChildren(fragChildren[j], parent, children, i + j);
+}
+node._composedChildren = null;
 } else {
 addNodeToComposedChildren(node, parent, children, i);
 }
 }
+function getComposedParent(node) {
+return node.__patched ? node._composedParent : node.parentNode;
+}
 function addNodeToComposedChildren(node, parent, children, i) {
 node._composedParent = parent;
-if (i >= 0) {
-children.splice(i, 0, node);
-} else {
-children.push(node);
-}
+children.splice(i >= 0 ? i : children.length, 0, node);
 }
 function removeFromComposedParent(parent, node) {
 node._composedParent = null;
@@ -988,21 +1148,22 @@ children.splice(i, 1);
 }
 }
 function saveLightChildrenIfNeeded(node) {
-if (!node.lightChildren) {
+if (!node._lightChildren) {
 var c$ = Array.prototype.slice.call(node.childNodes);
 for (var i = 0, l = c$.length, child; i < l && (child = c$[i]); i++) {
-child.lightParent = child.lightParent || node;
+child._lightParent = child._lightParent || node;
 }
-node.lightChildren = c$;
+node._lightChildren = c$;
 }
 }
 function hasInsertionPoint(root) {
-return Boolean(root._insertionPoints.length);
+return Boolean(root && root._insertionPoints.length);
 }
 var p = Element.prototype;
 var matchesSelector = p.matches || p.matchesSelector || p.mozMatchesSelector || p.msMatchesSelector || p.oMatchesSelector || p.webkitMatchesSelector;
 return {
 getLightChildren: getLightChildren,
+getComposedParent: getComposedParent,
 getComposedChildren: getComposedChildren,
 removeFromComposedParent: removeFromComposedParent,
 saveLightChildrenIfNeeded: saveLightChildrenIfNeeded,
@@ -1012,14 +1173,10 @@ ctor: DomApi,
 factory: factory
 };
 }();
-
 (function () {
 Polymer.Base._addFeature({
 _prepShady: function () {
 this._useContent = this._useContent || Boolean(this._template);
-if (this._useContent) {
-this._template._hasInsertionPoint = this._template.content.querySelector('content');
-}
 },
 _poolContent: function () {
 if (this._useContent) {
@@ -1029,6 +1186,9 @@ saveLightChildrenIfNeeded(this);
 _setupRoot: function () {
 if (this._useContent) {
 this._createLocalRoot();
+if (!this.dataHost) {
+upgradeLightChildren(this._lightChildren);
+}
 }
 },
 _createLocalRoot: function () {
@@ -1036,18 +1196,27 @@ this.shadyRoot = this.root;
 this.shadyRoot._distributionClean = false;
 this.shadyRoot._isShadyRoot = true;
 this.shadyRoot._dirtyRoots = [];
-this.shadyRoot._insertionPoints = this._template._hasInsertionPoint ? this.shadyRoot.querySelectorAll('content') : [];
+var i$ = this.shadyRoot._insertionPoints = !this._notes || this._notes._hasContent ? this.shadyRoot.querySelectorAll('content') : [];
 saveLightChildrenIfNeeded(this.shadyRoot);
+for (var i = 0, c; i < i$.length; i++) {
+c = i$[i];
+saveLightChildrenIfNeeded(c);
+saveLightChildrenIfNeeded(c.parentNode);
+}
 this.shadyRoot.host = this;
 },
 get domHost() {
 var root = Polymer.dom(this).getOwnerRoot();
 return root && root.host;
 },
-distributeContent: function () {
+distributeContent: function (updateInsertionPoints) {
 if (this.shadyRoot) {
+var dom = Polymer.dom(this);
+if (updateInsertionPoints) {
+dom._updateInsertionPoints(this);
+}
 var host = getTopDistributingHost(this);
-Polymer.dom(this)._lazyDistribute(host);
+dom._lazyDistribute(host);
 }
 },
 _distributeContent: function () {
@@ -1072,11 +1241,13 @@ this.shadyRoot._dirtyRoots = [];
 },
 _finishDistribute: function () {
 if (this._useContent) {
+this.shadyRoot._distributionClean = true;
 if (hasInsertionPoint(this.shadyRoot)) {
 this._composeTree();
 } else {
 if (!this.shadyRoot._hasDistributed) {
 this.textContent = '';
+this._composedChildren = null;
 this.appendChild(this.shadyRoot);
 } else {
 var children = this._composeNode(this);
@@ -1084,7 +1255,6 @@ this._updateChildNodes(this, children);
 }
 }
 this.shadyRoot._hasDistributed = true;
-this.shadyRoot._distributionClean = true;
 }
 },
 elementMatches: function (selector, node) {
@@ -1152,7 +1322,7 @@ _composeTree: function () {
 this._updateChildNodes(this, this._composeNode(this));
 var p$ = this.shadyRoot._insertionPoints;
 for (var i = 0, l = p$.length, p, parent; i < l && (p = p$[i]); i++) {
-parent = p.lightParent || p.parentNode;
+parent = p._lightParent || p.parentNode;
 if (!parent._useContent && parent !== this && parent !== this.shadyRoot) {
 this._updateChildNodes(parent, this._composeNode(parent));
 }
@@ -1182,7 +1352,9 @@ var composed = getComposedChildren(container);
 var splices = Polymer.ArraySplice.calculateSplices(children, composed);
 for (var i = 0, d = 0, s; i < splices.length && (s = splices[i]); i++) {
 for (var j = 0, n; j < s.removed.length && (n = s.removed[j]); j++) {
+if (getComposedParent(n) === container) {
 remove(n);
+}
 composed.splice(s.index + d, 1);
 }
 d -= s.addedCount;
@@ -1195,6 +1367,7 @@ insertBefore(container, n, next);
 composed.splice(j, 0, n);
 }
 }
+ensureComposedParent(container, children);
 },
 _matchesContentSelect: function (node, contentElement) {
 var select = contentElement.getAttribute('select');
@@ -1224,6 +1397,7 @@ var getLightChildren = Polymer.DomApi.getLightChildren;
 var matchesSelector = Polymer.DomApi.matchesSelector;
 var hasInsertionPoint = Polymer.DomApi.hasInsertionPoint;
 var getComposedChildren = Polymer.DomApi.getComposedChildren;
+var getComposedParent = Polymer.DomApi.getComposedParent;
 var removeFromComposedParent = Polymer.DomApi.removeFromComposedParent;
 function distributeNodeInto(child, insertionPoint) {
 insertionPoint._distributedNodes.push(child);
@@ -1236,6 +1410,7 @@ points.push(insertionPoint);
 }
 function clearDistributedDestinationInsertionPoints(content) {
 var e$ = content._distributedNodes;
+if (e$) {
 for (var i = 0; i < e$.length; i++) {
 var d = e$[i]._destinationInsertionPoints;
 if (d) {
@@ -1243,8 +1418,9 @@ d.splice(d.indexOf(content) + 1, d.length);
 }
 }
 }
+}
 function maybeRedistributeParent(content, host) {
-var parent = content.lightParent;
+var parent = content._lightParent;
 if (parent && parent.shadyRoot && hasInsertionPoint(parent.shadyRoot) && parent.shadyRoot._distributionClean) {
 parent.shadyRoot._distributionClean = false;
 host.shadyRoot._dirtyRoots.push(parent);
@@ -1265,20 +1441,20 @@ if (newChildParent !== parentNode) {
 removeFromComposedParent(newChildParent, newChild);
 }
 remove(newChild);
-saveLightChildrenIfNeeded(parentNode);
 nativeInsertBefore.call(parentNode, newChild, refChild || null);
 newChild._composedParent = parentNode;
 }
 function remove(node) {
 var parentNode = getComposedParent(node);
 if (parentNode) {
-saveLightChildrenIfNeeded(parentNode);
 node._composedParent = null;
 nativeRemoveChild.call(parentNode, node);
 }
 }
-function getComposedParent(node) {
-return node.__patched ? node._composedParent : node.parentNode;
+function ensureComposedParent(parent, children) {
+for (var i = 0, n; i < children.length; i++) {
+children[i]._composedParent = parent;
+}
 }
 function getTopDistributingHost(host) {
 while (host && hostNeedsRedistribution(host)) {
@@ -1295,8 +1471,15 @@ return host.domHost;
 }
 }
 }
+var needsUpgrade = window.CustomElements && !CustomElements.useNative;
+function upgradeLightChildren(children) {
+if (needsUpgrade && children) {
+for (var i = 0; i < children.length; i++) {
+CustomElements.upgrade(children[i]);
+}
+}
+}
 }());
-
 if (Polymer.Settings.useShadow) {
 Polymer.Base._addFeature({
 _poolContent: function () {
@@ -1316,29 +1499,30 @@ this.root = this.shadowRoot;
 }
 });
 }
-
 Polymer.DomModule = document.createElement('dom-module');
 Polymer.Base._addFeature({
 _registerFeatures: function () {
 this._prepIs();
+this._prepAttributes();
 this._prepBehaviors();
-this._prepExtends();
 this._prepConstructor();
 this._prepTemplate();
 this._prepShady();
 },
-_prepBehavior: function () {
+_prepBehavior: function (b) {
+this._addHostAttributes(b.hostAttributes);
 },
 _initFeatures: function () {
 this._poolContent();
 this._pushHost();
 this._stampTemplate();
 this._popHost();
+this._marshalHostAttributes();
 this._setupDebouncers();
 this._marshalBehaviors();
 this._tryReady();
 },
 _marshalBehavior: function (b) {
-this._installHostAttributes(b.hostAttributes);
 }
 });</script>
+

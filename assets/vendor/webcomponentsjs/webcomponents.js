@@ -7,7 +7,7 @@
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
-// @version 0.6.1
+// @version 0.7.12
 window.WebComponents = window.WebComponents || {};
 
 (function(scope) {
@@ -158,7 +158,7 @@ if (WebComponents.flags.shadow) {
       defineProperty(object, name, nonEnumerableDataDescriptor);
     }
     getOwnPropertyNames(window);
-    function getWrapperConstructor(node) {
+    function getWrapperConstructor(node, opt_instance) {
       var nativePrototype = node.__proto__ || Object.getPrototypeOf(node);
       if (isFirefox) {
         try {
@@ -171,7 +171,7 @@ if (WebComponents.flags.shadow) {
       if (wrapperConstructor) return wrapperConstructor;
       var parentWrapperConstructor = getWrapperConstructor(nativePrototype);
       var GeneratedWrapper = createWrapperConstructor(parentWrapperConstructor);
-      registerInternal(nativePrototype, GeneratedWrapper, node);
+      registerInternal(nativePrototype, GeneratedWrapper, opt_instance);
       return GeneratedWrapper;
     }
     function addForwardingProperties(nativePrototype, wrapperPrototype) {
@@ -231,8 +231,10 @@ if (WebComponents.flags.shadow) {
         }
         var descriptor = getDescriptor(source, name);
         var getter, setter;
-        if (allowMethod && typeof descriptor.value === "function") {
-          target[name] = getMethod(name);
+        if (typeof descriptor.value === "function") {
+          if (allowMethod) {
+            target[name] = getMethod(name);
+          }
           continue;
         }
         var isEvent = isEventHandlerName(name);
@@ -250,6 +252,9 @@ if (WebComponents.flags.shadow) {
       }
     }
     function register(nativeConstructor, wrapperConstructor, opt_instance) {
+      if (nativeConstructor == null) {
+        return;
+      }
       var nativePrototype = nativeConstructor.prototype;
       registerInternal(nativePrototype, wrapperConstructor, opt_instance);
       mixinStatics(wrapperConstructor, nativeConstructor);
@@ -292,7 +297,11 @@ if (WebComponents.flags.shadow) {
     function wrap(impl) {
       if (impl === null) return null;
       assert(isNative(impl));
-      return impl.__wrapper8e3dd93a60__ || (impl.__wrapper8e3dd93a60__ = new (getWrapperConstructor(impl))(impl));
+      var wrapper = impl.__wrapper8e3dd93a60__;
+      if (wrapper != null) {
+        return wrapper;
+      }
+      return impl.__wrapper8e3dd93a60__ = new (getWrapperConstructor(impl, impl))(impl);
     }
     function unwrap(wrapper) {
       if (wrapper === null) return null;
@@ -1772,8 +1781,8 @@ if (WebComponents.flags.shadow) {
     var originalInsertBefore = OriginalNode.prototype.insertBefore;
     var originalRemoveChild = OriginalNode.prototype.removeChild;
     var originalReplaceChild = OriginalNode.prototype.replaceChild;
-    var isIe = /Trident|Edge/.test(navigator.userAgent);
-    var removeChildOriginalHelper = isIe ? function(parent, child) {
+    var isIEOrEdge = /Trident|Edge/.test(navigator.userAgent);
+    var removeChildOriginalHelper = isIEOrEdge ? function(parent, child) {
       try {
         originalRemoveChild.call(parent, child);
       } catch (ex) {
@@ -4960,7 +4969,7 @@ if (WebComponents.flags.shadow) {
 
        case "scheme data":
         if ("?" == c) {
-          query = "?";
+          this._query = "?";
           state = "query";
         } else if ("#" == c) {
           this._fragment = "#";
@@ -5000,6 +5009,8 @@ if (WebComponents.flags.shadow) {
           this._port = base._port;
           this._path = base._path.slice();
           this._query = base._query;
+          this._username = base._username;
+          this._password = base._password;
           break loop;
         } else if ("/" == c || "\\" == c) {
           if ("\\" == c) err("\\ is an invalid code point.");
@@ -5009,6 +5020,8 @@ if (WebComponents.flags.shadow) {
           this._port = base._port;
           this._path = base._path.slice();
           this._query = "?";
+          this._username = base._username;
+          this._password = base._password;
           state = "query";
         } else if ("#" == c) {
           this._host = base._host;
@@ -5016,6 +5029,8 @@ if (WebComponents.flags.shadow) {
           this._path = base._path.slice();
           this._query = base._query;
           this._fragment = "#";
+          this._username = base._username;
+          this._password = base._password;
           state = "fragment";
         } else {
           var nextC = input[cursor + 1];
@@ -5023,6 +5038,8 @@ if (WebComponents.flags.shadow) {
           if ("file" != this._scheme || !ALPHA.test(c) || nextC != ":" && nextC != "|" || EOF != nextNextC && "/" != nextNextC && "\\" != nextNextC && "?" != nextNextC && "#" != nextNextC) {
             this._host = base._host;
             this._port = base._port;
+            this._username = base._username;
+            this._password = base._password;
             this._path = base._path.slice();
             this._path.pop();
           }
@@ -5045,6 +5062,8 @@ if (WebComponents.flags.shadow) {
           if ("file" != this._scheme) {
             this._host = base._host;
             this._port = base._port;
+            this._username = base._username;
+            this._password = base._password;
           }
           state = "relative path";
           continue;
@@ -5659,7 +5678,7 @@ if (WebComponents.flags.shadow) {
   };
   global.JsMutationObserver = JsMutationObserver;
   if (!global.MutationObserver) global.MutationObserver = JsMutationObserver;
-})(this);
+})(window);
 
 window.HTMLImports = window.HTMLImports || {
   flags: {}
@@ -5670,19 +5689,19 @@ window.HTMLImports = window.HTMLImports || {
   var useNative = Boolean(IMPORT_LINK_TYPE in document.createElement("link"));
   var hasShadowDOMPolyfill = Boolean(window.ShadowDOMPolyfill);
   var wrap = function(node) {
-    return hasShadowDOMPolyfill ? ShadowDOMPolyfill.wrapIfNeeded(node) : node;
+    return hasShadowDOMPolyfill ? window.ShadowDOMPolyfill.wrapIfNeeded(node) : node;
   };
   var rootDocument = wrap(document);
   var currentScriptDescriptor = {
     get: function() {
-      var script = HTMLImports.currentScript || document.currentScript || (document.readyState !== "complete" ? document.scripts[document.scripts.length - 1] : null);
+      var script = window.HTMLImports.currentScript || document.currentScript || (document.readyState !== "complete" ? document.scripts[document.scripts.length - 1] : null);
       return wrap(script);
     },
     configurable: true
   };
   Object.defineProperty(document, "_currentScript", currentScriptDescriptor);
   Object.defineProperty(rootDocument, "_currentScript", currentScriptDescriptor);
-  var isIE = /Trident|Edge/.test(navigator.userAgent);
+  var isIE = /Trident/.test(navigator.userAgent);
   function whenReady(callback, doc) {
     doc = doc || rootDocument;
     whenDocumentReady(function() {
@@ -5791,8 +5810,8 @@ window.HTMLImports = window.HTMLImports || {
     })();
   }
   whenReady(function(detail) {
-    HTMLImports.ready = true;
-    HTMLImports.readyTime = new Date().getTime();
+    window.HTMLImports.ready = true;
+    window.HTMLImports.readyTime = new Date().getTime();
     var evt = rootDocument.createEvent("CustomEvent");
     evt.initCustomEvent("HTMLImportsLoaded", true, true, detail);
     rootDocument.dispatchEvent(evt);
@@ -5802,7 +5821,7 @@ window.HTMLImports = window.HTMLImports || {
   scope.rootDocument = rootDocument;
   scope.whenReady = whenReady;
   scope.isIE = isIE;
-})(HTMLImports);
+})(window.HTMLImports);
 
 (function(scope) {
   var modules = [];
@@ -5816,9 +5835,9 @@ window.HTMLImports = window.HTMLImports || {
   };
   scope.addModule = addModule;
   scope.initializeModules = initializeModules;
-})(HTMLImports);
+})(window.HTMLImports);
 
-HTMLImports.addModule(function(scope) {
+window.HTMLImports.addModule(function(scope) {
   var CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
   var CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
   var path = {
@@ -5848,7 +5867,7 @@ HTMLImports.addModule(function(scope) {
   scope.path = path;
 });
 
-HTMLImports.addModule(function(scope) {
+window.HTMLImports.addModule(function(scope) {
   var xhr = {
     async: true,
     ok: function(request) {
@@ -5880,7 +5899,7 @@ HTMLImports.addModule(function(scope) {
   scope.xhr = xhr;
 });
 
-HTMLImports.addModule(function(scope) {
+window.HTMLImports.addModule(function(scope) {
   var xhr = scope.xhr;
   var flags = scope.flags;
   var Loader = function(onLoad, onComplete) {
@@ -5973,7 +5992,7 @@ HTMLImports.addModule(function(scope) {
   scope.Loader = Loader;
 });
 
-HTMLImports.addModule(function(scope) {
+window.HTMLImports.addModule(function(scope) {
   var Observer = function(addCallback) {
     this.addCallback = addCallback;
     this.mo = new MutationObserver(this.handler.bind(this));
@@ -6006,7 +6025,7 @@ HTMLImports.addModule(function(scope) {
   scope.Observer = Observer;
 });
 
-HTMLImports.addModule(function(scope) {
+window.HTMLImports.addModule(function(scope) {
   var path = scope.path;
   var rootDocument = scope.rootDocument;
   var flags = scope.flags;
@@ -6015,7 +6034,7 @@ HTMLImports.addModule(function(scope) {
   var IMPORT_SELECTOR = "link[rel=" + IMPORT_LINK_TYPE + "]";
   var importParser = {
     documentSelectors: IMPORT_SELECTOR,
-    importsSelectors: [ IMPORT_SELECTOR, "link[rel=stylesheet]", "style", "script:not([type])", 'script[type="text/javascript"]' ].join(","),
+    importsSelectors: [ IMPORT_SELECTOR, "link[rel=stylesheet]:not([type])", "style:not([type])", "script:not([type])", 'script[type="application/javascript"]', 'script[type="text/javascript"]' ].join(","),
     map: {
       link: "parseLink",
       script: "parseScript",
@@ -6066,8 +6085,9 @@ HTMLImports.addModule(function(scope) {
       }
     },
     parseImport: function(elt) {
-      if (HTMLImports.__importsParsingHook) {
-        HTMLImports.__importsParsingHook(elt);
+      elt.import = elt.__doc;
+      if (window.HTMLImports.__importsParsingHook) {
+        window.HTMLImports.__importsParsingHook(elt);
       }
       if (elt.import) {
         elt.import.__importParsed = true;
@@ -6128,6 +6148,8 @@ HTMLImports.addModule(function(scope) {
     trackElement: function(elt, callback) {
       var self = this;
       var done = function(e) {
+        elt.removeEventListener("load", done);
+        elt.removeEventListener("error", done);
         if (callback) {
           callback(e);
         }
@@ -6151,9 +6173,11 @@ HTMLImports.addModule(function(scope) {
           }
         }
         if (fakeLoad) {
-          elt.dispatchEvent(new CustomEvent("load", {
-            bubbles: false
-          }));
+          setTimeout(function() {
+            elt.dispatchEvent(new CustomEvent("load", {
+              bubbles: false
+            }));
+          });
         }
       }
     },
@@ -6163,7 +6187,9 @@ HTMLImports.addModule(function(scope) {
       script.src = scriptElt.src ? scriptElt.src : generateScriptDataUrl(scriptElt);
       scope.currentScript = scriptElt;
       this.trackElement(script, function(e) {
-        script.parentNode.removeChild(script);
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
         scope.currentScript = null;
       });
       this.addElementToDocument(script);
@@ -6179,7 +6205,7 @@ HTMLImports.addModule(function(scope) {
         for (var i = 0, l = nodes.length, p = 0, n; i < l && (n = nodes[i]); i++) {
           if (!this.isParsed(n)) {
             if (this.hasResource(n)) {
-              return nodeIsImport(n) ? this.nextToParseInDoc(n.import, n) : n;
+              return nodeIsImport(n) ? this.nextToParseInDoc(n.__doc, n) : n;
             } else {
               return;
             }
@@ -6202,7 +6228,7 @@ HTMLImports.addModule(function(scope) {
       return this.dynamicElements.indexOf(elt) >= 0;
     },
     hasResource: function(node) {
-      if (nodeIsImport(node) && node.import === undefined) {
+      if (nodeIsImport(node) && node.__doc === undefined) {
         return false;
       }
       return true;
@@ -6236,7 +6262,7 @@ HTMLImports.addModule(function(scope) {
   scope.IMPORT_SELECTOR = IMPORT_SELECTOR;
 });
 
-HTMLImports.addModule(function(scope) {
+window.HTMLImports.addModule(function(scope) {
   var flags = scope.flags;
   var IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
   var IMPORT_SELECTOR = scope.IMPORT_SELECTOR;
@@ -6276,7 +6302,7 @@ HTMLImports.addModule(function(scope) {
           }
           this.documents[url] = doc;
         }
-        elt.import = doc;
+        elt.__doc = doc;
       }
       parser.parseNext();
     },
@@ -6335,7 +6361,7 @@ HTMLImports.addModule(function(scope) {
   scope.importLoader = importLoader;
 });
 
-HTMLImports.addModule(function(scope) {
+window.HTMLImports.addModule(function(scope) {
   var parser = scope.parser;
   var importer = scope.importer;
   var dynamic = {
@@ -6377,6 +6403,13 @@ HTMLImports.addModule(function(scope) {
       params = params || {};
       var e = document.createEvent("CustomEvent");
       e.initCustomEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable), params.detail);
+      e.preventDefault = function() {
+        Object.defineProperty(this, "defaultPrevented", {
+          get: function() {
+            return true;
+          }
+        });
+      };
       return e;
     };
     window.CustomEvent.prototype = window.Event.prototype;
@@ -6384,14 +6417,14 @@ HTMLImports.addModule(function(scope) {
   initializeModules();
   var rootDocument = scope.rootDocument;
   function bootstrap() {
-    HTMLImports.importer.bootDocument(rootDocument);
+    window.HTMLImports.importer.bootDocument(rootDocument);
   }
   if (document.readyState === "complete" || document.readyState === "interactive" && !window.attachEvent) {
     bootstrap();
   } else {
     document.addEventListener("DOMContentLoaded", bootstrap);
   }
-})(HTMLImports);
+})(window.HTMLImports);
 
 window.CustomElements = window.CustomElements || {
   flags: {}
@@ -6411,11 +6444,12 @@ window.CustomElements = window.CustomElements || {
   scope.addModule = addModule;
   scope.initializeModules = initializeModules;
   scope.hasNative = Boolean(document.registerElement);
-  scope.useNative = !flags.register && scope.hasNative && !window.ShadowDOMPolyfill && (!window.HTMLImports || HTMLImports.useNative);
-})(CustomElements);
+  scope.isIE = /Trident/.test(navigator.userAgent);
+  scope.useNative = !flags.register && scope.hasNative && !window.ShadowDOMPolyfill && (!window.HTMLImports || window.HTMLImports.useNative);
+})(window.CustomElements);
 
-CustomElements.addModule(function(scope) {
-  var IMPORT_LINK_TYPE = window.HTMLImports ? HTMLImports.IMPORT_LINK_TYPE : "none";
+window.CustomElements.addModule(function(scope) {
+  var IMPORT_LINK_TYPE = window.HTMLImports ? window.HTMLImports.IMPORT_LINK_TYPE : "none";
   function forSubtree(node, cb) {
     findAllElements(node, function(e) {
       if (cb(e)) {
@@ -6452,7 +6486,7 @@ CustomElements.addModule(function(scope) {
     _forDocumentTree(doc, cb, []);
   }
   function _forDocumentTree(doc, cb, processingDocuments) {
-    doc = wrap(doc);
+    doc = window.wrap(doc);
     if (processingDocuments.indexOf(doc) >= 0) {
       return;
     }
@@ -6469,33 +6503,27 @@ CustomElements.addModule(function(scope) {
   scope.forSubtree = forSubtree;
 });
 
-CustomElements.addModule(function(scope) {
+window.CustomElements.addModule(function(scope) {
   var flags = scope.flags;
   var forSubtree = scope.forSubtree;
   var forDocumentTree = scope.forDocumentTree;
-  function addedNode(node) {
-    return added(node) || addedSubtree(node);
+  function addedNode(node, isAttached) {
+    return added(node, isAttached) || addedSubtree(node, isAttached);
   }
-  function added(node) {
-    if (scope.upgrade(node)) {
+  function added(node, isAttached) {
+    if (scope.upgrade(node, isAttached)) {
       return true;
     }
-    attached(node);
+    if (isAttached) {
+      attached(node);
+    }
   }
-  function addedSubtree(node) {
+  function addedSubtree(node, isAttached) {
     forSubtree(node, function(e) {
-      if (added(e)) {
+      if (added(e, isAttached)) {
         return true;
       }
     });
-  }
-  function attachedNode(node) {
-    attached(node);
-    if (inDocument(node)) {
-      forSubtree(node, function(e) {
-        attached(e);
-      });
-    }
   }
   var hasPolyfillMutations = !window.MutationObserver || window.MutationObserver === window.JsMutationObserver;
   scope.hasPolyfillMutations = hasPolyfillMutations;
@@ -6526,12 +6554,10 @@ CustomElements.addModule(function(scope) {
     }
   }
   function _attached(element) {
-    if (element.__upgraded__ && (element.attachedCallback || element.detachedCallback)) {
-      if (!element.__attached && inDocument(element)) {
-        element.__attached = true;
-        if (element.attachedCallback) {
-          element.attachedCallback();
-        }
+    if (element.__upgraded__ && !element.__attached) {
+      element.__attached = true;
+      if (element.attachedCallback) {
+        element.attachedCallback();
       }
     }
   }
@@ -6551,18 +6577,16 @@ CustomElements.addModule(function(scope) {
     }
   }
   function _detached(element) {
-    if (element.__upgraded__ && (element.attachedCallback || element.detachedCallback)) {
-      if (element.__attached && !inDocument(element)) {
-        element.__attached = false;
-        if (element.detachedCallback) {
-          element.detachedCallback();
-        }
+    if (element.__upgraded__ && element.__attached) {
+      element.__attached = false;
+      if (element.detachedCallback) {
+        element.detachedCallback();
       }
     }
   }
   function inDocument(element) {
     var p = element;
-    var doc = wrap(document);
+    var doc = window.wrap(document);
     while (p) {
       if (p == doc) {
         return true;
@@ -6580,7 +6604,7 @@ CustomElements.addModule(function(scope) {
       }
     }
   }
-  function handler(mutations) {
+  function handler(root, mutations) {
     if (flags.dom) {
       var mx = mutations[0];
       if (mx && mx.type === "childList" && mx.addedNodes) {
@@ -6595,13 +6619,14 @@ CustomElements.addModule(function(scope) {
       }
       console.group("mutations (%d) [%s]", mutations.length, u || "");
     }
+    var isAttached = inDocument(root);
     mutations.forEach(function(mx) {
       if (mx.type === "childList") {
         forEach(mx.addedNodes, function(n) {
           if (!n.localName) {
             return;
           }
-          addedNode(n);
+          addedNode(n, isAttached);
         });
         forEach(mx.removedNodes, function(n) {
           if (!n.localName) {
@@ -6614,16 +6639,16 @@ CustomElements.addModule(function(scope) {
     flags.dom && console.groupEnd();
   }
   function takeRecords(node) {
-    node = wrap(node);
+    node = window.wrap(node);
     if (!node) {
-      node = wrap(document);
+      node = window.wrap(document);
     }
     while (node.parentNode) {
       node = node.parentNode;
     }
     var observer = node.__observer;
     if (observer) {
-      handler(observer.takeRecords());
+      handler(node, observer.takeRecords());
       takeMutations();
     }
   }
@@ -6632,7 +6657,7 @@ CustomElements.addModule(function(scope) {
     if (inRoot.__observer) {
       return;
     }
-    var observer = new MutationObserver(handler);
+    var observer = new MutationObserver(handler.bind(this, inRoot));
     observer.observe(inRoot, {
       childList: true,
       subtree: true
@@ -6640,9 +6665,10 @@ CustomElements.addModule(function(scope) {
     inRoot.__observer = observer;
   }
   function upgradeDocument(doc) {
-    doc = wrap(doc);
+    doc = window.wrap(doc);
     flags.dom && console.group("upgradeDocument: ", doc.baseURI.split("/").pop());
-    addedNode(doc);
+    var isMainDocument = doc === window.wrap(document);
+    addedNode(doc, isMainDocument);
     observe(doc);
     flags.dom && console.groupEnd();
   }
@@ -6653,34 +6679,33 @@ CustomElements.addModule(function(scope) {
   if (originalCreateShadowRoot) {
     Element.prototype.createShadowRoot = function() {
       var root = originalCreateShadowRoot.call(this);
-      CustomElements.watchShadow(this);
+      window.CustomElements.watchShadow(this);
       return root;
     };
   }
   scope.watchShadow = watchShadow;
   scope.upgradeDocumentTree = upgradeDocumentTree;
+  scope.upgradeDocument = upgradeDocument;
   scope.upgradeSubtree = addedSubtree;
   scope.upgradeAll = addedNode;
-  scope.attachedNode = attachedNode;
+  scope.attached = attached;
   scope.takeRecords = takeRecords;
 });
 
-CustomElements.addModule(function(scope) {
+window.CustomElements.addModule(function(scope) {
   var flags = scope.flags;
-  function upgrade(node) {
+  function upgrade(node, isAttached) {
     if (!node.__upgraded__ && node.nodeType === Node.ELEMENT_NODE) {
       var is = node.getAttribute("is");
-      var definition = scope.getRegisteredDefinition(is || node.localName);
+      var definition = scope.getRegisteredDefinition(node.localName) || scope.getRegisteredDefinition(is);
       if (definition) {
-        if (is && definition.tag == node.localName) {
-          return upgradeWithDefinition(node, definition);
-        } else if (!is && !definition.extends) {
-          return upgradeWithDefinition(node, definition);
+        if (is && definition.tag == node.localName || !is && !definition.extends) {
+          return upgradeWithDefinition(node, definition, isAttached);
         }
       }
     }
   }
-  function upgradeWithDefinition(element, definition) {
+  function upgradeWithDefinition(element, definition, isAttached) {
     flags.upgrade && console.group("upgrade:", element.localName);
     if (definition.is) {
       element.setAttribute("is", definition.is);
@@ -6688,8 +6713,10 @@ CustomElements.addModule(function(scope) {
     implementPrototype(element, definition);
     element.__upgraded__ = true;
     created(element);
-    scope.attachedNode(element);
-    scope.upgradeSubtree(element);
+    if (isAttached) {
+      scope.attached(element);
+    }
+    scope.upgradeSubtree(element, isAttached);
     flags.upgrade && console.groupEnd();
     return element;
   }
@@ -6725,8 +6752,8 @@ CustomElements.addModule(function(scope) {
   scope.implementPrototype = implementPrototype;
 });
 
-CustomElements.addModule(function(scope) {
-  var isIE11OrOlder = scope.isIE11OrOlder;
+window.CustomElements.addModule(function(scope) {
+  var isIE = scope.isIE;
   var upgradeDocumentTree = scope.upgradeDocumentTree;
   var upgradeAll = scope.upgradeAll;
   var upgradeWithDefinition = scope.upgradeWithDefinition;
@@ -6817,16 +6844,22 @@ CustomElements.addModule(function(scope) {
       var nativePrototype = HTMLElement.prototype;
       if (definition.is) {
         var inst = document.createElement(definition.tag);
-        var expectedPrototype = Object.getPrototypeOf(inst);
-        if (expectedPrototype === definition.prototype) {
-          nativePrototype = expectedPrototype;
-        }
+        nativePrototype = Object.getPrototypeOf(inst);
       }
       var proto = definition.prototype, ancestor;
-      while (proto && proto !== nativePrototype) {
+      var foundPrototype = false;
+      while (proto) {
+        if (proto == nativePrototype) {
+          foundPrototype = true;
+        }
         ancestor = Object.getPrototypeOf(proto);
-        proto.__proto__ = ancestor;
+        if (ancestor) {
+          proto.__proto__ = ancestor;
+        }
         proto = ancestor;
+      }
+      if (!foundPrototype) {
+        console.warn(definition.tag + " prototype not found in prototype chain for " + definition.is);
       }
       definition.native = nativePrototype;
     }
@@ -6857,6 +6890,12 @@ CustomElements.addModule(function(scope) {
     }
   }
   function createElement(tag, typeExtension) {
+    if (tag) {
+      tag = tag.toLowerCase();
+    }
+    if (typeExtension) {
+      typeExtension = typeExtension.toLowerCase();
+    }
     var definition = getRegisteredDefinition(typeExtension || tag);
     if (definition) {
       if (tag == definition.tag && typeExtension == definition.is) {
@@ -6883,6 +6922,9 @@ CustomElements.addModule(function(scope) {
   var isInstance;
   if (!Object.__proto__ && !useNative) {
     isInstance = function(obj, ctor) {
+      if (obj instanceof ctor) {
+        return true;
+      }
       var p = obj;
       while (p) {
         if (p === ctor.prototype) {
@@ -6907,7 +6949,7 @@ CustomElements.addModule(function(scope) {
   }
   wrapDomMethodToForceUpgrade(Node.prototype, "cloneNode");
   wrapDomMethodToForceUpgrade(document, "importNode");
-  if (isIE11OrOlder) {
+  if (isIE) {
     (function() {
       var importNode = document.importNode;
       document.importNode = function() {
@@ -6935,7 +6977,7 @@ CustomElements.addModule(function(scope) {
 (function(scope) {
   var useNative = scope.useNative;
   var initializeModules = scope.initializeModules;
-  var isIE11OrOlder = /Trident/.test(navigator.userAgent);
+  var isIE = scope.isIE;
   if (useNative) {
     var nop = function() {};
     scope.watchShadow = nop;
@@ -6951,39 +6993,54 @@ CustomElements.addModule(function(scope) {
     initializeModules();
   }
   var upgradeDocumentTree = scope.upgradeDocumentTree;
+  var upgradeDocument = scope.upgradeDocument;
   if (!window.wrap) {
     if (window.ShadowDOMPolyfill) {
-      window.wrap = ShadowDOMPolyfill.wrapIfNeeded;
-      window.unwrap = ShadowDOMPolyfill.unwrapIfNeeded;
+      window.wrap = window.ShadowDOMPolyfill.wrapIfNeeded;
+      window.unwrap = window.ShadowDOMPolyfill.unwrapIfNeeded;
     } else {
       window.wrap = window.unwrap = function(node) {
         return node;
       };
     }
   }
-  function bootstrap() {
-    upgradeDocumentTree(wrap(document));
-    if (window.HTMLImports) {
-      HTMLImports.__importsParsingHook = function(elt) {
-        upgradeDocumentTree(wrap(elt.import));
-      };
-    }
-    CustomElements.ready = true;
-    setTimeout(function() {
-      CustomElements.readyTime = Date.now();
-      if (window.HTMLImports) {
-        CustomElements.elapsed = CustomElements.readyTime - HTMLImports.readyTime;
+  if (window.HTMLImports) {
+    window.HTMLImports.__importsParsingHook = function(elt) {
+      if (elt.import) {
+        upgradeDocument(wrap(elt.import));
       }
-      document.dispatchEvent(new CustomEvent("WebComponentsReady", {
-        bubbles: true
-      }));
+    };
+  }
+  function bootstrap() {
+    upgradeDocumentTree(window.wrap(document));
+    window.CustomElements.ready = true;
+    var requestAnimationFrame = window.requestAnimationFrame || function(f) {
+      setTimeout(f, 16);
+    };
+    requestAnimationFrame(function() {
+      setTimeout(function() {
+        window.CustomElements.readyTime = Date.now();
+        if (window.HTMLImports) {
+          window.CustomElements.elapsed = window.CustomElements.readyTime - window.HTMLImports.readyTime;
+        }
+        document.dispatchEvent(new CustomEvent("WebComponentsReady", {
+          bubbles: true
+        }));
+      });
     });
   }
-  if (isIE11OrOlder && typeof window.CustomEvent !== "function") {
+  if (isIE && typeof window.CustomEvent !== "function") {
     window.CustomEvent = function(inType, params) {
       params = params || {};
       var e = document.createEvent("CustomEvent");
       e.initCustomEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable), params.detail);
+      e.preventDefault = function() {
+        Object.defineProperty(this, "defaultPrevented", {
+          get: function() {
+            return true;
+          }
+        });
+      };
       return e;
     };
     window.CustomEvent.prototype = window.Event.prototype;
@@ -6993,10 +7050,9 @@ CustomElements.addModule(function(scope) {
   } else if (document.readyState === "interactive" && !window.attachEvent && (!window.HTMLImports || window.HTMLImports.ready)) {
     bootstrap();
   } else {
-    var loadEvent = window.HTMLImports && !HTMLImports.ready ? "HTMLImportsLoaded" : "DOMContentLoaded";
+    var loadEvent = window.HTMLImports && !window.HTMLImports.ready ? "HTMLImportsLoaded" : "DOMContentLoaded";
     window.addEventListener(loadEvent, bootstrap);
   }
-  scope.isIE11OrOlder = isIE11OrOlder;
 })(window.CustomElements);
 
 (function(scope) {
@@ -7041,35 +7097,6 @@ CustomElements.addModule(function(scope) {
         clearTimeout(id);
       };
     }();
-  }
-  var elementDeclarations = [];
-  var polymerStub = function(name, dictionary) {
-    if (typeof name !== "string" && arguments.length === 1) {
-      Array.prototype.push.call(arguments, document._currentScript);
-    }
-    elementDeclarations.push(arguments);
-  };
-  window.Polymer = polymerStub;
-  scope.consumeDeclarations = function(callback) {
-    scope.consumeDeclarations = function() {
-      throw "Possible attempt to load Polymer twice";
-    };
-    if (callback) {
-      callback(elementDeclarations);
-    }
-    elementDeclarations = null;
-  };
-  function installPolymerWarning() {
-    if (window.Polymer === polymerStub) {
-      window.Polymer = function() {
-        throw new Error("You tried to use polymer without loading it first. To " + 'load polymer, <link rel="import" href="' + 'components/polymer/polymer.html">');
-      };
-    }
-  }
-  if (HTMLImports.useNative) {
-    installPolymerWarning();
-  } else {
-    addEventListener("DOMContentLoaded", installPolymerWarning);
   }
 })(window.WebComponents);
 
