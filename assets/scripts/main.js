@@ -39,10 +39,11 @@ searchField.addEventListener('blur', function(evt) {
 });
 
 // Sort
-sort.addEventListener('change', function(evt) {
-    var value = evt.target.value,
-        search = window.location.pathname.split('/')[2];
+if (sort) {
+    sort.addEventListener('change', function(evt) {
+        var value = evt.target.value,
+            search = window.location.pathname.split('/')[2];
 
-    window.location = window.location.origin + '/search/' + search + '?s=' + value
-});
-
+        window.location = window.location.origin + '/search/' + search + '?s=' + value
+    });
+}
