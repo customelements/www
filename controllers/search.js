@@ -42,7 +42,7 @@ controller.find = function(search) {
             params.push('order=' + sort[1]);
         }
         else {
-            params.push('order=desc');
+            params.push('order=asc');
         }
 
         request({
