@@ -8,8 +8,8 @@
     "boom": "^2.7.1",
     "good": "^6.1.2",
     "good-console": "^5.0.0",
-    "handlebars": "^3.0.3",
-    "handlebars-paginate": "0.0.3",
+    "handlebars": "^4.0.2",
+    "handlebars-paginate": "^0.1.0",
     "hapi": "^8.4.0",
     "joi": "^6.4.1",
     "moment": "^2.10.6",
@@ -17,7 +17,7 @@
     "request": "^2.58.0"
   },
   "engines": {
-    "node": "0.12",
+    "node": "4.x",
     "npm": "2.x"
   }
 }
