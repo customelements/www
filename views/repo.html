@@ -30,10 +30,10 @@
             <img src="{{repo.owner.avatar_url}}&s=72" alt="Owner's avatar">
         </a>
         <h1 class="repo-name">
-            <a href="/{{repo.owner.login}}">{{repo.owner.login}}</a>/<a href="/{{repo.owner.login}}/{{repo.name}}">{{repo.name}}</a>
+            <a href="/{{repo.owner.login}}">{{repo.owner.login}}</a>/<a href="/{{repo.owner.login}}/{{repo.name}}">{{{render_emoji repo.name}}}</a>
         </h1>
         {{#if repo.description}}
-        <h2 class="repo-description">{{repo.description}}</h2>
+        <h2 class="repo-description">{{{render_emoji repo.description}}}</h2>
         {{/if}}
         <ul class="repo-info-list">
             <li class="repo-info-item">
@@ -58,7 +58,7 @@
             <h3 class="repo-readme section-title">Overview</h3>
             <paper-material class="markdown-body" elevation="1">
                 {{#if repo.readme}}
-                    {{{repo.readme}}}
+                    {{{render_emoji repo.readme}}}
                 {{else}}
                     No README has been provided by the author :(
                 {{/if}}
