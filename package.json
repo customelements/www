@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "boom": "^2.7.1",
+    "emojify.js": "^1.1.0",
     "good": "^6.1.2",
     "good-console": "^5.0.0",
     "handlebars": "^4.0.2",
