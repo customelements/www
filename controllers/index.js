@@ -11,6 +11,7 @@ function controller(request, reply) {
         controller.recentlyCreated(),
         controller.lastUpdated(),
         controller.mostPopular(),
+        controller.sponsored(),
         controller.totalRepos(),
         controller.totalOwners()
     ])
@@ -25,8 +26,9 @@ function controller(request, reply) {
             recently_created: results[0],
             last_updated: results[1],
             most_popular: results[2],
-            total_repos: results[3],
-            total_owners: results[4]
+            sponsored: results[3],
+            total_repos: results[4],
+            total_owners: results[5]
         });
     })
     .catch(reply);
@@ -35,7 +37,7 @@ function controller(request, reply) {
 controller.recentlyCreated = function(data) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/search/repos?sort=created_at&order=desc&perPage=5',
+            url: 'https://api.customelements.io/search/repos?sort=created_at&order=desc&perPage=3',
             json: true,
         }, function (error, response, body) {
             if (error) {
@@ -55,7 +57,7 @@ controller.recentlyCreated = function(data) {
 controller.lastUpdated = function(data) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/search/repos?sort=pushed_at&order=desc&perPage=5',
+            url: 'https://api.customelements.io/search/repos?sort=pushed_at&order=desc&perPage=3',
             json: true,
         }, function (error, response, body) {
             if (error) {
@@ -75,7 +77,7 @@ controller.lastUpdated = function(data) {
 controller.mostPopular = function(data) {
     return new Promise(function(resolve, reject) {
         request({
-            url: 'https://api.customelements.io/search/repos?sort=stargazers_count&order=desc&perPage=5',
+            url: 'https://api.customelements.io/search/repos?sort=stargazers_count&order=desc&perPage=3',
             json: true,
         }, function (error, response, body) {
             if (error) {
@@ -87,6 +89,53 @@ controller.mostPopular = function(data) {
             }
             else {
                 resolve(body.results);
+            }
+        });
+    });
+};
+
+controller.sponsored = function() {
+    return Promise.all([
+        controller.firstSponsored(),
+        controller.secondSponsored()
+    ]);
+};
+
+controller.firstSponsored = function(data) {
+    return new Promise(function(resolve, reject) {
+        request({
+            url: 'http://api.customelements.io/repos/vaadin/vaadin-core-elements',
+            json: true,
+        }, function (error, response) {
+            if (error) {
+                reject(boom.wrap(error));
+            }
+            else if (response.statusCode !== 200) {
+                var errorMsg = 'Error when requesting: First Sponsored';
+                reject(boom.create(response.statusCode, errorMsg));
+            }
+            else {
+                resolve(response.body);
+            }
+        });
+    });
+};
+
+controller.secondSponsored = function(data) {
+    return new Promise(function(resolve, reject) {
+        request({
+            url: 'http://api.customelements.io/repos/vaadin/vaadin-charts',
+            json: true,
+        }, function (error, response) {
+            if (error) {
+                reject(boom.wrap(error));
+            }
+            else if (response.statusCode !== 200) {
+                var errorMsg = 'Error when requesting: Second Sponsored';
+                reject(boom.create(response.statusCode, errorMsg));
+            }
+            else {
+                resolve(response.body);
             }
         });
     });
