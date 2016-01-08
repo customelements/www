@@ -512,10 +512,11 @@ body {
 }
 
 .credits-link {
-    color: #3a99d7;
+    color: #7C4DFF;
 }
 
 .credits-link:hover {
+    color: #7C4DFF;
     text-decoration: underline;
 }
 
