@@ -12,7 +12,7 @@
             </label>
         </form>
         <p class="learn-more">
-            <a href="#steps">Learn about adding your elements here</a>
+            <a href="/search">Or browse all repositories</a>
         </p>
     </div>
     <h3 class="total">Featuring <strong>{{total_repos}}</strong> repositories from <strong>{{total_owners}}</strong> authors</h3>
@@ -53,6 +53,7 @@
                 </div>
             </paper-material>
             {{/each}}
+            <a class="section-more" href="/search/?s=created_at:desc">View more...</a>
         </div>
         <div class="col-md-4">
             <h3 class="section-title">Last updated</h3>
@@ -87,6 +88,7 @@
                 </div>
             </paper-material>
             {{/each}}
+            <a class="section-more" href="/search/?s=pushed_at:desc">View more...</a>
         </div>
         <div class="col-md-4">
             <h3 class="section-title">Most popular</h3>
@@ -121,6 +123,7 @@
                 </div>
             </paper-material>
             {{/each}}
+            <a class="section-more" href="/search/?s=stargazers_count:desc">View more...</a>
         </div>
     </div>
     <div class="row">

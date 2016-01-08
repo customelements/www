@@ -236,6 +236,20 @@ body {
     font-weight: 300;
 }
 
+.section-more {
+    color: #7C4DFF;
+    text-align: right;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    margin-top: -12px;
+}
+
+.section-more:hover {
+    color: #7C4DFF;
+    text-decoration: underline;
+}
+
 /* Search Result
    ========================================================================== */
 

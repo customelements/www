@@ -42,8 +42,12 @@ searchField.addEventListener('blur', function(evt) {
 if (sort) {
     sort.addEventListener('change', function(evt) {
         var value = evt.target.value,
-            search = window.location.pathname.split('/')[2];
+            term = window.location.pathname.split('/')[2];
 
-        window.location = window.location.origin + '/search/' + search + '?s=' + value
+        if (term) {
+            window.location = window.location.origin + '/search/' + term + '?s=' + value;
+        } else {
+            window.location = window.location.origin + '/search/?s=' + value;
+        }
     });
 }

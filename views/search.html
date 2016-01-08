@@ -23,12 +23,13 @@
 
 <main class="main container">
     <div class="row">
-        <h3 class="search-result">We've found {{search.total}} result(s) for "<strong>{{search.q}}</strong>"</h3>
+        <h3 class="search-result">{{#if search.q}}We've found {{search.total}} result(s) for "<strong>{{search.q}}</strong>"{{else}}Listing all {{search.total}} repos{{/if}}</h3>
 
         <form class="sort-form">
             Sort by
             <div class="sort-container">
                 <select id="sort">
+                {{#if search.q}}We've found {{search.total}} result(s) for "<strong>{{search.q}}</strong>"{{else}}Listing all {{search.total}} results{{/if}}
                     {{#if search.q}}<option {{selected search.sort ""}} value="">Best Match</option>{{/if}}
                     <option {{selected search.sort "stargazers_count:desc"}} value="stargazers_count:desc">Most popular</option>
                     <option {{selected search.sort "pushed_at:desc"}} value="pushed_at:desc">Last updated</option>

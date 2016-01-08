@@ -10,8 +10,15 @@ Handlebars.registerHelper('paginate', require('handlebars-paginate'));
 function controller(request, reply) {
     controller.find(request)
         .then(function(results) {
-            var pageTitle = 'Search results for "' + request.params.term + '" · CustomElements.io';
-            var pageDescription = 'Listing ' + results.total + ' search results for "' + request.params.term + '"';
+            var pageTitle, pageDescription;
+
+            if (request.params.term) {
+                pageTitle = 'Search results for "' + request.params.term + '" · CustomElements.io';
+                pageDescription = 'Listing ' + results.total + ' search results for "' + request.params.term + '"';
+            } else {
+                pageTitle = 'All repositories · CustomElements.io';
+                pageDescription = 'Listing all ' + results.total + ' repos';
+            }
 
             return reply.view('search', {
                 base_url: url(request),
@@ -25,10 +32,14 @@ function controller(request, reply) {
 
 controller.find = function(search) {
     return new Promise(function(resolve, reject) {
-
-        // Params Default
         var params = [];
+
+        if (search.params.term) {
             params.push('q=' + search.params.term);
+        }
+        else {
+            search.query.s = search.query.s || 'stargazers_count:desc';
+        }
 
         search.query.page = search.query.page || 1;
         params.push('page=' + search.query.page);
@@ -36,7 +47,7 @@ controller.find = function(search) {
         search.query.perPage = search.query.perPage || 15;
         params.push('perPage=' + search.query.perPage);
 
-        if ( search.query.s ) {
+        if (search.query.s) {
             var sort = search.query.s.split(':')
             params.push('sort=' + sort[0]);
             params.push('order=' + sort[1]);
@@ -61,9 +72,10 @@ controller.find = function(search) {
                     reject(boom.create(400, 'No results were found'));
                 }
 
-                body.q = search.params.term
-                if ( search.query.s ) {
-                    body.sort = search.query.s
+                body.q = search.params.term;
+
+                if (search.query.s) {
+                    body.sort = search.query.s;
                 }
 
                 if (body.pages > 1) {
