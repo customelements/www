@@ -29,10 +29,10 @@
             Sort by
             <div class="sort-container">
                 <select id="sort">
-                    <option {{selected search.sort ""}} value="">Best Match</option>
-                    <option {{selected search.sort "stargazers_count:desc"}} value="stargazers_count:desc">Most Stars</option>
-                    <option {{selected search.sort "forks_count:desc"}} value="forks_count:desc">Most Forks</option>
-                    <option {{selected search.sort "pushed_at:desc"}} value="pushed_at:desc">Recently updated</option>
+                    {{#if search.q}}<option {{selected search.sort ""}} value="">Best Match</option>{{/if}}
+                    <option {{selected search.sort "stargazers_count:desc"}} value="stargazers_count:desc">Most popular</option>
+                    <option {{selected search.sort "pushed_at:desc"}} value="pushed_at:desc">Last updated</option>
+                    <option {{selected search.sort "created_at:desc"}} value="created_at:desc">Recently created</option>
                 </select>
             </div>
         </form>
