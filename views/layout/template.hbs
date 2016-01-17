@@ -4,7 +4,11 @@
           {{#if disabled}}
           <span class="prev disabled"><b>&laquo;</b> Previous</span>
           {{else}}
-            <a href="?page={{n}}" class="prev"><b>&laquo;</b> Previous</a>
+            {{#if ../pagination.sort}}
+              <a href="?s={{../pagination.sort}}&page={{n}}" class="prev"><b>&laquo;</b> Previous</a>
+            {{else}}
+              <a href="?page={{n}}" class="prev"><b>&laquo;</b> Previous</a>
+            {{/if}}
           {{/if}}
       </li>
     {{/paginate}}
@@ -12,7 +16,7 @@
     {{#paginate pagination type="middle" limit="7"}}
       <li {{#if active}}class="active"{{/if}}>
           {{#if ../pagination.sort}}
-            <a href="?{{../pagination.sort}}&page={{n}}" class="itens">{{n}}</a>
+            <a href="?s={{../pagination.sort}}&page={{n}}" class="itens">{{n}}</a>
           {{else}}
             <a href="?page={{n}}" class="itens">{{n}}</a>
           {{/if}}
@@ -24,7 +28,11 @@
           {{#if disabled}}
             <span class="next disabled">Next <b>&raquo;</b> </span>
           {{else}}
-            <a href="?page={{n}}" class="next">Next <b>&raquo;</b> </a>
+            {{#if ../pagination.sort}}
+              <a href="?s={{../pagination.sort}}&page={{n}}" class="next">Next <b>&raquo;</b> </a>
+            {{else}}
+              <a href="?page={{n}}" class="next">Next <b>&raquo;</b> </a>
+            {{/if}}
           {{/if}}
       </li>
     {{/paginate}}
