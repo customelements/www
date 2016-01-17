@@ -11,7 +11,11 @@
 
     {{#paginate pagination type="middle" limit="7"}}
       <li {{#if active}}class="active"{{/if}}>
-          <a href="?page={{n}}" class="itens">{{n}}</a>
+          {{#if ../pagination.sort}}
+            <a href="?{{../pagination.sort}}&page={{n}}" class="itens">{{n}}</a>
+          {{else}}
+            <a href="?page={{n}}" class="itens">{{n}}</a>
+          {{/if}}
       </li>
     {{/paginate}}
 
