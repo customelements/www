@@ -82,7 +82,8 @@ controller.find = function(search) {
                     body.pagination = template({
                         pagination: {
                             page: body.page,
-                            pageCount: body.pages
+                            pageCount: body.pages,
+                            sort: body.sort
                         }
                     });
                 }
