@@ -42,12 +42,18 @@ searchField.addEventListener('blur', function(evt) {
 if (sort) {
     sort.addEventListener('change', function(evt) {
         var value = evt.target.value,
-            term = window.location.pathname.split('/')[2];
+            term = window.location.pathname.split('/')[2],
+            page = window.location.search.split('&')[1] || '',
+            url = window.location.origin;
 
         if (term) {
-            window.location = window.location.origin + '/search/' + term + '?s=' + value;
+            window.location = url + '/search/' + term + '?s=' + value;
+
+            if (page) {
+                window.location = url + '/search/' + term + '?s=' + value + '&' + page;
+            }
         } else {
-            window.location = window.location.origin + '/search/?s=' + value;
+            window.location = url + '/search/?s=' + value;
         }
     });
 }

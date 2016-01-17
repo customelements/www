@@ -37,10 +37,8 @@ controller.find = function(search) {
         if (search.params.term) {
             params.push('q=' + search.params.term);
         }
-        else {
-            search.query.s = search.query.s || 'stargazers_count:desc';
-        }
 
+        search.query.s = search.query.s || 'stargazers_count:desc';
         search.query.page = search.query.page || 1;
         params.push('page=' + search.query.page);
 
