@@ -17,7 +17,7 @@ function controller(request, reply) {
     ])
     .then(function(results) {
         var pageTitle = 'CustomElements.io · Explore the world of Web Components';
-        var pageDescription = 'CustomElements.io is where community find awesome Web Components. Featuring more than ' + results[3] + ' repositories from ' + results[4] + ' authors.';
+        var pageDescription = 'CustomElements.io is where community find awesome Web Components. Featuring more than ' + results[4] + ' repositories from ' + results[5] + ' authors.';
 
         reply.view('index', {
             base_url: url(request),
