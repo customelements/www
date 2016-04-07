@@ -1,4 +1,5 @@
 {
+  "name": "www",
   "private": true,
   "main": "server.js",
   "scripts": {
@@ -16,9 +17,5 @@
     "moment": "^2.10.6",
     "newrelic": "^1.18.5",
     "request": "^2.58.0"
-  },
-  "engines": {
-    "node": "4.x",
-    "npm": "2.x"
   }
 }
