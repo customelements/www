@@ -10,13 +10,7 @@ Built with [Node](http://nodejs.org/), [Hapi](http://hapijs.com/) and [ElasticSe
 
 ## Setup
 
-1. Define an environment variable containing the path of your local ElasticSearch instance:
-
-    ```
-export FOUNDELASTICSEARCH_URL=http://127.0.0.1:9002
-    ```
-
-2. Install dependencies:
+1. Install dependencies:
 
     ```
 npm install
