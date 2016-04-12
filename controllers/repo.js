@@ -1,12 +1,15 @@
 var boom = require('boom');
 var moment = require('moment');
 var request = require('request');
+var sanitizer = require('sanitizer');
 
 function controller(request, reply) {
     controller.getRepo(request.params.owner, request.params.repo)
         .then(function(result) {
             var pageTitle = result.owner.login + '/' + result.name + ' · CustomElements.io';
             var pageDescription = result.description || result.name + ' web component created by ' + result.owner.login;
+
+            pageDescription = sanitizer.escape(pageDescription)
 
             result.created_at = moment(result.created_at).fromNow();
             result.pushed_at = moment(result.pushed_at).fromNow();

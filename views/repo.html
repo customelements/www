@@ -32,8 +32,8 @@
         <h1 class="repo-name">
             <a href="/{{repo.owner.login}}">{{repo.owner.login}}</a>/<a href="/{{repo.owner.login}}/{{repo.name}}">{{{render_emoji repo.name}}}</a>
         </h1>
-        {{#if repo.description}}
-        <h2 class="repo-description">{{{render_emoji repo.description}}}</h2>
+        {{#if page_description}}
+        <h2 class="repo-description">{{{render_emoji page_description}}}</h2>
         {{/if}}
         <ul class="repo-info-list">
             <li class="repo-info-item">
