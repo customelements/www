@@ -1,3 +1,5 @@
+var sanitizer = require('sanitizer');
+
 module.exports = function trim_string(passedString, charLimit) {
     passedString = passedString || '';
     var resultString = passedString.substring(0, charLimit);
@@ -6,9 +8,5 @@ module.exports = function trim_string(passedString, charLimit) {
         resultString += '...';
     }
 
-    return resultString
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+    return sanitizer.escape(resultString);
 };
