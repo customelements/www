@@ -57,8 +57,8 @@
         <div class="col-md-8">
             <h3 class="repo-readme section-title">Overview</h3>
             <paper-material class="markdown-body" elevation="1">
-                {{#if repo.readme}}
-                    {{{render_emoji repo.readme}}}
+                {{#if readme}}
+                    {{{render_emoji readme}}}
                 {{else}}
                     No README has been provided by the author :(
                 {{/if}}

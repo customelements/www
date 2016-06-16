@@ -2,25 +2,30 @@ var boom = require('boom');
 var moment = require('moment');
 var request = require('request');
 var sanitizer = require('sanitizer');
+var github = require('../configs/github');
 
 function controller(request, reply) {
-    controller.getRepo(request.params.owner, request.params.repo)
-        .then(function(result) {
-            var pageTitle = result.owner.login + '/' + result.name + ' · CustomElements.io';
-            var pageDescription = result.description || result.name + ' web component created by ' + result.owner.login;
+    Promise.all([
+        controller.getRepo(request.params.owner, request.params.repo),
+        controller.getReadme(request.params.owner, request.params.repo)
+    ])
+    .then(function(results) {
+        var pageTitle = results[0].owner.login + '/' + results[0].name + ' · CustomElements.io';
+        var pageDescription = results[0].description || results[0].name + ' web component created by ' + results[0].owner.login;
 
-            pageDescription = sanitizer.escape(pageDescription)
+        pageDescription = sanitizer.escape(pageDescription)
 
-            result.created_at = moment(result.created_at).fromNow();
-            result.pushed_at = moment(result.pushed_at).fromNow();
+        results[0].created_at = moment(results[0].created_at).fromNow();
+        results[0].pushed_at = moment(results[0].pushed_at).fromNow();
 
-            reply.view('repo', {
-                page_title: pageTitle,
-                page_description: pageDescription,
-                repo: result
-            });
-        })
-        .catch(reply);
+        reply.view('repo', {
+            page_title: pageTitle,
+            page_description: pageDescription,
+            repo: results[0],
+            readme: results[1]
+        });
+    })
+    .catch(reply);
 }
 
 controller.getRepo = function(owner, repo) {
@@ -39,6 +44,20 @@ controller.getRepo = function(owner, repo) {
             else {
                 resolve(body);
             }
+        });
+    });
+};
+
+controller.getReadme = function(owner, repo) {
+    return new Promise(function(resolve, reject) {
+        github.repos.getReadme({
+            user: owner,
+            repo: repo,
+            headers: {
+                'Accept': 'application/vnd.github.v3.html'
+            }
+        }, function(error, response) {
+            resolve(response);
         });
     });
 };
