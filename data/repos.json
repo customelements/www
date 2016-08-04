@@ -3,6 +3,9 @@
         "repository": "avgp/fake-terminal"
     },
     {
+        "repository": "artoale/camera-capture"
+    },
+    {
         "repository": "eduardolundgren/video-camera-element"
     },
     {
