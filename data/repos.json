@@ -457,5 +457,8 @@
     },
     {
         "repository": "codejet/google-books-search"
+    },
+    {
+        "repository": "sitebase/u-avatar"
     }
 ]
