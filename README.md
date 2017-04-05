@@ -12,15 +12,15 @@ Built with [Node](http://nodejs.org/), [Hapi](http://hapijs.com/) and [ElasticSe
 
 1. Install dependencies:
 
-    ```
+```
 npm install
-    ```
+```
 
-3. Run it:
+2. Run it:
 
-    ```
+```
 npm start
-    ```
+```
 
 The server should be initialized at `localhost:4000`.
 
