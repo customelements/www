@@ -36,12 +36,56 @@
 
     <meta name="description" content="{{page_description}}">
 </head>
+
+<style>
+span.love {
+    width: 8px;
+    height: 8px;
+    background: #e74c3c;
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+    animation: heart-pulse .5s infinite alternate ease-in;
+}
+span.love:after {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    top: -5px;
+    left: 0;
+    background: #e74c3c;
+}
+span.love:before {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    top: 0px;
+    right: -5px;
+    background: #e74c3c;
+}
+@-webkit-keyframes heart-pulse {
+    from {-webkit-transform: rotate(-45deg) scale(1);}
+    to   {-webkit-transform: rotate(-45deg) scale(1.2);}
+}
+@-moz-keyframes heart-pulse {
+    from {-moz-transform: rotate(-45deg) scale(1);}
+    to   {-moz-transform: rotate(-45deg) scale(1.2);}
+}
+@keyframes heart-pulse {
+    from {transform: rotate(-45deg) scale(1);}
+    to   {transform: rotate(-45deg) scale(1.2);}
+}
+</style>
 <body unresolved>
     {{{content}}}
 
     <div class="credits">
         <div class="container">
-            <p>Made with <span class="love">♥</span> by a bunch of <a target="_blank" class="credits-link" href="https://github.com/customelements/customelements.io/graphs/contributors">awesome contributors</a>. Brought to you by <a target="_blank" class="credits-link" href="http://www.liferay.com">Liferay</a>.</p>
+            <p>Made with <span class="love"><!--♥--></span> by a bunch of <a target="_blank" class="credits-link" href="https://github.com/customelements/customelements.io/graphs/contributors">awesome contributors</a>. Brought to you by <a target="_blank" class="credits-link" href="http://www.liferay.com">Liferay</a>.</p>
             <ul class="social-buttons">
                 <li class="tweet-btn">
                     <iframe src="https://platform.twitter.com/widgets/tweet_button.html?url=https://customelements.io/&amp;via=zenorocha&amp;text=Explore%20the%20world%20of%20Web%20Components" class="twitter-share-button twitter-count-horizontal" data-twttr-rendered="true" allowtransparency="true" frameborder="0" scrolling="no" width="100" height="20"></iframe>
