@@ -764,6 +764,9 @@ body {
    .main {
         padding: 28px 15px;
    }
+    .container {
+        width: 100%;
+    }
 
    .container {
         width: 100%;
